@@ -1,4 +1,4 @@
-# Global Pact Website
+# Global Judicial Portal
 
 ## Installation
 * Clone the repository
