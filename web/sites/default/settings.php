@@ -251,7 +251,9 @@ $databases = array();
  *   );
  * @endcode
  */
-$config_directories = array();
+$config_directories = array(
+  CONFIG_SYNC_DIRECTORY => '../config/sync',
+);
 
 /**
  * Settings:

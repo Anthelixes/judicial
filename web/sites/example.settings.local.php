@@ -129,3 +129,17 @@ $settings['rebuild_access'] = TRUE;
  * directory.
  */
 $settings['skip_permissions_hardening'] = TRUE;
+
+$settings['hash_salt'] = 'YD8IUvQWoXpl7TrE4xHc2JDQHYTSsVamL8XMyNmpISAdLIzeY1ZZNSFv9luyXQN-3jBTHmv7UB';
+
+$databases['default']['default'] = array (
+  'database' => 'judicial',
+  'username' => 'root',
+  'password' => 'root',
+  'host' => 'localhost',
+  'port' => '3306',
+  'driver' => 'mysql',
+  'prefix' => '',
+  'collation' => 'utf8mb4_general_ci',
+);
+
