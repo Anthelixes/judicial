@@ -1,0 +1,24 @@
+uuid: f1ac5ee9-db39-4bdf-8249-140a50b12861
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reference_number
+    - node.type.court_case
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.court_case.field_reference_number
+field_name: field_reference_number
+entity_type: node
+bundle: court_case
+label: 'Reference number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

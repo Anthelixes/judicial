@@ -1,0 +1,34 @@
+uuid: f2900a1e-0f59-4352-9022-ac4eac97a53e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_languages
+    - node.type.court_case
+    - taxonomy.vocabulary.languages
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 1
+id: node.court_case.field_languages
+field_name: field_languages
+entity_type: node
+bundle: court_case
+label: Language
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      languages: languages
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

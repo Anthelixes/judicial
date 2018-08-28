@@ -1,0 +1,34 @@
+uuid: bf023da8-229c-4fea-8af2-2063db0991e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sources
+    - node.type.court_case
+    - taxonomy.vocabulary.data_sources
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.court_case.field_sources
+field_name: field_sources
+entity_type: node
+bundle: court_case
+label: Sources
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      data_sources: data_sources
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
