@@ -1,0 +1,25 @@
+uuid: 2c6b596a-c5ae-44d3-afa0-8d7eb8d35b7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.court_case
+  module:
+    - datetime
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.court_case.field_date
+field_name: field_date
+entity_type: node
+bundle: court_case
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

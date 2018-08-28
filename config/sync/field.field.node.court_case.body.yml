@@ -1,0 +1,26 @@
+uuid: e842d9c6-7049-4171-8b26-a68e25fca0fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.court_case
+  module:
+    - field_cardinality_customization
+    - text
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.court_case.body
+field_name: body
+entity_type: node
+bundle: court_case
+label: Abstract
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

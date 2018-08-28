@@ -1,0 +1,8 @@
+uuid: 5225d955-8ad7-442b-9f3c-57fce0048bc5
+langcode: en
+status: true
+dependencies: {  }
+id: judicial_date
+label: 'Judicial date'
+locked: false
+pattern: 'F j, Y'

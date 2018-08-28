@@ -1,0 +1,80 @@
+uuid: 960a1b52-c21e-4960-b242-13f89901027b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.court_case.body
+    - field.field.node.court_case.field_country
+    - field.field.node.court_case.field_court_name
+    - field.field.node.court_case.field_date
+    - field.field.node.court_case.field_external_links
+    - field.field.node.court_case.field_files
+    - field.field.node.court_case.field_glossary_terms
+    - field.field.node.court_case.field_languages
+    - field.field.node.court_case.field_reference_number
+    - field.field.node.court_case.field_seat_of_court
+    - field.field.node.court_case.field_sources
+    - field.field.node.court_case.field_topics
+    - field.field.node.court_case.field_type_of_court
+    - node.type.court_case
+  module:
+    - datetime
+    - user
+id: node.court_case.teaser
+targetEntityType: node
+bundle: court_case
+mode: teaser
+content:
+  field_country:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: judicial_date
+    third_party_settings: {  }
+  field_glossary_terms:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_sources:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_type_of_court:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_court_name: true
+  field_external_links: true
+  field_files: true
+  field_languages: true
+  field_reference_number: true
+  field_seat_of_court: true
+  field_topics: true
+  langcode: true
+  links: true

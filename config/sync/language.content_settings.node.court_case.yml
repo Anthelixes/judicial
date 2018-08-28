@@ -1,0 +1,16 @@
+uuid: 13c99c2e-4b59-401b-961c-aa33c9234625
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.court_case
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.court_case
+target_entity_type_id: node
+target_bundle: court_case
+default_langcode: site_default
+language_alterable: false

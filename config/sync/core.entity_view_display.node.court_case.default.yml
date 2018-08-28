@@ -1,0 +1,141 @@
+uuid: fb610094-bc04-4363-9cc6-36a6a02e9b2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.court_case.body
+    - field.field.node.court_case.field_country
+    - field.field.node.court_case.field_court_name
+    - field.field.node.court_case.field_date
+    - field.field.node.court_case.field_external_links
+    - field.field.node.court_case.field_files
+    - field.field.node.court_case.field_glossary_terms
+    - field.field.node.court_case.field_languages
+    - field.field.node.court_case.field_reference_number
+    - field.field.node.court_case.field_seat_of_court
+    - field.field.node.court_case.field_sources
+    - field.field.node.court_case.field_topics
+    - field.field.node.court_case.field_type_of_court
+    - node.type.court_case
+  module:
+    - datetime
+    - file
+    - link
+    - text
+    - user
+id: node.court_case.default
+targetEntityType: node
+bundle: court_case
+mode: default
+content:
+  body:
+    label: inline
+    type: text_default
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_country:
+    weight: 0
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_court_name:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_date:
+    weight: 2
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: judicial_date
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_external_links:
+    weight: 12
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_files:
+    weight: 10
+    label: inline
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_glossary_terms:
+    weight: 8
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_languages:
+    weight: 6
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_reference_number:
+    weight: 5
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_seat_of_court:
+    weight: 4
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sources:
+    weight: 11
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_topics:
+    weight: 7
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_type_of_court:
+    weight: 1
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  langcode: true
+  links: true

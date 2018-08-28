@@ -6,6 +6,10 @@
         {
             "name": "Alexander Menk",
             "email": "menk@mestrona.net"
+        },
+        {
+            "name": "Greg Anderson",
+            "email": "greg.1.anderson@greenknowe.org"
         }
     ],
     "autoload":{
@@ -17,6 +21,12 @@
         "php": ">=5.5.0",
         "symfony/console": "^2.8|^3|^4",
         "symfony/filesystem": "^2.5|^3|^4"
+    },
+    "bin": [
+        "scripts/release"
+    ],
+    "scripts": {
+        "release":  "./scripts/release VERSION"
     },
     "config": {
         "optimize-autoloader": true,
