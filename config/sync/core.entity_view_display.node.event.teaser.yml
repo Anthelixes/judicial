@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.event.body
     - field.field.node.event.field_country
-    - field.field.node.event.field_date
     - field.field.node.event.field_event_type
     - field.field.node.event.field_external_links
     - field.field.node.event.field_geolocation
@@ -30,7 +29,6 @@ content:
     region: content
 hidden:
   field_country: true
-  field_date: true
   field_event_type: true
   field_external_links: true
   field_geolocation: true

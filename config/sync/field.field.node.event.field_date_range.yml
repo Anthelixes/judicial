@@ -1,14 +1,18 @@
-uuid: a1436aad-970b-4eaf-bfd4-4003f4d92f03
+uuid: e5d4715e-35d2-4083-98be-328392be599c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_date
+    - field.storage.node.field_date_range
     - node.type.event
   module:
     - datetime_range
-id: node.event.field_date
-field_name: field_date
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.event.field_date_range
+field_name: field_date_range
 entity_type: node
 bundle: event
 label: Date

@@ -5,25 +5,33 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.course.body
+    - field.field.node.course.field_glossary_terms
+    - field.field.node.course.field_image
+    - field.field.node.course.field_topics
+    - field.field.node.course.field_url
+    - image.style.medium
     - node.type.course
   module:
-    - text
+    - image
     - user
 id: node.course.teaser
 targetEntityType: node
 bundle: course
 mode: teaser
 content:
-  body:
+  field_image:
+    type: image
+    weight: 0
+    region: content
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
     settings:
-      trim_length: 600
+      image_style: medium
+      image_link: ''
     third_party_settings: {  }
-    region: content
-  links:
-    weight: 100
-    region: content
 hidden:
+  body: true
+  field_glossary_terms: true
+  field_topics: true
+  field_url: true
   langcode: true
+  links: true

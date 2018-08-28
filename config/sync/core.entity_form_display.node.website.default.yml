@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.node.website.body
     - field.field.node.website.field_country
-#    - field.field.node.website.field_image
+    - field.field.node.website.field_image
     - field.field.node.website.field_topics
     - field.field.node.website.field_url
     - image.style.thumbnail
@@ -41,14 +41,14 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-#  field_image:
-#    weight: 124
-#    settings:
-#      progress_indicator: throbber
-#      preview_image_style: thumbnail
-#    third_party_settings: {  }
-#    type: image_image
-#    region: content
+  field_image:
+    weight: 126
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   field_topics:
     weight: 123
     settings: {  }

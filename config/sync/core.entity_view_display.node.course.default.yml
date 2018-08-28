@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.node.course.body
     - field.field.node.course.field_glossary_terms
-#    - field.field.node.course.field_image
+    - field.field.node.course.field_image
     - field.field.node.course.field_topics
     - field.field.node.course.field_url
     - node.type.course
@@ -22,7 +22,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 0
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -34,15 +34,15 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-#  field_image:
-#    weight: 2
-#    label: inline
-#    settings:
-#      image_style: ''
-#      image_link: ''
-#    third_party_settings: {  }
-#    type: image
-#    region: content
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
   field_topics:
     weight: 3
     label: inline
@@ -52,7 +52,7 @@ content:
     type: entity_reference_label
     region: content
   field_url:
-    weight: 1
+    weight: 2
     label: inline
     settings:
       trim_length: 80

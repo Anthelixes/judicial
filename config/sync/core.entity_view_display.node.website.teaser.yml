@@ -5,8 +5,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.website.body
+    - field.field.node.website.field_country
+    - field.field.node.website.field_image
+    - field.field.node.website.field_topics
+    - field.field.node.website.field_url
     - node.type.website
   module:
+    - image
+    - link
     - text
     - user
 id: node.website.teaser
@@ -17,13 +23,34 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 1
     settings:
       trim_length: 600
     third_party_settings: {  }
     region: content
-  links:
-    weight: 100
+  field_image:
+    type: image
+    weight: 0
     region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_url:
+    type: link
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
 hidden:
+  field_country: true
+  field_topics: true
   langcode: true
+  links: true
