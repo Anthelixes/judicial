@@ -1,0 +1,16 @@
+uuid: 265d6db8-5d3a-49c9-8857-44ca1692594f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.court_types
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.court_types
+target_entity_type_id: taxonomy_term
+target_bundle: court_types
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,9 @@
+uuid: e2b9df72-d2e1-4e7c-9066-c7b44a404503
+langcode: en
+status: true
+dependencies: {  }
+name: 'Court types'
+vid: court_types
+description: ''
+hierarchy: 0
+weight: 0
