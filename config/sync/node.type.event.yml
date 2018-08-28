@@ -1,4 +1,4 @@
-uuid: 7c1e59ae-f7ea-4839-a639-7f969d16c459
+uuid: 14118266-bc0d-4b30-98ec-aab17170cb4d
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: News
-type: news
+name: Event
+type: event
 description: ''
 help: ''
 new_revision: true
