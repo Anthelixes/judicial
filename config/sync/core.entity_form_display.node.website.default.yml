@@ -37,12 +37,9 @@ content:
     third_party_settings: {  }
   field_country:
     weight: 125
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_image:
     weight: 124
@@ -54,12 +51,9 @@ content:
     region: content
   field_topics:
     weight: 123
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_url:
     weight: 122
@@ -114,6 +108,8 @@ content:
   translation:
     weight: 10
     region: content
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 5

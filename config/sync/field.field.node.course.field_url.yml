@@ -1,0 +1,23 @@
+uuid: 2f673682-9f3d-4d29-8220-3e1d5f6b5eb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_url
+    - node.type.course
+  module:
+    - link
+id: node.course.field_url
+field_name: field_url
+entity_type: node
+bundle: course
+label: URL
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link
