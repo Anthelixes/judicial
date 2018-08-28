@@ -27,15 +27,15 @@ content:
     region: content
   field_category:
     weight: 1
-    label: above
+    label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_external_links:
     weight: 2
-    label: above
+    label: inline
     settings:
       trim_length: 80
       url_only: false
@@ -47,7 +47,7 @@ content:
     region: content
   field_files:
     weight: 3
-    label: above
+    label: inline
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }

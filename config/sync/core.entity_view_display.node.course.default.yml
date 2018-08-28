@@ -28,7 +28,7 @@ content:
     region: content
   field_glossary_terms:
     weight: 4
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
@@ -36,7 +36,7 @@ content:
     region: content
   field_image:
     weight: 2
-    label: above
+    label: inline
     settings:
       image_style: ''
       image_link: ''
@@ -45,15 +45,15 @@ content:
     region: content
   field_topics:
     weight: 3
-    label: above
+    label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_url:
     weight: 1
-    label: above
+    label: inline
     settings:
       trim_length: 80
       url_only: false

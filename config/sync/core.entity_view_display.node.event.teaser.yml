@@ -5,6 +5,12 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.event.body
+    - field.field.node.event.field_country
+    - field.field.node.event.field_date
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_external_links
+    - field.field.node.event.field_geolocation
+    - field.field.node.event.field_location
     - node.type.event
   module:
     - text
@@ -17,13 +23,17 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 0
     settings:
       trim_length: 600
     third_party_settings: {  }
     region: content
-  links:
-    weight: 100
-    region: content
 hidden:
+  field_country: true
+  field_date: true
+  field_event_type: true
+  field_external_links: true
+  field_geolocation: true
+  field_location: true
   langcode: true
+  links: true
