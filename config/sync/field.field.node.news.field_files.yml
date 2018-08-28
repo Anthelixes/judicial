@@ -1,0 +1,27 @@
+uuid: aee1ca53-fead-4019-84f1-3d16708232ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_files
+    - node.type.news
+  module:
+    - file
+id: node.news.field_files
+field_name: field_files
+entity_type: node
+bundle: news
+label: Files
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf doc docx odf'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
