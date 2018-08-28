@@ -1,0 +1,29 @@
+uuid: 954221db-e33e-4f2d-80f7-6b5de7b856e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_glossary_terms
+    - node.type.course
+    - taxonomy.vocabulary.glossary_terms
+id: node.course.field_glossary_terms
+field_name: field_glossary_terms
+entity_type: node
+bundle: course
+label: 'Glossary terms'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      glossary_terms: glossary_terms
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

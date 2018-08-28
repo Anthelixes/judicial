@@ -1,0 +1,90 @@
+uuid: 94e0907c-d4ce-4eed-a159-3cff5b4ed0b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.body
+    - field.field.node.event.field_country
+    - field.field.node.event.field_date_range
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_external_links
+    - field.field.node.event.field_geolocation
+    - field.field.node.event.field_location
+    - node.type.event
+  module:
+    - datetime_range
+    - geolocation
+    - link
+    - text
+    - user
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_country:
+    weight: 5
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_date_range:
+    weight: 1
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: judicial_date
+      separator: '-'
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_event_type:
+    weight: 3
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_external_links:
+    weight: 7
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_geolocation:
+    weight: 6
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
+    region: content
+  field_location:
+    weight: 4
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

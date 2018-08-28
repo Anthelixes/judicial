@@ -1,0 +1,37 @@
+uuid: ac651a85-0fbd-42ec-a2f4-0969a090ec9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.event.body
+    - field.field.node.event.field_country
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_external_links
+    - field.field.node.event.field_geolocation
+    - field.field.node.event.field_location
+    - node.type.event
+  module:
+    - text
+    - user
+id: node.event.teaser
+targetEntityType: node
+bundle: event
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_country: true
+  field_event_type: true
+  field_external_links: true
+  field_geolocation: true
+  field_location: true
+  langcode: true
+  links: true

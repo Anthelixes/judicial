@@ -1,0 +1,37 @@
+uuid: 3524e5b4-bcb6-4219-ad82-e24c72d43aa1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.course.body
+    - field.field.node.course.field_glossary_terms
+    - field.field.node.course.field_image
+    - field.field.node.course.field_topics
+    - field.field.node.course.field_url
+    - image.style.medium
+    - node.type.course
+  module:
+    - image
+    - user
+id: node.course.teaser
+targetEntityType: node
+bundle: course
+mode: teaser
+content:
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_glossary_terms: true
+  field_topics: true
+  field_url: true
+  langcode: true
+  links: true

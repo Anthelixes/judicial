@@ -1,0 +1,29 @@
+uuid: 3acca8ca-92f5-4717-b28b-db78cfc568e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_topics
+    - node.type.court_case
+    - taxonomy.vocabulary.topics
+id: node.court_case.field_topics
+field_name: field_topics
+entity_type: node
+bundle: court_case
+label: Topics
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

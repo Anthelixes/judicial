@@ -1,0 +1,24 @@
+uuid: 01159cda-e502-4ce9-8aa6-8c93eef2e0ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_court_name
+    - node.type.court_case
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.court_case.field_court_name
+field_name: field_court_name
+entity_type: node
+bundle: court_case
+label: 'Court name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

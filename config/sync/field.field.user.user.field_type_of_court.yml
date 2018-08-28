@@ -1,0 +1,30 @@
+uuid: a0634a1b-49f0-49ef-a828-3e6d0f31b77e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_type_of_court
+    - taxonomy.vocabulary.court_types
+  module:
+    - user
+id: user.user.field_type_of_court
+field_name: field_type_of_court
+entity_type: user
+bundle: user
+label: 'Type of court'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      court_types: court_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

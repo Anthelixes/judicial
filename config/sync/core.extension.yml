@@ -12,13 +12,17 @@ module:
   contact: 0
   contextual: 0
   datetime: 0
+  datetime_range: 0
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
   field: 0
+  field_cardinality_customization: 0
   field_ui: 0
   file: 0
   filter: 0
+  geolocation: 0
+  geolocation_google_places_api: 0
   help: 0
   history: 0
   image: 0
