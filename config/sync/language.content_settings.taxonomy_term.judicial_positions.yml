@@ -1,0 +1,16 @@
+uuid: 95b945c1-45e6-4958-b4f6-619c411bc740
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.judicial_positions
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.judicial_positions
+target_entity_type_id: taxonomy_term
+target_bundle: judicial_positions
+default_langcode: site_default
+language_alterable: false

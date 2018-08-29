@@ -1,0 +1,9 @@
+uuid: dab9e8a8-f61b-4c8b-8f2f-b4b437a13f60
+langcode: en
+status: true
+dependencies: {  }
+name: 'Judicial positions'
+vid: judicial_positions
+description: ''
+hierarchy: 0
+weight: 0

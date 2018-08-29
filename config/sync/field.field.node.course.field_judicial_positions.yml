@@ -1,0 +1,34 @@
+uuid: a15d1ddb-08cc-46db-b2ff-e1bcaba22caf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_judicial_positions
+    - node.type.course
+    - taxonomy.vocabulary.judicial_positions
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.course.field_judicial_positions
+field_name: field_judicial_positions
+entity_type: node
+bundle: course
+label: 'Judicial positions'
+description: 'Positions this course is targeted for'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      judicial_positions: judicial_positions
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

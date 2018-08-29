@@ -8,8 +8,10 @@ dependencies:
     - field.field.node.news.field_category
     - field.field.node.news.field_external_links
     - field.field.node.news.field_files
+    - field.field.node.news.field_image
     - node.type.news
   module:
+    - image
     - text
     - user
 id: node.news.teaser
@@ -25,6 +27,15 @@ content:
       trim_length: 600
     third_party_settings: {  }
     region: content
+  field_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
 hidden:
   field_category: true
   field_external_links: true

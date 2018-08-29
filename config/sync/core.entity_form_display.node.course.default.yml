@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.course.body
     - field.field.node.course.field_glossary_terms
     - field.field.node.course.field_image
+    - field.field.node.course.field_judicial_positions
     - field.field.node.course.field_topics
     - field.field.node.course.field_url
     - image.style.thumbnail
@@ -48,6 +49,15 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_judicial_positions:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_topics:
     weight: 12

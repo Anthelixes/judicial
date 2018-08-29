@@ -1,0 +1,20 @@
+uuid: ec20e04e-7c28-4829-ab53-cbb918d487d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_judicial_positions
+field_name: field_judicial_positions
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
