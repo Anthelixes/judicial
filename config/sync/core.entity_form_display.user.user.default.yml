@@ -89,15 +89,17 @@ content:
     region: content
   field_type_of_court:
     weight: 12
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   language:
     weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  private_messages:
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }

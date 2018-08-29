@@ -28,7 +28,7 @@ content:
     type: entity_reference_label
     weight: 4
     region: content
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -36,7 +36,7 @@ content:
     type: string
     weight: 2
     region: content
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -44,7 +44,7 @@ content:
     type: string
     weight: 3
     region: content
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -52,7 +52,7 @@ content:
     type: string
     weight: 1
     region: content
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -71,4 +71,6 @@ hidden:
   field_topics: true
   field_type_of_court: true
   langcode: true
+  linked_username: true
   member_for: true
+  private_message_link: true
