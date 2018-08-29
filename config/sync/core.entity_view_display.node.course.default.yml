@@ -75,3 +75,4 @@ content:
 hidden:
   langcode: true
   links: true
+  private_message_link: true

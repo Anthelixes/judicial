@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc66d72935660d998e3c46dfb7281d73",
+    "content-hash": "8d97c7bad9e66eef2f2129cfa0d62f6f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2651,6 +2651,67 @@
             "homepage": "https://www.drupal.org/project/search_api",
             "support": {
                 "source": "http://cgit.drupalcode.org/search_api"
+            }
+        },
+        {
+            "name": "drupal/views_slideshow",
+            "version": "4.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/views_slideshow",
+                "reference": "8.x-4.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_slideshow-8.x-4.6.zip",
+                "reference": "8.x-4.6",
+                "shasum": "c0b2d3c0765b9215fdefb3313dd42a8bbb7409c5"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.6",
+                    "datestamp": "1510987085",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/160350/committers"
+                },
+                {
+                    "name": "aaron",
+                    "homepage": "https://www.drupal.org/user/33420"
+                },
+                {
+                    "name": "redndahead",
+                    "homepage": "https://www.drupal.org/user/160320"
+                },
+                {
+                    "name": "vbouchet",
+                    "homepage": "https://www.drupal.org/user/1671428"
+                }
+            ],
+            "description": "Describes relationships between entities.",
+            "homepage": "https://www.drupal.org/project/views_slideshow",
+            "support": {
+                "source": "https://cgit.drupalcode.org/views_slideshow",
+                "issues": "https://www.drupal.org/project/issues/views_slideshow",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {
