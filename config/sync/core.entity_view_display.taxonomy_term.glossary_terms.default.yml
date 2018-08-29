@@ -1,0 +1,31 @@
+uuid: 087d37c2-62a4-45ba-9cbd-3afc21132dfc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.glossary_terms.field_topics
+    - taxonomy.vocabulary.glossary_terms
+  module:
+    - text
+id: taxonomy_term.glossary_terms.default
+targetEntityType: taxonomy_term
+bundle: glossary_terms
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_topics:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  langcode: true

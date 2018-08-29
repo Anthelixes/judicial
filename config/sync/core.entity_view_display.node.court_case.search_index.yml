@@ -1,8 +1,9 @@
-uuid: fb610094-bc04-4363-9cc6-36a6a02e9b2d
+uuid: dc6fae7d-ff56-4b08-858c-40d4e4df3eef
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.search_index
     - field.field.node.court_case.body
     - field.field.node.court_case.field_country
     - field.field.node.court_case.field_court_name
@@ -23,10 +24,10 @@ dependencies:
     - link
     - text
     - user
-id: node.court_case.default
+id: node.court_case.search_index
 targetEntityType: node
 bundle: court_case
-mode: default
+mode: search_index
 content:
   body:
     label: inline

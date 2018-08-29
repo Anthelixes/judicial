@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.forum.comment_forum
     - field.field.node.forum.field_country
     - field.field.node.forum.field_glossary_terms
-    - field.field.node.forum.field_languages
     - field.field.node.forum.field_topics
     - field.field.node.forum.taxonomy_forums
     - node.type.forum
@@ -42,7 +41,7 @@ hidden:
   comment_forum: true
   field_country: true
   field_glossary_terms: true
-  field_languages: true
   langcode: true
   links: true
+  private_message_link: true
   taxonomy_forums: true

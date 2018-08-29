@@ -1,0 +1,171 @@
+uuid: 80520b04-c6b9-4438-9af6-b1af5f30155e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_country
+    - field.storage.node.field_glossary_terms
+    - field.storage.node.field_topics
+    - search_api.server.database
+    - core.entity_view_mode.node.search_index
+  module:
+    - search_api
+    - node
+id: content
+name: Content
+description: ''
+read_only: false
+field_settings:
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+  field_country:
+    label: Country
+    datasource_id: 'entity:node'
+    property_path: field_country
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_country
+  field_glossary_terms:
+    label: 'Glossary terms'
+    datasource_id: 'entity:node'
+    property_path: field_glossary_terms
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_glossary_terms
+  field_topics:
+    label: Topics
+    datasource_id: 'entity:node'
+    property_path: field_topics
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_topics
+  langcode:
+    label: Language
+    datasource_id: 'entity:node'
+    property_path: langcode
+    type: string
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          court_case: search_index
+          forum: search_index
+  status:
+    label: status
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - court_case
+        - forum
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
+  entity_status: {  }
+  highlight:
+    highlight: always
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  html_filter:
+    all_fields: false
+    fields:
+      - langcode
+      - rendered_item
+      - type
+    title: true
+    alt: true
+    tags:
+      b: 2
+      em: 1
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      u: 1
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+  ignorecase:
+    all_fields: false
+    fields:
+      - langcode
+      - rendered_item
+      - type
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+  rendered_item: {  }
+  stemmer:
+    all_fields: false
+    fields:
+      - rendered_item
+    exceptions:
+      mexican: mexic
+      texan: texa
+    weights:
+      preprocess_index: 0
+      preprocess_query: 0
+  transliteration:
+    all_fields: false
+    fields:
+      - langcode
+      - rendered_item
+      - type
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: database

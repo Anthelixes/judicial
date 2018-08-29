@@ -1,0 +1,58 @@
+uuid: b39223ed-f6a1-4069-a206-6bb187123c27
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_topics
+    - search_api.server.database
+  module:
+    - search_api
+    - taxonomy
+id: glossary_terms
+name: 'Glossary terms'
+description: ''
+read_only: false
+field_settings:
+  field_topics:
+    label: Topics
+    datasource_id: 'entity:taxonomy_term'
+    property_path: field_topics
+    type: integer
+    dependencies:
+      config:
+        - field.storage.taxonomy_term.field_topics
+  langcode:
+    label: Language
+    datasource_id: 'entity:taxonomy_term'
+    property_path: langcode
+    type: string
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:taxonomy_term':
+          glossary_terms: default
+datasource_settings:
+  'entity:taxonomy_term':
+    bundles:
+      default: false
+      selected:
+        - glossary_terms
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: database

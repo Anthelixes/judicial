@@ -1,31 +1,31 @@
-uuid: 8f7e6fc3-72a2-4c1d-8a3c-8ef98385c4d9
+uuid: 9e85f5c4-ef1d-429f-b8b3-e0180b6767f4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_languages
-    - node.type.forum
-    - taxonomy.vocabulary.languages
+    - field.storage.taxonomy_term.field_topics
+    - taxonomy.vocabulary.glossary_terms
+    - taxonomy.vocabulary.topics
   module:
     - field_cardinality_customization
 third_party_settings:
   field_cardinality_customization:
-    alter: 1
-id: node.forum.field_languages
-field_name: field_languages
-entity_type: node
-bundle: forum
-label: Language
+    alter: 0
+id: taxonomy_term.glossary_terms.field_topics
+field_name: field_topics
+entity_type: taxonomy_term
+bundle: glossary_terms
+label: Topics
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      languages: languages
+      topics: topics
     sort:
       field: name
       direction: asc

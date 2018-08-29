@@ -1,0 +1,27 @@
+uuid: eef6fef5-3061-4744-ad2e-7eb39ae52691
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.database
+  module:
+    - search_api
+    - private_message
+id: messages
+name: Messages
+description: ''
+read_only: false
+field_settings: {  }
+datasource_settings:
+  'entity:private_message_thread': {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: database

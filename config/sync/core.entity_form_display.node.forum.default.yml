@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.forum.comment_forum
     - field.field.node.forum.field_country
     - field.field.node.forum.field_glossary_terms
-    - field.field.node.forum.field_languages
     - field.field.node.forum.field_topics
     - field.field.node.forum.taxonomy_forums
     - node.type.forum
@@ -54,12 +53,6 @@ content:
     region: content
   field_glossary_terms:
     weight: 11
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_languages:
-    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
