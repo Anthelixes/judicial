@@ -1,0 +1,48 @@
+uuid: efc1b5e7-7908-4c0a-9439-f7479d338d0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.forum.body
+    - field.field.node.forum.comment_forum
+    - field.field.node.forum.field_country
+    - field.field.node.forum.field_glossary_terms
+    - field.field.node.forum.field_languages
+    - field.field.node.forum.field_topics
+    - field.field.node.forum.taxonomy_forums
+    - node.type.forum
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: MK_j248n6esK84n87ulM_yPeqdkndKn94h4vTJC4wjw
+id: node.forum.teaser
+targetEntityType: node
+bundle: forum
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 1
+    region: content
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_topics:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+hidden:
+  comment_forum: true
+  field_country: true
+  field_glossary_terms: true
+  field_languages: true
+  langcode: true
+  links: true
+  taxonomy_forums: true

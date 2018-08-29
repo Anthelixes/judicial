@@ -1,0 +1,34 @@
+uuid: f3ef940b-bfd5-4175-8c92-bfe609182210
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_topics
+    - node.type.forum
+    - taxonomy.vocabulary.topics
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 1
+id: node.forum.field_topics
+field_name: field_topics
+entity_type: node
+bundle: forum
+label: Topic
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

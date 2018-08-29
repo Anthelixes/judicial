@@ -1,0 +1,34 @@
+uuid: 8f7e6fc3-72a2-4c1d-8a3c-8ef98385c4d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_languages
+    - node.type.forum
+    - taxonomy.vocabulary.languages
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 1
+id: node.forum.field_languages
+field_name: field_languages
+entity_type: node
+bundle: forum
+label: Language
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      languages: languages
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
