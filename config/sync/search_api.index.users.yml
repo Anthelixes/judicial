@@ -1,0 +1,98 @@
+uuid: 3999ff0e-77be-4f5b-9b9f-9febea214271
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_country
+    - field.storage.user.field_languages
+    - field.storage.user.user_picture
+    - field.storage.user.field_positions
+    - field.storage.user.field_title
+    - field.storage.user.field_topics
+    - field.storage.user.field_type_of_court
+    - search_api.server.database
+  module:
+    - search_api
+    - user
+id: users
+name: Users
+description: ''
+read_only: false
+field_settings:
+  field_country:
+    label: Country
+    datasource_id: 'entity:user'
+    property_path: field_country
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_country
+  field_languages:
+    label: Languages
+    datasource_id: 'entity:user'
+    property_path: field_languages
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_languages
+  field_positions:
+    label: Positions
+    datasource_id: 'entity:user'
+    property_path: field_positions
+    type: string
+    dependencies:
+      config:
+        - field.storage.user.field_positions
+  field_title:
+    label: Title
+    datasource_id: 'entity:user'
+    property_path: field_title
+    type: string
+    dependencies:
+      config:
+        - field.storage.user.field_title
+  field_topics:
+    label: Topics
+    datasource_id: 'entity:user'
+    property_path: field_topics
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_topics
+  field_type_of_court:
+    label: 'Type of court'
+    datasource_id: 'entity:user'
+    property_path: field_type_of_court
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_type_of_court
+  name:
+    label: Name
+    datasource_id: 'entity:user'
+    property_path: name
+    type: string
+  user_picture:
+    label: Picture
+    datasource_id: 'entity:user'
+    property_path: user_picture
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.user_picture
+datasource_settings:
+  'entity:user':
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: database
