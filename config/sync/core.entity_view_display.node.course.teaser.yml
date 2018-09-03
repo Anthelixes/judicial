@@ -44,3 +44,4 @@ hidden:
   field_url: true
   langcode: true
   links: true
+  private_message_link: true

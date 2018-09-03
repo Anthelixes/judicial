@@ -29,9 +29,11 @@ content:
     region: content
 hidden:
   field_country: true
+  field_date_range: true
   field_event_type: true
   field_external_links: true
   field_geolocation: true
   field_location: true
   langcode: true
   links: true
+  private_message_link: true

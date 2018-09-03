@@ -88,3 +88,4 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
+  private_message_link: true
