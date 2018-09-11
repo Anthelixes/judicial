@@ -1,0 +1,33 @@
+uuid: edb2abad-bbd1-4f82-a51d-171f76e2cd85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_recipient
+    - node.type.message
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.message.field_recipient
+field_name: field_recipient
+entity_type: node
+bundle: message
+label: Recipient
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

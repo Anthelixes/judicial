@@ -1,0 +1,28 @@
+uuid: fbc83692-d8d3-4b8e-a188-00de9ccc1f82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_seen
+    - node.type.message
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.message.field_seen
+field_name: field_seen
+entity_type: node
+bundle: message
+label: Seen
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

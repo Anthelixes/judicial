@@ -1,0 +1,10 @@
+uuid: 9be1ca7b-d94e-4703-9c33-d889754e64a4
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.picture_only
+label: 'Picture only'
+targetEntityType: user
+cache: true

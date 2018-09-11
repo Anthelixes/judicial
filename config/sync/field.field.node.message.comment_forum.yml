@@ -1,0 +1,37 @@
+uuid: 5700a1a9-7fd5-4ced-96d9-9eaf12513e9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.comment_forum
+    - node.type.message
+  module:
+    - comment
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.message.comment_forum
+field_name: comment_forum
+entity_type: node
+bundle: message
+label: Replies
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 50
+  anonymous: 0
+  form_location: true
+  preview: 1
+field_type: comment

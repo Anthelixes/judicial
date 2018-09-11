@@ -1,0 +1,22 @@
+uuid: 367f6289-1b67-40c9-9e41-1f415fbe3cfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.message
+id: node.message.status
+field_name: status
+entity_type: node
+bundle: message
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

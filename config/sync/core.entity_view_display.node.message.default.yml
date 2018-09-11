@@ -1,0 +1,59 @@
+uuid: a25602af-901b-40d4-a62b-206e3ab9d42e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_forum.default
+    - field.field.node.message.body
+    - field.field.node.message.comment_forum
+    - field.field.node.message.field_recipient
+    - field.field.node.message.field_seen
+    - node.type.message
+  module:
+    - comment
+    - text
+    - user
+id: node.message.default
+targetEntityType: node
+bundle: message
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  comment_forum:
+    weight: 103
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_recipient:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_seen:
+    weight: 104
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

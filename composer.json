@@ -26,7 +26,6 @@
         "drupal/facets": "^1.1",
         "drupal/field_cardinality_customization": "1.x-dev",
         "drupal/geolocation": "^1.11",
-        "drupal/private_message": "^1.2",
         "drupal/search_api": "^1.9",
         "drupal/search_api_db": "^1.9",
         "drupal/views_slideshow": "^4.6",

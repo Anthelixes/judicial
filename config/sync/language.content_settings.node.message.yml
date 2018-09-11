@@ -1,0 +1,11 @@
+uuid: 181d376f-3216-43fb-a2db-579495c7e366
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.message
+id: node.message
+target_entity_type_id: node
+target_bundle: message
+default_langcode: site_default
+language_alterable: false

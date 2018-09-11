@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_country
     - field.storage.node.field_glossary_terms
+    - field.storage.node.field_recipient
+    - field.storage.node.comment_forum
     - field.storage.node.field_topics
     - search_api.server.database
     - core.entity_view_mode.node.search_index
@@ -16,6 +18,19 @@ name: Content
 description: ''
 read_only: false
 field_settings:
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+  comment_count:
+    label: 'Replies » Number of comments'
+    datasource_id: 'entity:node'
+    property_path: 'comment_forum:comment_count'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.comment_forum
   created:
     label: 'Authored on'
     datasource_id: 'entity:node'
@@ -37,6 +52,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_glossary_terms
+  field_recipient:
+    label: Recipient
+    datasource_id: 'entity:node'
+    property_path: field_recipient
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_recipient
   field_topics:
     label: Topics
     datasource_id: 'entity:node'
@@ -81,11 +104,6 @@ field_settings:
     property_path: type
     type: string
   uid:
-    label: uid
-    datasource_id: 'entity:node'
-    property_path: uid
-    type: integer
-  uid_1:
     label: 'Authored by'
     datasource_id: 'entity:node'
     property_path: uid
@@ -99,6 +117,7 @@ datasource_settings:
       selected:
         - court_case
         - forum
+        - message
     languages:
       default: true
       selected: {  }

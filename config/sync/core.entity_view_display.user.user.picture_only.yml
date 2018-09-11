@@ -1,0 +1,46 @@
+uuid: 427a873a-ebb9-4ec3-af41-ba8302748041
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.picture_only
+    - field.field.user.user.field_country
+    - field.field.user.user.field_external_links
+    - field.field.user.user.field_full_name
+    - field.field.user.user.field_languages
+    - field.field.user.user.field_positions
+    - field.field.user.user.field_title
+    - field.field.user.user.field_topics
+    - field.field.user.user.field_type_of_court
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.picture_only
+targetEntityType: user
+bundle: user
+mode: picture_only
+content:
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  field_country: true
+  field_external_links: true
+  field_full_name: true
+  field_languages: true
+  field_positions: true
+  field_title: true
+  field_topics: true
+  field_type_of_court: true
+  langcode: true
+  member_for: true
