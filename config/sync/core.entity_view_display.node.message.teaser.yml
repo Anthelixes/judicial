@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.message.body
+    - field.field.node.message.comment_forum
+    - field.field.node.message.field_recipient
+    - field.field.node.message.field_seen
     - node.type.message
   module:
     - text
@@ -25,5 +28,10 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  comment_forum: true
+  field_recipient: true
+  field_seen: true
   langcode: true
