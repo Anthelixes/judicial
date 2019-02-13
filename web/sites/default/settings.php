@@ -788,3 +788,6 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 
+if (file_exists(__DIR__ . '/../local.services.yml')) {
+  $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/local.services.yml';
+}

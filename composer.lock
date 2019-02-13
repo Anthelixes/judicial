@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4f49e7bbc1125fc1370d7845a4c4e1a",
+    "content-hash": "86cb69cf6d65f42fe2981d6cc00512d5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -121,6 +121,50 @@
                 "stack"
             ],
             "time": "2017-12-20T14:37:45+00:00"
+        },
+        {
+            "name": "boedah/robo-drush",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/boedah/robo-drush.git",
+                "reference": "1ce48694a5bd794bdc6fa006ee32e0a9bf693d52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/boedah/robo-drush/zipball/1ce48694a5bd794bdc6fa006ee32e0a9bf693d52",
+                "reference": "1ce48694a5bd794bdc6fa006ee32e0a9bf693d52",
+                "shasum": ""
+            },
+            "require": {
+                "consolidation/robo": "~1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "drush/drush": "^8.0 | ^9.0",
+                "phpunit/phpunit": "~4.4"
+            },
+            "suggest": {
+                "drush/drush": "robo-drush needs a global or local Drush to use."
+            },
+            "type": "robo-tasks",
+            "autoload": {
+                "psr-4": {
+                    "Boedah\\Robo\\Task\\Drush\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Gasser",
+                    "email": "dev@boedah.de"
+                }
+            ],
+            "description": "Drush CommandStack for Robo Task Runner",
+            "time": "2018-12-11T14:42:40+00:00"
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -2343,6 +2387,57 @@
             "time": "2019-01-16T23:30:03+00:00"
         },
         {
+            "name": "drupal/edw_healthcheck",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/edw_healthcheck",
+                "reference": "8.x-1.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/edw_healthcheck-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "c536da357f9c12ea989c475397c697017eb01c57"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.6",
+                    "datestamp": "1548244080",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Kopezaur",
+                    "homepage": "https://www.drupal.org/user/3580286"
+                },
+                {
+                    "name": "leontin",
+                    "homepage": "https://www.drupal.org/user/3599349"
+                }
+            ],
+            "description": "Check the status and versioning of a Drupal application and its modules",
+            "homepage": "https://www.drupal.org/project/edw_healthcheck",
+            "support": {
+                "source": "http://cgit.drupalcode.org/edw_healthcheck"
+            }
+        },
+        {
             "name": "drupal/facets",
             "version": "1.1.0",
             "source": {
@@ -2826,6 +2921,88 @@
                 "sparql"
             ],
             "time": "2015-02-27T09:45:49+00:00"
+        },
+        {
+            "name": "eaudeweb/heavy-lifter",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eaudeweb/heavy-lifter.git",
+                "reference": "3fbb09a3866bc81a193771184c50b21027e680a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eaudeweb/heavy-lifter/zipball/3fbb09a3866bc81a193771184c50b21027e680a6",
+                "reference": "3fbb09a3866bc81a193771184c50b21027e680a6",
+                "shasum": ""
+            },
+            "require": {
+                "boedah/robo-drush": "^4.1",
+                "eaudeweb/robo-curl": "^1.0",
+                "php": ">=5.6.0",
+                "webflo/drupal-finder": "^1.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EauDeWeb\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Romanescu",
+                    "email": "cristian@romanescu.ro"
+                }
+            ],
+            "description": "Common commands for your Drupal project to get you up to speed",
+            "time": "2019-02-13T15:59:33+00:00"
+        },
+        {
+            "name": "eaudeweb/robo-curl",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eaudeweb/robo-curl.git",
+                "reference": "c646df96e4a0e46721033f1ec18af474c4002dc7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eaudeweb/robo-curl/zipball/c646df96e4a0e46721033f1ec18af474c4002dc7",
+                "reference": "c646df96e4a0e46721033f1ec18af474c4002dc7",
+                "shasum": ""
+            },
+            "require": {
+                "consolidation/robo": "~1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "robo-tasks",
+            "autoload": {
+                "psr-4": {
+                    "EauDeWeb\\Robo\\Task\\Curl\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Romanescu",
+                    "email": "cristian@romanescu.ro"
+                }
+            ],
+            "description": "Robo command wrapper for cURL command line client",
+            "time": "2018-11-19T21:31:41+00:00"
         },
         {
             "name": "egulias/email-validator",

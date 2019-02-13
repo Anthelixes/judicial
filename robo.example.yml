@@ -1,9 +1,0 @@
-project:
-  sync:
-    sql:
-      url: https://TODO/database.sql.gz
-      username: username
-      password: password
-
-  sql-dump:
-    destination: /tmp/latest.sql

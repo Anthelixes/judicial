@@ -136,6 +136,11 @@ class ComposerStaticInitb6a0fdf4089a3e8aafe7e7ec1f1a85eb
             'Grasmash\\Expander\\' => 18,
             'Goutte\\' => 7,
         ),
+        'E' => 
+        array (
+            'EauDeWeb\\Robo\\Task\\Curl\\' => 24,
+            'EauDeWeb\\' => 9,
+        ),
         'D' => 
         array (
             'Drush\\Internal\\' => 15,
@@ -168,6 +173,7 @@ class ComposerStaticInitb6a0fdf4089a3e8aafe7e7ec1f1a85eb
         ),
         'B' => 
         array (
+            'Boedah\\Robo\\Task\\Drush\\' => 23,
             'Behat\\Mink\\Driver\\' => 18,
             'Behat\\Mink\\' => 11,
         ),
@@ -417,6 +423,14 @@ class ComposerStaticInitb6a0fdf4089a3e8aafe7e7ec1f1a85eb
         array (
             0 => __DIR__ . '/..' . '/fabpot/goutte/Goutte',
         ),
+        'EauDeWeb\\Robo\\Task\\Curl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/eaudeweb/robo-curl/src',
+        ),
+        'EauDeWeb\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/eaudeweb/heavy-lifter/src',
+        ),
         'Drush\\Internal\\' => 
         array (
             0 => __DIR__ . '/..' . '/drush/drush/internal-copy',
@@ -515,6 +529,10 @@ class ComposerStaticInitb6a0fdf4089a3e8aafe7e7ec1f1a85eb
         'Composer\\Installers\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
+        ),
+        'Boedah\\Robo\\Task\\Drush\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/boedah/robo-drush/src',
         ),
         'Behat\\Mink\\Driver\\' => 
         array (
