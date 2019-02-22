@@ -1,8 +1,14 @@
 <?php
 
+/**
+ * @file
+ * Contains field_cardinality_customization.module.
+ */
+
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\ContentEntityFormInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Field\FieldConfigInterface;
 
 /**
  * Implements hook_form_alter().
@@ -16,7 +22,9 @@ function field_cardinality_customization_form_alter(&$form, FormStateInterface $
   /** @var \Drupal\Core\Entity\EntityInterface $node */
   $entity = $form_object->getEntity();
   $op = $form_object->getOperation();
-  if (!$entity instanceof ContentEntityInterface || !in_array($op, ['edit', 'add', 'default'], TRUE)) {
+  if (!$entity instanceof ContentEntityInterface ||
+    !in_array($op, ['edit', 'add', 'default'], TRUE)
+  ) {
     return;
   }
   $fields = $entity->getFields();
@@ -46,7 +54,7 @@ function field_cardinality_customization_form_field_config_edit_form_alter(array
     '#description' => t('Alter this field to make it accept only a single value for this content type.'),
     '#default_value' => $field->getThirdPartySetting('field_cardinality_customization', 'alter'),
     '#access' => $field->getFieldStorageDefinition()->getCardinality() != 1,
-    '#weight' => 1
+    '#weight' => 1,
   ];
   // Form submit callback.
   $form['#entity_builders'][] = 'field_cardinality_customization_form_field_config_edit_form_builder';
@@ -55,12 +63,12 @@ function field_cardinality_customization_form_field_config_edit_form_alter(array
 /**
  * Field config edit form submit callback.
  */
-function field_cardinality_customization_form_field_config_edit_form_builder($entity_type, \Drupal\Core\Field\FieldConfigInterface $field, &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function field_cardinality_customization_form_field_config_edit_form_builder($entity_type, FieldConfigInterface $field, &$form, FormStateInterface $form_state) {
   $field->setThirdPartySetting('field_cardinality_customization', 'alter', $form_state->getValue('field_cardinality_customization'));
 }
 
 /**
- * Helper function to alter the widget of a multi-valued field to make it appear single valued.
+ * Helper function to alter the widget of a multi-valued field.
  */
 function field_cardinality_customization_widget_alter(&$widget) {
   if (!empty($widget['#type']) && $widget['#type'] == 'checkboxes') {
@@ -73,4 +81,3 @@ function field_cardinality_customization_widget_alter(&$widget) {
     $widget['add_more']['#access'] = FALSE;
   }
 }
-

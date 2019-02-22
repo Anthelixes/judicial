@@ -123,6 +123,11 @@ class ComposerStaticInitb6a0fdf4089a3e8aafe7e7ec1f1a85eb
         array (
             'League\\Container\\' => 17,
         ),
+        'J' => 
+        array (
+            'JakubOnderka\\PhpConsoleHighlighter\\' => 35,
+            'JakubOnderka\\PhpConsoleColor\\' => 29,
+        ),
         'I' => 
         array (
             'Interop\\Container\\' => 18,
@@ -395,6 +400,14 @@ class ComposerStaticInitb6a0fdf4089a3e8aafe7e7ec1f1a85eb
         array (
             0 => __DIR__ . '/..' . '/league/container/src',
         ),
+        'JakubOnderka\\PhpConsoleHighlighter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src',
+        ),
+        'JakubOnderka\\PhpConsoleColor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
+        ),
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
@@ -588,17 +601,6 @@ class ComposerStaticInitb6a0fdf4089a3e8aafe7e7ec1f1a85eb
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
-            ),
-        ),
-        'J' => 
-        array (
-            'JakubOnderka\\PhpConsoleHighlighter' => 
-            array (
-                0 => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src',
-            ),
-            'JakubOnderka\\PhpConsoleColor' => 
-            array (
-                0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
             ),
         ),
         'E' => 
