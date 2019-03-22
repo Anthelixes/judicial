@@ -24,7 +24,7 @@
         "drupal/console": "^1.0.2",
         "drupal/core": "8.6.*",
         "drupal/devel": "^2",
-        "drupal/edw_healthcheck": "^1.6",
+        "drupal/edw_healthcheck": "^1.8",
         "drupal/facets": "^1.1",
         "drupal/field_cardinality_customization": "1.x-dev",
         "drupal/geolocation": "^1.11",
