@@ -15,18 +15,25 @@ migration_tags:
 migration_group: court_case
 label: 'CURIA Court cases'
 source:
-  plugin: migrate_court_case
+  plugin: curia_court_case
   ids:
     case_number:
-      type: integer
+      type: string
+  urls:
+    - 'https://curia.europa.eu/common/recdoc/repertoire_jurisp/bull_cee/data/B-21.htm'
+    - 'https://curia.europa.eu/common/recdoc/repertoire_jurisp/bull_4/data/4_23.htm'
+  data_parser_plugin: curia
+  data_fetcher_plugin: http
 process:
   langcode:
     plugin: default_value
-    default_value: en
+    default_value: fr
   status: status
   title: title
   body/value: body
-  body/format: full_html
+  body/format:
+    plugin: default_value
+    default_value: full_html
   type:
     plugin: default_value
     default_value: court_case

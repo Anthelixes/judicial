@@ -1,0 +1,10 @@
+uuid: ca12a2f3-3385-4173-b16c-59089b7e6797
+langcode: en
+status: true
+dependencies: {  }
+id: court_case
+label: 'Court Case'
+description: null
+source_type: null
+module: migrate_court_case
+shared_configuration: null
