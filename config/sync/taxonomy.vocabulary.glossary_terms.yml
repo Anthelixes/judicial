@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Glossary terms'
 vid: glossary_terms
 description: ''
-hierarchy: 0
 weight: 0

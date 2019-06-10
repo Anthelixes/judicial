@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Court types'
 vid: court_types
 description: ''
-hierarchy: 0
 weight: 0

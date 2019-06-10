@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Event types'
 vid: event_types
 description: ''
-hierarchy: 0
 weight: 0

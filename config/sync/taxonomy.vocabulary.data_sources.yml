@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Data sources'
 vid: data_sources
 description: ''
-hierarchy: 0
 weight: 0

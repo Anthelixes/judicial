@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Judicial positions'
 vid: judicial_positions
 description: ''
-hierarchy: 0
 weight: 0
