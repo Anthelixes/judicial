@@ -1,0 +1,35 @@
+uuid: 1d4d9922-c5ca-4630-b9a7-0f9d766005b7
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - migrate_court_case
+id: migrate_court_case_curia
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - court_case
+  - curia
+migration_group: court_case
+label: 'CURIA Court cases'
+source:
+  plugin: migrate_court_case
+  ids:
+    case_number:
+      type: integer
+process:
+  langcode:
+    plugin: default_value
+    default_value: en
+  status: status
+  title: title
+  body/value: body
+  body/format: full_html
+  type:
+    plugin: default_value
+    default_value: court_case
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

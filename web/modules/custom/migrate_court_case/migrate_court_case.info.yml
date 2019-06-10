@@ -1,0 +1,5 @@
+name: 'Migrate Court Case'
+description: 'Provides the tools to migrate court cases.'
+type: module
+core: 8.x
+package: Custom
