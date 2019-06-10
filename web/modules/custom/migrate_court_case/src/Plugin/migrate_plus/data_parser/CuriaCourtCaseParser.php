@@ -33,7 +33,7 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
    *
    * @throws \GuzzleHttp\Exception\RequestException
    */
-  protected function getSourceData($url) {
+  public function getSourceData($url) {
     /** @var \GuzzleHttp\Psr7\Stream $response */
     $response = $this->getDataFetcherPlugin()->getResponseContent($url);
 
@@ -43,14 +43,19 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     return $dom;
   }
 
+  public function getLinksFromUrl($url) {
+    $source_data = $this->getSourceData($url);
+    $links = $source_data->getElementsByTagName('a');
+    return iterator_to_array($links);
+  }
+
   /**
    * {@inheritdoc}
    */
   protected function openSourceUrl($url) {
-    $source_data = $this->getSourceData($url);
-    $links = $source_data->getElementsByTagName('a');
+    $links = $this->getLinksFromUrl($url);
 
-    $this->iterator = new \ArrayIterator(iterator_to_array($links));
+    $this->iterator = new \ArrayIterator($links);
 
     return TRUE;
   }
