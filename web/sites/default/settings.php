@@ -791,3 +791,5 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 if (file_exists(__DIR__ . '/../local.services.yml')) {
   $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/local.services.yml';
 }
+
+$settings['node_title_length_chars'] = 1024;
