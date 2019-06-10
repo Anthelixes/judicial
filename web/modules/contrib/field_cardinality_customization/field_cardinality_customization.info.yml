@@ -1,4 +1,4 @@
-name: 'Field cardinality customization'
+name: 'Field Cardinality Customization'
 description: 'This module allows administrators to make multi-valued fields only accept one value for certain content types. '
 type: module
 type: module
