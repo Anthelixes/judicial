@@ -1,0 +1,5 @@
+name: 'Court Case'
+description: 'Provides court cases functionality'
+type: module
+core: 8.x
+package: Custom

@@ -34,9 +34,23 @@ process:
   body/format:
     plugin: default_value
     default_value: full_html
+  body/langcode:
+    plugin: default_value
+    default_value: fr
   type:
     plugin: default_value
     default_value: court_case
+  field_external_links: external_link
+  field_reference_number: reference_number
+  field_date: date
+  field_country:
+    plugin: entity_lookup
+    source: country_iso3
+    value_key: field_iso3
+    bundle_key: vid
+    bundle: countries
+    entity_type: taxonomy_term
+    ignore_case: true
 destination:
   plugin: 'entity:node'
 migration_dependencies: {  }

@@ -12,6 +12,7 @@ module:
   config_translation: 0
   contact: 0
   contextual: 0
+  court_case: 0
   datetime: 0
   datetime_range: 0
   dblog: 0

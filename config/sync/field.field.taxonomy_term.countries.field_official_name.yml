@@ -1,0 +1,19 @@
+uuid: fbebcd4d-1f06-4570-8557-63936ebcef7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_official_name
+    - taxonomy.vocabulary.countries
+id: taxonomy_term.countries.field_official_name
+field_name: field_official_name
+entity_type: taxonomy_term
+bundle: countries
+label: 'Official name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

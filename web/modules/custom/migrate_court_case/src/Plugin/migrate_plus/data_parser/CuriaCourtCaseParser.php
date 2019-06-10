@@ -55,17 +55,35 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     return TRUE;
   }
 
+  protected function getValueFromXpath(\SimpleXMLElement $xml_element, $xpath) {
+    $value = $xml_element->xpath($xpath);
+    $value = reset($value);
+    return $value->__toString();
+  }
+
   protected function parseNotice($url) {
     $xml = simplexml_load_string($this->getDataFetcherPlugin()->getResponseContent($url)->getContents());
 
-    $title = $xml->xpath('//NOTICE/EXPRESSION/TITLE/VALUE');
-    $title = reset($title);
-    /** @var \SimpleXMLElement $body */
-    $title = $title->__toString();
+    $title = $this->getValueFromXpath($xml, '//NOTICE/EXPRESSION/EXPRESSION_TITLE/VALUE');
+    $country_iso3 = $this->getValueFromXpath($xml, '//CASE-LAW_ORIGINATES_IN_COUNTRY/OP-CODE');
+    $date = $this->getValueFromXpath($xml, '//WORK_DATE_DOCUMENT/VALUE');
+    $date = strtotime($date);
 
     return [
       'title' => $title,
+      'country_iso3' => $country_iso3,
+      'date' => $date,
     ];
+  }
+
+  protected function parseBody($body_url) {
+    $html = $this->getSourceData($body_url);
+    $body = $html->getElementsByTagName('body')->item(0);
+    $body = $html->saveHTML($body);
+    $pattern = '/<a .*?<\/a>/';
+    $body = preg_replace($pattern, "", $body);
+    $body = str_replace('<em class="none">|</em>', '', $body);
+    return $body;
   }
 
   /**
@@ -83,14 +101,20 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
       $html_case_url = "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=$case_number";
       $case_html = $this->getSourceData($html_case_url);
 
+
       $html_body_url = "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=$case_number";
+      $body = $this->parseBody($html_body_url);
 
       $notice_url = $case_html->getElementById('link-download-notice')->getAttribute('href');
       $notice_url = str_replace('./../../../', 'https://eur-lex.europa.eu/', $notice_url);
 
-      $body = $this->getSourceData($html_body_url)->getElementsByTagName('body')->item(0)->nodeValue;
-
-      $this->currentItem = $this->parseNotice($notice_url) + ['case_number' => $case_number, 'body' => $body];
+      $this->currentItem = [
+        'case_number' => $case_number,
+        'body' => $body,
+        'reference_number' => $case_number,
+        'external_link' => $html_case_url
+      ];
+      $this->currentItem += $this->parseNotice($notice_url);
 
       $this->iterator->next();
     }

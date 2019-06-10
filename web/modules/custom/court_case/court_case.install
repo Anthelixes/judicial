@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * Populate the countries.
+ */
+function countries_install() {
+  if(!file_exists('public://country-flags')){
+    mkdir('public://country-flags', 0755);
+  }
+
+  $data_path = drupal_get_path('module', 'countries') . '/data/json/countries.json';
+  $response = file_get_contents($data_path);
+  $items = json_decode($response, TRUE);
+  if ($items) {
+    foreach ($items as $item) {
+      $filePath = drupal_get_path('module', 'countries') . '/data/flags/';
+      $file = [
+        'uri' => $filePath . $item['flag_128'],
+        'uid' => 1,
+        'status' => 1,
+        'display' => 1,
+      ];
+
+      $file2 = \Drupal\file\Entity\File::create($file);
+
+      $file3 = file_copy($file2, 'public://country-flags/' . $item['flag_128'], FILE_EXISTS_RENAME);
+      $flag_fid = $file3->id();
+
+      $values = [
+        'name' => $item['name'],
+        'vid' => 'countries',
+        'field_official_name' => $item['name_official'],
+        'field_iso2' => $item['code2l'],
+        'field_iso3' => $item['code3l'],
+        'field_flag' => ['target_id' => $flag_fid],
+      ];
+
+      $existing = taxonomy_term_load_multiple_by_name($item['name'], 'countries');
+
+      /** @var \Drupal\taxonomy\TermInterface $term */
+      if (!empty($existing)) {
+        $term = reset($existing);
+      }
+      else {
+        $term = \Drupal\taxonomy\Entity\Term::create();
+      }
+
+      foreach ($values as $field => $value) {
+        $term->set($field, $value);
+      }
+
+      $term->save();
+    }
+  }
+}
