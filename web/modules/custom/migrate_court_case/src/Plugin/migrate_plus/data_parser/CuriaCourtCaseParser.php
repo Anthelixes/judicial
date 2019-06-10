@@ -67,7 +67,6 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     $title = $this->getValueFromXpath($xml, '//NOTICE/EXPRESSION/EXPRESSION_TITLE/VALUE');
     $country_iso3 = $this->getValueFromXpath($xml, '//CASE-LAW_ORIGINATES_IN_COUNTRY/OP-CODE');
     $date = $this->getValueFromXpath($xml, '//WORK_DATE_DOCUMENT/VALUE');
-    $date = strtotime($date);
 
     return [
       'title' => $title,
@@ -112,7 +111,8 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
         'case_number' => $case_number,
         'body' => $body,
         'reference_number' => $case_number,
-        'external_link' => $html_case_url
+        'external_link' => $html_case_url,
+        'case_source' => 'EUR-Lex',
       ];
       $this->currentItem += $this->parseNotice($notice_url);
 

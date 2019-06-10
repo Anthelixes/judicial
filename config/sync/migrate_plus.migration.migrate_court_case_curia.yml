@@ -42,7 +42,11 @@ process:
     default_value: court_case
   field_external_links: external_link
   field_reference_number: reference_number
-  field_date: date
+  field_date:
+    plugin: format_date
+    from_format: 'Y-m-d'
+    to_format: 'Y-m-d'
+    source: date
   field_country:
     plugin: entity_lookup
     source: country_iso3
@@ -51,6 +55,9 @@ process:
     bundle: countries
     entity_type: taxonomy_term
     ignore_case: true
+  field_sources:
+    plugin: entity_generate
+    source: case_source
 destination:
   plugin: 'entity:node'
 migration_dependencies: {  }
