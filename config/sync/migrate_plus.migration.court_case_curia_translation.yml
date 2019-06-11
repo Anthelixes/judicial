@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - migrate_court_case
+id: court_case_curia_translation
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - court_case
+  - curia
+migration_group: court_case
+label: 'CURIA Court cases translation'
+source:
+  plugin: curia_court_case_translation
+  ids:
+    case_number:
+      type: string
+    langcode:
+      type: string
+  data_parser_plugin: curia
+  data_fetcher_plugin: http
+process:
+  langcode: langcode
+  status:
+    plugin: default_value
+    default_value: 1
+  title: title
+  body/value: body
+  body/format:
+    plugin: default_value
+    default_value: full_html
+  body/langcode: langcode
+  type:
+    plugin: default_value
+    default_value: court_case
+  nid: nid
+  content_translation_source:
+    plugin: default_value
+    default_value: fr
+destination:
+  plugin: 'entity:node'
+  translations: true
+migration_dependencies:
+  required:
+    - court_case_curia
+

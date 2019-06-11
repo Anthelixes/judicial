@@ -23,6 +23,11 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
   protected $iterator;
 
   /**
+   * @var array
+   */
+  protected $urlData;
+
+  /**
    * Retrieves the HTML data and returns it as a DOMDocument.
    *
    * @param string $url
@@ -49,14 +54,19 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     return iterator_to_array($links);
   }
 
+  public function setUrls($urls) {
+    $this->urls = $urls;
+    $this->activeUrl = 0;
+  }
+
+  public function setUrlData($data) {
+    $this->urlData = $data;
+  }
+
   /**
    * {@inheritdoc}
    */
   protected function openSourceUrl($url) {
-    $links = $this->getLinksFromUrl($url);
-
-    $this->iterator = new \ArrayIterator($links);
-
     return TRUE;
   }
 
@@ -90,39 +100,55 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     return $body;
   }
 
+  public function getAvailableLanguages($html_url) {
+    $body = $this->getSourceData($html_url);
+
+    $xpath = new \DOMXPath($body);
+    $available_languages = [];
+    foreach (['en', 'es', 'ar', 'ru', 'zh-hans'] as $language) {
+      @$entries = $xpath->query('//ul[@class="dropdown-menu PubFormatHTML"]/li/a[@lang="' . $language . '"]');
+      if ($entries->length > 0) {
+        $available_languages[] = $language;
+      }
+    }
+
+    return $available_languages;
+  }
+
   /**
    * {@inheritdoc}
    */
   protected function fetchNextRow() {
-    $current = $this->iterator->current();
+    $url = $this->urls[$this->activeUrl];
+    $parts = parse_url($url);
+    parse_str($parts['query'], $query);
+    $case_number = $query['uri'];
 
-    if ($current) {
-      $url = $current->getAttribute('href');
-      $parts = parse_url($url);
-      parse_str($parts['query'], $query);
-      $case_number = $query['uri'];
+    $langcode = !empty($this->urlData[$this->activeUrl]['langcode']) ? strtoupper($this->urlData[$this->activeUrl]['langcode']) : 'FR';
 
-      $html_case_url = "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=$case_number";
-      $case_html = $this->getSourceData($html_case_url);
+    $html_case_url = "https://eur-lex.europa.eu/legal-content/$langcode/TXT/?uri=$case_number";
+    $case_html = $this->getSourceData($html_case_url);
 
 
-      $html_body_url = "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=$case_number";
-      $body = $this->parseBody($html_body_url);
+    $html_body_url = "https://eur-lex.europa.eu/legal-content/$langcode/TXT/HTML/?uri=$case_number";
+    $body = $this->parseBody($html_body_url);
 
-      $notice_url = $case_html->getElementById('link-download-notice')->getAttribute('href');
-      $notice_url = str_replace('./../../../', 'https://eur-lex.europa.eu/', $notice_url);
+    $notice_url = $case_html->getElementById('link-download-notice')->getAttribute('href');
+    $notice_url = str_replace('./../../../', 'https://eur-lex.europa.eu/', $notice_url);
 
-      $this->currentItem = [
-        'case_number' => $case_number,
-        'body' => $body,
-        'reference_number' => $case_number,
-        'external_link' => $html_case_url,
-        'case_source' => 'EUR-Lex',
-      ];
-      $this->currentItem += $this->parseNotice($notice_url);
-
-      $this->iterator->next();
+    $this->currentItem = [
+      'case_number' => $case_number,
+      'body' => $body,
+      'reference_number' => $case_number,
+      'external_link' => $html_case_url,
+      'case_source' => 'EUR-Lex',
+      'langcode' => strtolower($langcode),
+    ];
+    if (!empty($this->urlData[$this->activeUrl]['nid'])) {
+      $this->currentItem['nid'] = $this->urlData[$this->activeUrl]['nid'];
     }
+
+    $this->currentItem += $this->parseNotice($notice_url);
   }
 
 }

@@ -2,6 +2,7 @@
 
 namespace Drupal\migrate_court_case\Plugin\migrate\source;
 
+use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate_plus\Plugin\migrate\source\Url;
 
 /**
@@ -13,16 +14,25 @@ use Drupal\migrate_plus\Plugin\migrate\source\Url;
  */
 class CuriaCourtCase extends Url {
 
-  public function count($refresh = FALSE) {
-    $count = 0;
-    foreach ($this->sourceUrls as $source_url) {
-      /** @var \Drupal\migrate_court_case\Plugin\migrate_plus\data_parser\CuriaCourtCaseParser $parser */
-      $parser = $this->getDataParserPlugin();
-
-      $links = $parser->getLinksFromUrl($source_url);
-      $count += count($links);
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
+    /** @var \Drupal\migrate_court_case\Plugin\migrate_plus\data_parser\CuriaCourtCaseParser $plugin */
+    $plugin = $this->getDataParserPlugin();
+    $this->sourceUrls = [];
+    foreach ($this->configuration['source_urls'] as $source_url) {
+      $links = $plugin->getLinksFromUrl($source_url);
+      foreach ($links as $link) {
+        /** @var \DOMElement $link */
+        $this->sourceUrls[] = $link->getAttribute('href');
+      }
     }
+    $plugin->setUrls($this->sourceUrls);
+  }
 
-    return $count;
+  public function count($refresh = FALSE) {
+    return count($this->sourceUrls);
   }
 }

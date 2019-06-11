@@ -19,24 +19,22 @@ source:
   ids:
     case_number:
       type: string
-  urls:
+  source_urls:
     - 'https://curia.europa.eu/common/recdoc/repertoire_jurisp/bull_cee/data/B-21.htm'
     - 'https://curia.europa.eu/common/recdoc/repertoire_jurisp/bull_4/data/4_23.htm'
   data_parser_plugin: curia
   data_fetcher_plugin: http
 process:
-  langcode:
+  langcode: langcode
+  status:
     plugin: default_value
-    default_value: fr
-  status: status
+    default_value: 1
   title: title
   body/value: body
   body/format:
     plugin: default_value
     default_value: full_html
-  body/langcode:
-    plugin: default_value
-    default_value: fr
+  body/langcode: langcode
   type:
     plugin: default_value
     default_value: court_case
