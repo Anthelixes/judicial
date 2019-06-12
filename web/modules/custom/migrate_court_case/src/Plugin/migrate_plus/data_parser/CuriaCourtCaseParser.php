@@ -73,10 +73,9 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     return TRUE;
   }
 
-  protected function getValueFromXMLXpath(\SimpleXMLElement $xml_element, $xpath, $field) {
+  protected function getValueFromXMLXpath(\SimpleXMLElement $xml_element, $xpath) {
     $value = $xml_element->xpath($xpath);
     if (empty($value)) {
-      $this->logger->warning("This item has no {$field}");
       return NULL;
     }
     $value = reset($value);
@@ -94,9 +93,9 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
   protected function parseNotice($url) {
     $xml = simplexml_load_string($this->getDataFetcherPlugin()->getResponseContent($url)->getContents());
 
-    $title = $this->getValueFromXMLXpath($xml, '//NOTICE/EXPRESSION/EXPRESSION_TITLE/VALUE', 'title');
-    $country_iso3 = $this->getValueFromXMLXpath($xml, '//CASE-LAW_ORIGINATES_IN_COUNTRY/OP-CODE', 'country');
-    $date = $this->getValueFromXMLXpath($xml, '//WORK_DATE_DOCUMENT/VALUE', 'date');
+    $title = $this->getValueFromXMLXpath($xml, '//NOTICE/EXPRESSION/EXPRESSION_TITLE/VALUE');
+    $country_iso3 = $this->getValueFromXMLXpath($xml, '//CASE-LAW_ORIGINATES_IN_COUNTRY/OP-CODE');
+    $date = $this->getValueFromXMLXpath($xml, '//WORK_DATE_DOCUMENT/VALUE');
 
     return [
       'title' => $title,
@@ -167,6 +166,7 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     if (!empty($this->urlData[$this->activeUrl]['nid'])) {
       $this->currentItem['nid'] = $this->urlData[$this->activeUrl]['nid'];
     }
+    $this->currentItem += $this->parseNotice($notice_url);
 
     $empty_fields = [];
     foreach ($this->currentItem as $field => $value) {
@@ -176,10 +176,10 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     }
 
     if (!empty($empty_fields)) {
-      $this->logger->warning("This item is missing the following fields: " . implode(', ', $empty_fields));
+      $this->logger->warning("This item ($url) is missing the following fields: " . implode(', ', $empty_fields));
     }
 
-    $this->currentItem += $this->parseNotice($notice_url);
+
     $this->activeUrl++;
   }
 
