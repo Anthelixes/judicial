@@ -4,6 +4,7 @@ namespace Drupal\migrate_court_case\Plugin\migrate_plus\data_parser;
 
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\migrate_plus\DataParserPluginBase;
+use Psr\Log\LogLevel;
 
 /**
  * Obtain court cases from CURIA HTML.
@@ -16,11 +17,14 @@ use Drupal\migrate_plus\DataParserPluginBase;
 class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFactoryPluginInterface {
 
   /**
-   * Iterator over the DOMDocument.
-   *
-   * @var \Iterator
+   * @var \Psr\Log\LoggerInterface
    */
-  protected $iterator;
+  protected $logger;
+
+  public function __construct(array $configuration, $plugin_id, $plugin_definition) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->logger = \Drupal::logger('migrate_court_case');
+  }
 
   /**
    * @var array
@@ -56,7 +60,6 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
 
   public function setUrls($urls) {
     $this->urls = $urls;
-    $this->activeUrl = 0;
   }
 
   public function setUrlData($data) {
@@ -70,18 +73,30 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     return TRUE;
   }
 
-  protected function getValueFromXpath(\SimpleXMLElement $xml_element, $xpath) {
+  protected function getValueFromXMLXpath(\SimpleXMLElement $xml_element, $xpath, $field) {
     $value = $xml_element->xpath($xpath);
+    if (empty($value)) {
+      $this->logger->warning("This item has no {$field}");
+      return NULL;
+    }
     $value = reset($value);
     return $value->__toString();
+  }
+
+  protected function getValueFromDOMXpath(\DOMXPath $dom, $xpath) {
+    $value = $dom->query($xpath);
+    if (empty($value->length)) {
+      return NULL;
+    }
+    return $value->item(0)->nodeValue;
   }
 
   protected function parseNotice($url) {
     $xml = simplexml_load_string($this->getDataFetcherPlugin()->getResponseContent($url)->getContents());
 
-    $title = $this->getValueFromXpath($xml, '//NOTICE/EXPRESSION/EXPRESSION_TITLE/VALUE');
-    $country_iso3 = $this->getValueFromXpath($xml, '//CASE-LAW_ORIGINATES_IN_COUNTRY/OP-CODE');
-    $date = $this->getValueFromXpath($xml, '//WORK_DATE_DOCUMENT/VALUE');
+    $title = $this->getValueFromXMLXpath($xml, '//NOTICE/EXPRESSION/EXPRESSION_TITLE/VALUE', 'title');
+    $country_iso3 = $this->getValueFromXMLXpath($xml, '//CASE-LAW_ORIGINATES_IN_COUNTRY/OP-CODE', 'country');
+    $date = $this->getValueFromXMLXpath($xml, '//WORK_DATE_DOCUMENT/VALUE', 'date');
 
     return [
       'title' => $title,
@@ -120,6 +135,11 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
    */
   protected function fetchNextRow() {
     $url = $this->urls[$this->activeUrl];
+
+    $count = count($this->urls);
+
+    $this->logger->log(LogLevel::INFO, "Processing court case $url ({$this->activeUrl}/$count)");
+
     $parts = parse_url($url);
     parse_str($parts['query'], $query);
     $case_number = $query['uri'];
@@ -129,9 +149,9 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     $html_case_url = "https://eur-lex.europa.eu/legal-content/$langcode/TXT/?uri=$case_number";
     $case_html = $this->getSourceData($html_case_url);
 
-
     $html_body_url = "https://eur-lex.europa.eu/legal-content/$langcode/TXT/HTML/?uri=$case_number";
     $body = $this->parseBody($html_body_url);
+//    $body = $this->getValueFromDOMXpath(new \DOMXPath($this->getSourceData($html_case_url)), '//div[@id="textTabContent"]/div[@class="tabContent"]');
 
     $notice_url = $case_html->getElementById('link-download-notice')->getAttribute('href');
     $notice_url = str_replace('./../../../', 'https://eur-lex.europa.eu/', $notice_url);
@@ -148,7 +168,19 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
       $this->currentItem['nid'] = $this->urlData[$this->activeUrl]['nid'];
     }
 
+    $empty_fields = [];
+    foreach ($this->currentItem as $field => $value) {
+      if (empty($value)) {
+        $empty_fields[] = $field;
+      }
+    }
+
+    if (!empty($empty_fields)) {
+      $this->logger->warning("This item is missing the following fields: " . implode(', ', $empty_fields));
+    }
+
     $this->currentItem += $this->parseNotice($notice_url);
+    $this->activeUrl++;
   }
 
 }

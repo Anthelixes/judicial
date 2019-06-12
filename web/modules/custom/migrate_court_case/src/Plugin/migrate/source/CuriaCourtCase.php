@@ -26,6 +26,9 @@ class CuriaCourtCase extends Url {
       $links = $plugin->getLinksFromUrl($source_url);
       foreach ($links as $link) {
         /** @var \DOMElement $link */
+        if (in_array($link->getAttribute('href'), $this->sourceUrls)) {
+          continue;
+        }
         $this->sourceUrls[] = $link->getAttribute('href');
       }
     }
