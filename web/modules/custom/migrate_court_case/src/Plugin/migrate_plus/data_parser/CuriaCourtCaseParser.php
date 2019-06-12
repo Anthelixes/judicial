@@ -133,6 +133,10 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
    * {@inheritdoc}
    */
   protected function fetchNextRow() {
+    if ($this->activeUrl >= count($this->urls)) {
+      return NULL;
+    }
+
     $url = $this->urls[$this->activeUrl];
 
     $count = count($this->urls);
