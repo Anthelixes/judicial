@@ -27,12 +27,16 @@ class CuriaCourtCaseTranslation extends Url {
     $cases = $this->getCuriaCases();
 
     $data = [];
-
     foreach ($cases as $case) {
+      $languages = $case->field_languages->getValue();
+      if (empty($languages)) {
+        continue;
+      }
       $case_number = $case->field_reference_number->value;
       $link = "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=$case_number";
-      $available_languages = $plugin->getAvailableLanguages($link);
-      foreach ($available_languages as $language) {
+
+      foreach ($languages as $language) {
+        $language = $language['value'];
         $this->sourceUrls[] = str_replace('/FR/', '/' . strtoupper($language) . '/', $link);
         $data[] = [
           'nid' => $case->id(),

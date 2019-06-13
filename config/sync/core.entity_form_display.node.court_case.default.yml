@@ -87,12 +87,6 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  field_languages:
-    weight: 21
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   field_reference_number:
     weight: 11
     settings:
@@ -110,7 +104,7 @@ content:
     type: string_textfield
     region: content
   field_sources:
-    weight: 26
+    weight: 20
     settings:
       match_operator: CONTAINS
       size: 60
@@ -189,4 +183,5 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_languages: true

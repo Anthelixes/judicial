@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.court_case.field_external_links
     - field.field.node.court_case.field_files
     - field.field.node.court_case.field_glossary_terms
-    - field.field.node.court_case.field_languages
     - field.field.node.court_case.field_reference_number
     - field.field.node.court_case.field_seat_of_court
     - field.field.node.court_case.field_sources
@@ -86,14 +85,6 @@ content:
     label: inline
     settings:
       link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_languages:
-    weight: 6
-    label: inline
-    settings:
-      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content

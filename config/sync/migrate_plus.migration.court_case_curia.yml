@@ -42,8 +42,8 @@ process:
   field_reference_number: reference_number
   field_date:
     plugin: format_date
-    from_format: 'Y-m-d'
-    to_format: 'Y-m-d'
+    from_format: Y-m-d
+    to_format: Y-m-d
     source: date
   field_country:
     plugin: entity_lookup
@@ -56,6 +56,7 @@ process:
   field_sources:
     plugin: entity_generate
     source: case_source
+  field_languages: languages
 destination:
   plugin: 'entity:node'
 migration_dependencies: {  }

@@ -114,9 +114,7 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     return $body;
   }
 
-  public function getAvailableLanguages($html_url) {
-    $body = $this->getSourceData($html_url);
-
+  public function getAvailableLanguages($body) {
     $xpath = new \DOMXPath($body);
     $available_languages = [];
     foreach (['en', 'es', 'ar', 'ru', 'zh-hans'] as $language) {
@@ -139,9 +137,10 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
 
     $url = $this->urls[$this->activeUrl];
 
+    $current_count = $this->activeUrl + 1;
     $count = count($this->urls);
 
-    $this->logger->log(LogLevel::INFO, "Processing court case $url ({$this->activeUrl}/$count)");
+    $this->logger->log(LogLevel::INFO, "Processing court case $url ({$current_count}/$count)");
 
     $parts = parse_url($url);
     parse_str($parts['query'], $query);
@@ -169,6 +168,9 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     ];
     if (!empty($this->urlData[$this->activeUrl]['nid'])) {
       $this->currentItem['nid'] = $this->urlData[$this->activeUrl]['nid'];
+    }
+    else {
+      $this->currentItem['languages'] = $this->getAvailableLanguages($case_html);
     }
     $this->currentItem += $this->parseNotice($notice_url);
 

@@ -31,7 +31,7 @@ content:
   body:
     label: inline
     type: text_default
-    weight: 9
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -61,7 +61,7 @@ content:
     type: datetime_default
     region: content
   field_external_links:
-    weight: 12
+    weight: 11
     label: inline
     settings:
       trim_length: 80
@@ -73,7 +73,7 @@ content:
     type: link
     region: content
   field_files:
-    weight: 10
+    weight: 9
     label: inline
     settings:
       use_description_as_link_text: true
@@ -81,18 +81,10 @@ content:
     type: file_default
     region: content
   field_glossary_terms:
-    weight: 8
+    weight: 7
     label: inline
     settings:
       link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_languages:
-    weight: 6
-    label: inline
-    settings:
-      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
@@ -113,7 +105,7 @@ content:
     type: string
     region: content
   field_sources:
-    weight: 11
+    weight: 10
     label: inline
     settings:
       link: false
@@ -121,7 +113,7 @@ content:
     type: entity_reference_label
     region: content
   field_topics:
-    weight: 7
+    weight: 6
     label: inline
     settings:
       link: false
@@ -137,6 +129,7 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_languages: true
   langcode: true
   links: true
   private_message_link: true

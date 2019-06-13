@@ -1,3 +1,4 @@
+uuid: 11b07cb5-9e68-4b6e-9ccb-3a1c03ebe321
 langcode: en
 status: true
 dependencies:
@@ -43,7 +44,4 @@ process:
 destination:
   plugin: 'entity:node'
   translations: true
-migration_dependencies:
-  required:
-    - court_case_curia
-
+migration_dependencies: {  }

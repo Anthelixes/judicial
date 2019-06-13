@@ -1,17 +1,36 @@
-uuid: c479c124-1430-4347-9f3e-460e0d404f3d
+uuid: 16436b6b-a7dd-4c18-a829-c8a22ff38c64
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
+    - options
 id: node.field_languages
 field_name: field_languages
 entity_type: node
-type: entity_reference
+type: list_string
 settings:
-  target_type: taxonomy_term
-module: core
+  allowed_values:
+    -
+      value: en
+      label: English
+    -
+      value: fr
+      label: French
+    -
+      value: es
+      label: Spanish
+    -
+      value: ru
+      label: Russian
+    -
+      value: ar
+      label: Arabic
+    -
+      value: zh-hans
+      label: 'Chinese, Simplified'
+  allowed_values_function: ''
+module: options
 locked: false
 cardinality: -1
 translatable: true
