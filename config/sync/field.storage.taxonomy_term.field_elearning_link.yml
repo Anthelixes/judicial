@@ -1,18 +1,16 @@
-uuid: df3e79d3-306b-443f-9ca5-8d0709961507
+uuid: c922fe7e-8269-49ce-9b37-94a294d94baa
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - taxonomy
 id: taxonomy_term.field_elearning_link
 field_name: field_elearning_link
 entity_type: taxonomy_term
-type: string
-settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: 1
 translatable: true

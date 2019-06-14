@@ -6,7 +6,11 @@ dependencies:
     - field.storage.node.field_url
     - node.type.course
   module:
+    - field_cardinality_customization
     - link
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
 id: node.course.field_url
 field_name: field_url
 entity_type: node
@@ -19,5 +23,5 @@ default_value: {  }
 default_value_callback: ''
 settings:
   link_type: 17
-  title: 1
+  title: 0
 field_type: link

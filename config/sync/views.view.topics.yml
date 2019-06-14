@@ -8,6 +8,7 @@ dependencies:
     - taxonomy.vocabulary.topics
   module:
     - image
+    - link
     - taxonomy
     - user
 id: topics
@@ -117,11 +118,15 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
+          click_sort_column: uri
+          type: link
           settings:
-            link_to_entity: false
-          group_column: value
+            trim_length: null
+            url_only: true
+            url_plain: true
+            rel: '0'
+            target: '0'
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -323,10 +328,10 @@ display:
           entity_type: taxonomy_term
           entity_field: langcode
           plugin_id: language
-        field_elearning_link_value:
-          id: field_elearning_link_value
+        field_elearning_link_uri:
+          id: field_elearning_link_uri
           table: taxonomy_term__field_elearning_link
-          field: field_elearning_link_value
+          field: field_elearning_link_uri
           relationship: none
           group_type: group
           admin_label: ''

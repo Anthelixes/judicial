@@ -1,0 +1,28 @@
+uuid: 9d9fb22d-ad3b-49c2-a1a9-41fcdd844630
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_course
+    - node.type.course
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: node.course.field_featured_course
+field_name: field_featured_course
+entity_type: node
+bundle: course
+label: 'Featured course'
+description: 'If checked, this course will appear in the featured courses block'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

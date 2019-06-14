@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.course.body
+    - field.field.node.course.field_featured_course
     - field.field.node.course.field_glossary_terms
     - field.field.node.course.field_image
     - field.field.node.course.field_judicial_positions
@@ -26,6 +27,16 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_featured_course:
+    weight: 6
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_glossary_terms:
     weight: 4
