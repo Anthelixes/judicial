@@ -1,0 +1,27 @@
+uuid: 42281ce6-e040-4b5a-b480-9cdcab1fdd53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_semantic_uri
+    - taxonomy.vocabulary.glossary_terms
+  module:
+    - field_cardinality_customization
+    - link
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: taxonomy_term.glossary_terms.field_semantic_uri
+field_name: field_semantic_uri
+entity_type: taxonomy_term
+bundle: glossary_terms
+label: 'Semantic URI'
+description: '<strong>DO NOT CHANGE</strong>. Corresponding unique term URI from the semantic storage. Cannot be NULL for LEO terms because they are correlated to the InforMEA API via this field.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

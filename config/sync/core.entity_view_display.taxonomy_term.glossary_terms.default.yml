@@ -5,9 +5,12 @@ dependencies:
   config:
     - field.field.taxonomy_term.glossary_terms.field_definitions
     - field.field.taxonomy_term.glossary_terms.field_importance
+    - field.field.taxonomy_term.glossary_terms.field_informea_tid
     - field.field.taxonomy_term.glossary_terms.field_informea_url
     - field.field.taxonomy_term.glossary_terms.field_related_terms
+    - field.field.taxonomy_term.glossary_terms.field_semantic_uri
     - field.field.taxonomy_term.glossary_terms.field_show_in_term_cloud
+    - field.field.taxonomy_term.glossary_terms.field_synonyms
     - field.field.taxonomy_term.glossary_terms.field_topics
     - taxonomy.vocabulary.glossary_terms
   module:
@@ -41,6 +44,15 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
+  field_informea_tid:
+    weight: 10
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_informea_url:
     weight: 7
     label: above
@@ -61,6 +73,18 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_semantic_uri:
+    weight: 8
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
   field_show_in_term_cloud:
     weight: 2
     label: above
@@ -70,6 +94,14 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_synonyms:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_topics:
     weight: 1

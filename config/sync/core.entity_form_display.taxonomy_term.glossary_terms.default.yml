@@ -5,9 +5,12 @@ dependencies:
   config:
     - field.field.taxonomy_term.glossary_terms.field_definitions
     - field.field.taxonomy_term.glossary_terms.field_importance
+    - field.field.taxonomy_term.glossary_terms.field_informea_tid
     - field.field.taxonomy_term.glossary_terms.field_informea_url
     - field.field.taxonomy_term.glossary_terms.field_related_terms
+    - field.field.taxonomy_term.glossary_terms.field_semantic_uri
     - field.field.taxonomy_term.glossary_terms.field_show_in_term_cloud
+    - field.field.taxonomy_term.glossary_terms.field_synonyms
     - field.field.taxonomy_term.glossary_terms.field_topics
     - taxonomy.vocabulary.glossary_terms
   module:
@@ -32,6 +35,13 @@ content:
     third_party_settings: {  }
     type: number
     region: content
+  field_informea_tid:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_informea_url:
     weight: 8
     settings:
@@ -46,12 +56,28 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
+  field_semantic_uri:
+    weight: 9
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_show_in_term_cloud:
     weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_synonyms:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_topics:
     weight: 2

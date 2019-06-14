@@ -1,0 +1,19 @@
+uuid: ae26313e-3b6f-4017-a879-f108ced0cd23
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - taxonomy
+id: taxonomy_term.field_semantic_uri
+field_name: field_semantic_uri
+entity_type: taxonomy_term
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

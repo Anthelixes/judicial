@@ -1,0 +1,28 @@
+uuid: b8ada431-ace6-44c7-a1af-94ca8bb84885
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_informea_tid
+    - taxonomy.vocabulary.glossary_terms
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: taxonomy_term.glossary_terms.field_informea_tid
+field_name: field_informea_tid
+entity_type: taxonomy_term
+bundle: glossary_terms
+label: 'Informea TID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
