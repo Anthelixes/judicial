@@ -1,0 +1,5 @@
+name: 'Judicial'
+description: 'This module holds general utilities for the Judicial Portal.'
+type: module
+core: 8.x
+package: Custom

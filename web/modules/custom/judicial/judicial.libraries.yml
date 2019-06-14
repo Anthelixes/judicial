@@ -1,0 +1,9 @@
+leo-terms:
+  version: 1.x
+  js:
+    js/d3.v3.min.js: { minified: true }
+    js/d3.layout.cloud.js: { minified: false }
+    js/leo-terms.js: { minified: false }
+  dependencies:
+  - core/jquery
+  - core/drupalSettings
