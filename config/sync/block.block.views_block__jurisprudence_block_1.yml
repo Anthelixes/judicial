@@ -1,0 +1,30 @@
+uuid: dc651768-8b2f-440d-927a-af93780a5267
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.jurisprudence
+  module:
+    - system
+    - views
+  theme:
+    - judicial_portal
+id: views_block__jurisprudence_block_1
+theme: judicial_portal
+region: content_2
+weight: 0
+provider: null
+plugin: 'views_block:jurisprudence-block_1'
+settings:
+  id: 'views_block:jurisprudence-block_1'
+  label: 'Related Jurisprudence'
+  provider: views
+  label_display: visible
+  views_label: 'Related Jurisprudence'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/taxonomy/term/*'
+    negate: false
+    context_mapping: {  }

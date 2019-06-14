@@ -51,7 +51,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 5
+          items_per_page: 2
           offset: 0
       style:
         type: default
@@ -189,13 +189,15 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
-      title: 'Foundation courses on environment'
+      title: Courses
       header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      link_url: /courses
+      link_display: custom_url
     cache_metadata:
       max-age: -1
       contexts:
@@ -313,10 +315,13 @@ display:
       defaults:
         filters: false
         filter_groups: false
+        title: false
       filter_groups:
         operator: AND
         groups:
           1: AND
+      title: 'Foundation courses on environment'
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -333,6 +338,7 @@ display:
       display_extenders: {  }
       display_description: ''
       block_description: Courses
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -392,6 +398,32 @@ display:
           plugin_id: numeric
       defaults:
         arguments: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        title: false
+        style: false
+        row: false
+      use_more: true
+      use_more_always: true
+      use_more_text: 'See all courses'
+      title: 'Related e-learning courses'
+      style:
+        type: grid
+        options:
+          uses_fields: false
+          columns: 1
+          automatic_width: true
+          alignment: vertical
+          col_class_default: true
+          col_class_custom: ''
+          row_class_default: true
+          row_class_custom: ''
+      row:
+        type: 'entity:node'
+        options:
+          view_mode: teaser
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:

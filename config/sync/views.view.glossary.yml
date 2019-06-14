@@ -458,7 +458,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: 'Glossary page'
     position: 1
     display_options:
       display_extenders: {  }
@@ -516,6 +516,7 @@ display:
           entity_type: taxonomy_term
           entity_field: status
           plugin_id: boolean
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
