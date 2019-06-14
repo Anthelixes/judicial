@@ -1,0 +1,28 @@
+uuid: 556e97d1-f1b7-4900-bec5-ff37d070e0a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_show_in_term_cloud
+    - taxonomy.vocabulary.glossary_terms
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: taxonomy_term.glossary_terms.field_show_in_term_cloud
+field_name: field_show_in_term_cloud
+entity_type: taxonomy_term
+bundle: glossary_terms
+label: 'Show in term cloud'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

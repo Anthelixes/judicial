@@ -1,0 +1,24 @@
+uuid: a3b011b9-9ea9-4ee7-a2a2-1a90efff737e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_definitions
+    - taxonomy.vocabulary.glossary_terms
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: taxonomy_term.glossary_terms.field_definitions
+field_name: field_definitions
+entity_type: taxonomy_term
+bundle: glossary_terms
+label: Definition(s)
+description: 'Term definition(s). One term can have several definitions according to different sources.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

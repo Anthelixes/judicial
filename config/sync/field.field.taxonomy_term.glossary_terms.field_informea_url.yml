@@ -1,0 +1,27 @@
+uuid: f405388f-5f0b-42f6-8f8d-a05aa9f7d2f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_informea_url
+    - taxonomy.vocabulary.glossary_terms
+  module:
+    - field_cardinality_customization
+    - link
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: taxonomy_term.glossary_terms.field_informea_url
+field_name: field_informea_url
+entity_type: taxonomy_term
+bundle: glossary_terms
+label: 'InforMEA page'
+description: 'Link to the term page in the InforMEA (http://informea.org) website.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

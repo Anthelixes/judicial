@@ -1,0 +1,18 @@
+uuid: aa6bbab3-a835-4a6f-a82f-21589d98efa9
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_show_in_term_cloud
+field_name: field_show_in_term_cloud
+entity_type: taxonomy_term
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

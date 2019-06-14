@@ -1,0 +1,28 @@
+uuid: 868708c1-6239-45d8-b665-73ecf4e040f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_importance
+    - taxonomy.vocabulary.glossary_terms
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: taxonomy_term.glossary_terms.field_importance
+field_name: field_importance
+entity_type: taxonomy_term
+bundle: glossary_terms
+label: Importance
+description: 'Controls the size of the term in home page term cloud. Between 0 and 100. The bigger the importance, the bigger the size on the home page term cloud.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: ''
+field_type: integer

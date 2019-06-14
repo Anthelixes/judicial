@@ -3,54 +3,82 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.glossary_terms.field_definitions
+    - field.field.taxonomy_term.glossary_terms.field_importance
+    - field.field.taxonomy_term.glossary_terms.field_informea_url
+    - field.field.taxonomy_term.glossary_terms.field_related_terms
+    - field.field.taxonomy_term.glossary_terms.field_show_in_term_cloud
     - field.field.taxonomy_term.glossary_terms.field_topics
     - taxonomy.vocabulary.glossary_terms
   module:
-    - path
-    - text
+    - link
 id: taxonomy_term.glossary_terms.default
 targetEntityType: taxonomy_term
 bundle: glossary_terms
 mode: default
 content:
-  description:
-    type: text_textarea
-    weight: 0
+  field_definitions:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
+  field_importance:
+    weight: 7
     settings:
       placeholder: ''
-      rows: 5
     third_party_settings: {  }
-  field_topics:
-    weight: 31
+    type: number
+    region: content
+  field_informea_url:
+    weight: 8
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_related_terms:
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
+  field_show_in_term_cloud:
+    weight: 5
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_topics:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 3
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  description: true
+  path: true
