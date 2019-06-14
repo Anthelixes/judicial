@@ -1,0 +1,30 @@
+uuid: 7d384015-4329-4065-a555-b2a2cca330bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.courses
+  module:
+    - system
+    - views
+  theme:
+    - judicial_portal
+id: views_block__courses_block_1
+theme: judicial_portal
+region: content_2
+weight: -6
+provider: null
+plugin: 'views_block:courses-block_1'
+settings:
+  id: 'views_block:courses-block_1'
+  label: 'Foundation courses on environment'
+  provider: views
+  label_display: visible
+  views_label: 'Foundation courses on environment'
+  items_per_page: '40'
+visibility:
+  request_path:
+    id: request_path
+    pages: /elearning
+    negate: false
+    context_mapping: {  }

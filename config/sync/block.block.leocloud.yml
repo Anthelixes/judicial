@@ -1,0 +1,26 @@
+uuid: 2a2ffe4f-c81a-4253-b909-a46c366293da
+langcode: en
+status: true
+dependencies:
+  module:
+    - judicial
+    - system
+  theme:
+    - judicial_portal
+id: leocloud
+theme: judicial_portal
+region: content_2
+weight: -4
+provider: null
+plugin: leo_cloud
+settings:
+  id: leo_cloud
+  label: 'Explore glossary terms'
+  provider: judicial
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /elearning
+    negate: false
+    context_mapping: {  }

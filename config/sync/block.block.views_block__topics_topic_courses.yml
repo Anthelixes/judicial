@@ -1,0 +1,30 @@
+uuid: e093a87f-dd62-4ed7-9cbb-ae0f03e353c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.topics
+  module:
+    - system
+    - views
+  theme:
+    - judicial_portal
+id: views_block__topics_topic_courses
+theme: judicial_portal
+region: content_2
+weight: -5
+provider: null
+plugin: 'views_block:topics-topic_courses'
+settings:
+  id: 'views_block:topics-topic_courses'
+  label: 'Advanced courses on environment'
+  provider: views
+  label_display: visible
+  views_label: 'Advanced courses on environment'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /elearning
+    negate: false
+    context_mapping: {  }

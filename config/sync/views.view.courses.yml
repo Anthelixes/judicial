@@ -189,7 +189,7 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
-      title: 'Featured Courses'
+      title: 'Foundation courses on environment'
       header: {  }
       footer: {  }
       empty: {  }
