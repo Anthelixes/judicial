@@ -1,0 +1,23 @@
+uuid: 85b20389-e01a-4869-86b8-38a1cb97fe23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_published
+    - taxonomy.vocabulary.thesaurus
+id: taxonomy_term.thesaurus.field_published
+field_name: field_published
+entity_type: taxonomy_term
+bundle: thesaurus
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Published
+  off_label: Unpublished
+field_type: boolean

@@ -1,0 +1,23 @@
+uuid: b545198e-60de-4bb3-85b5-e7d0012d80eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_show_in_term_cloud
+    - taxonomy.vocabulary.thesaurus
+id: taxonomy_term.thesaurus.field_show_in_term_cloud
+field_name: field_show_in_term_cloud
+entity_type: taxonomy_term
+bundle: thesaurus
+label: 'Show in term cloud'
+description: 'Show the term in the home page term cloud.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Show
+  off_label: Hide
+field_type: boolean

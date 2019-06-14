@@ -1,0 +1,23 @@
+uuid: d61523a1-4f6f-458f-94c7-cf2e67643329
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_informea_tid
+    - taxonomy.vocabulary.thesaurus
+id: taxonomy_term.thesaurus.field_informea_tid
+field_name: field_informea_tid
+entity_type: taxonomy_term
+bundle: thesaurus
+label: 'Informea TID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

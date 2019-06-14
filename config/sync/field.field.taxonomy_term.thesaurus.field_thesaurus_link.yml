@@ -1,0 +1,23 @@
+uuid: 020b69c4-03c4-4fb8-b5a2-bc4159f0cb2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_thesaurus_link
+    - taxonomy.vocabulary.thesaurus
+  module:
+    - link
+id: taxonomy_term.thesaurus.field_thesaurus_link
+field_name: field_thesaurus_link
+entity_type: taxonomy_term
+bundle: thesaurus
+label: Link
+description: 'Define the link to open when clicking the term on the home page term cloud.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

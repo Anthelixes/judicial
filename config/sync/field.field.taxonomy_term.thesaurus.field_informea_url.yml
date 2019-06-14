@@ -1,0 +1,23 @@
+uuid: 09ee6b06-c7d4-4058-8704-89387511a21e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_informea_url
+    - taxonomy.vocabulary.thesaurus
+  module:
+    - link
+id: taxonomy_term.thesaurus.field_informea_url
+field_name: field_informea_url
+entity_type: taxonomy_term
+bundle: thesaurus
+label: 'InforMEA page'
+description: 'Link to the term page in the InforMEA (http://informea.org) website.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link
