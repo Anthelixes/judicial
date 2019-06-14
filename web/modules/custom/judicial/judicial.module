@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function judicial_theme($existing, $type, $theme, $path) {
+  return [
+    'gpthesaurus_list_type_switcher_block' => [
+      'template' => 'glossary-list-type-switcher',
+      'variables' => [
+        'topic_page_link' => '',
+        'topic_link_classes' => [],
+        'alphabetically_page_link' => '',
+        'alphabetically_link_classes' => [],
+        'download_link' => '',
+      ]
+    ],
+  ];
+}

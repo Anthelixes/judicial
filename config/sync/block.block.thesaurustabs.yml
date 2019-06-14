@@ -1,0 +1,26 @@
+uuid: 916d128a-80c8-4121-93b4-cf4087a077ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - judicial
+    - system
+  theme:
+    - judicial_portal
+id: thesaurustabs
+theme: judicial_portal
+region: highlighted
+weight: 0
+provider: null
+plugin: judicial_thesaurus
+settings:
+  id: judicial_thesaurus
+  label: 'Thesaurus tabs'
+  provider: judicial
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/glossary\r\n/glossary/alphabetically"
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,7 @@
+judicial.download_xls:
+  path: '/glossary/download.xls'
+  defaults:
+    _controller: '\Drupal\judicial\Controller\SpreadSheetController::downloadXls'
+    _title: 'Download Glossary terms in Excel format'
+  requirements:
+    _permission: 'access content'
