@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_glossary_terms
     - node.type.forum
-    - taxonomy.vocabulary.glossary_terms
+    - taxonomy.vocabulary.thesaurus
   module:
     - field_cardinality_customization
 third_party_settings:
@@ -25,7 +25,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      glossary_terms: glossary_terms
+      thesaurus: thesaurus
     sort:
       field: name
       direction: asc

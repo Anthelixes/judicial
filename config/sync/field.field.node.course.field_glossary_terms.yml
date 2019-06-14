@@ -5,7 +5,12 @@ dependencies:
   config:
     - field.storage.node.field_glossary_terms
     - node.type.course
-    - taxonomy.vocabulary.glossary_terms
+    - taxonomy.vocabulary.thesaurus
+  module:
+    - field_cardinality_customization
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
 id: node.course.field_glossary_terms
 field_name: field_glossary_terms
 entity_type: node
@@ -20,7 +25,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      glossary_terms: glossary_terms
+      thesaurus: thesaurus
     sort:
       field: name
       direction: asc

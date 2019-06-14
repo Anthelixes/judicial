@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_featured_terms
-    - taxonomy.vocabulary.glossary_terms
+    - taxonomy.vocabulary.thesaurus
     - taxonomy.vocabulary.topics
   module:
     - field_cardinality_customization
@@ -25,7 +25,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      glossary_terms: glossary_terms
+      thesaurus: thesaurus
     sort:
       field: name
       direction: asc
