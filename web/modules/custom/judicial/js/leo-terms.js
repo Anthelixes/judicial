@@ -4,15 +4,17 @@
 
   Drupal.leoTerms.init = function(_settings) {
     var _titleBlock = $('.region-content .page');
-    var _termsBlock = $('#block-gpleoblock');
+    var _termsBlock = $('#block-leocloud');
 
-    Drupal.leoTerms.canvasHeight = _titleBlock.height();
+    Drupal.leoTerms.canvasHeight = 300;
     Drupal.leoTerms.canvasWidth = _termsBlock.width();
     Drupal.leoTerms.termsList = _settings.leoTerms.termsList;
 
+    console.log(Drupal.leoTerms.termsList);
     for (var i = 0; i < Drupal.leoTerms.termsList.length; i++) {
       Drupal.leoTerms.termsList[i].size = 10 * (1 + Drupal.leoTerms.termsList[i].importance / 10);
     }
+
 
     d3.layout.cloud()
       .size([Drupal.leoTerms.canvasWidth, Drupal.leoTerms.canvasHeight])
@@ -29,7 +31,7 @@
   };
 
   Drupal.leoTerms.drawTerms = function() {
-    d3.select("#block-gpleoblock")
+    d3.select("#block-leocloud")
       .append("svg")
       .attr("width", Drupal.leoTerms.canvasWidth)
       .attr("height", Drupal.leoTerms.canvasHeight)
@@ -76,7 +78,9 @@
 
   Drupal.behaviors.leoTerms = {
     attach: function(context, settings) {
-      Drupal.leoTerms.init(settings);
+      $('#block-leocloud').once('leoCloud').each(function () {
+        Drupal.leoTerms.init(settings);
+      });
     }
   };
 

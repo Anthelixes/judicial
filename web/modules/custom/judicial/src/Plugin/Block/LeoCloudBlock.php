@@ -3,6 +3,7 @@
 namespace Drupal\judicial\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\taxonomy\Entity\Term;
@@ -46,7 +47,7 @@ class LeoCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function build() {
-    $vid = 'glossary_terms';
+    $vid = 'thesaurus';
     $render = [];
     $tids = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery()
       ->condition('vid', $vid)
@@ -55,7 +56,7 @@ class LeoCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
     $terms = Term::loadMultiple($tids);
     /** @var \Drupal\taxonomy\TermInterface $term */
     foreach ($terms as $term) {
-      $link = $term->toUrl();
+      $link = $term->toUrl()->toString();
 
       $render[] = [
         'tid' => $term->id(),
@@ -75,6 +76,10 @@ class LeoCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
         ],
       ],
     ];
+  }
+
+  public function getCacheTags() {
+    return Cache::mergeTags(parent::getCacheTags(), ['taxonomy_term_list']);
   }
 
 }
