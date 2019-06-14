@@ -1,0 +1,121 @@
+.gpleo-content-header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.gpleo-related-tab-content {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+
+  .tab-label {
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  .gpleo-content {
+
+    .gpleo-tab-content-row {
+      padding-top: 35px;
+      padding-bottom: 35px;
+
+      border-bottom: 1px solid #b7b7b7;
+
+      &.last {
+        border-bottom: none;
+      }
+
+      .accordion-label {
+        position: relative;
+        cursor: pointer;
+
+        &:before {
+          position: absolute;
+          left: 0;
+          font-size: 20px;
+          color: $gpw-secondary;
+          // @TODO Place icon here.
+          content: ' ';
+        }
+
+        &.active {
+          // @TODO Place icon here.
+          content: ' ';
+        }
+      }
+
+      .gp-leo-row-title {
+        margin-top: 10px;
+
+        .leo-title {
+          font-weight: bold;
+          font-size: 18px;
+        }
+      }
+
+      .gp-leo-row-description {
+        margin-top: 10px;
+      }
+
+      .treaty-tabs {
+        .gp-leo-treaty-articles-label {
+          span.collapsable-article {
+            color: #1378c5;
+            font-weight: bold;
+            font-size: 18px;
+            &:before {
+              font-size: 20px;
+              content: "+";
+            }
+          }
+          &.active {
+            span.collapsable-article {
+              &:before {
+                font-size: 20px;
+                content: "-";
+              }
+            }
+          }
+        }
+      }
+
+      .leo-article-title {
+        span.collapsable-article {
+          color: #1378c5;
+          font-weight: bold;
+          font-size: 18px;
+          &:before {
+            font-size: 20px;
+            content: "+";
+          }
+        }
+        &.active {
+          span.collapsable-article {
+            &:before {
+              font-size: 20px;
+              content: "-";
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.gpleo-content-footer {
+  margin-top: 20px;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.blue {
+  color: #1378c5;
+}
+
+.blue-fill {
+  fill: #1378c5;
+}

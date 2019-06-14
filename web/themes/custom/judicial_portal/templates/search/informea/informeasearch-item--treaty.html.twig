@@ -1,0 +1,8 @@
+{% extends "informeasearch-item.html.twig" %}
+  {% block undertags %}
+    <div class="blue external-links">
+      <a href="{{ doc_item.treaty_text_link }}" target="_blank">{{ 'Full treaty text'|t }}</a>
+      |
+      <a href="{{ doc_item.treaty_decisions_link }}" target="_blank">{{ 'Meeting decisions'|t }}</a>
+    </div>
+  {% endblock %}

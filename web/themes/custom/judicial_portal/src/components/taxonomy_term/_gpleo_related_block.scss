@@ -1,0 +1,80 @@
+#gpleo_related_wrapper {
+  display: none;
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid $gpw-secondary;
+
+  #gpleo_related_header {
+
+    #gpleo_related_blue {
+      color: white;
+      background-color: $gpw-secondary;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      text-transform: uppercase;
+      font-size: 16px;
+
+      span.blue {
+        margin-bottom: -6px;
+        fill: white !important;
+        font-size: 20px;
+        height: 1.2em;
+        width: 1.5em;
+
+        .icon-tag {
+          margin-bottom: -7px;
+        }
+      }
+    }
+  }
+
+  #gpleo_related_title {
+    padding: 15px;
+
+    .term-name {
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+
+  #gpleo_related_content {
+    padding: 15px;
+
+    #gpleo_related_tabs {
+      padding: 0 15px;
+      border-bottom: 1px solid $text-muted;
+
+      .gpleo-related-tab {
+        display: none;
+        float: left;
+        border: 1px solid $text-muted;
+        //background-color: transparent;
+        color: $gpw-secondary;
+        padding: 10px 15px;
+        margin-bottom: -1px;
+        margin-right: -1px;
+        cursor: pointer;
+        -moz-box-sizing: border-box;
+
+        &.active {
+          //background-color: transparent;
+          border-color: $text-muted;
+          border-bottom-color: white;
+          font-weight: bold;
+          color: #333333;
+        }
+      }
+    }
+
+    #gpleo_related_tabs_content_wrapper {
+      // All styles for this part in the additional files.
+    }
+  }
+}
+
+#gpleo_related_informea_logo {
+  float: right;
+  margin-right: 5%;
+  margin-left: 0;
+  width: auto;
+}

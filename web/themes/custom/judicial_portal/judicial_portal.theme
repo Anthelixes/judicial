@@ -1,0 +1,438 @@
+<?php
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\Core\Menu\MenuTreeParameters;
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+function judicial_portal_preprocess(&$variables) {
+  $variables['base_path'] = base_path();
+}
+
+//function judicial_portal_preprocess_node(&$variables) {
+//  $node = $variables['node'];
+//  if ($node->bundle()== 'document') {
+//    $variables['#cache']['max-age'] = 0;
+//    if (!empty($node->field_file->getValue())) {
+//      $fieldFile = $node->field_file->getValue();
+//      $fid = $fieldFile[0]['target_id'];
+//      if ( $file = File::load($fid)) {
+//        $options = [];
+//        $file_size = $file->getSize();
+//        $mime_type = $file->getMimeType();
+//        $options['attributes'] = [
+//          'type' => "$mime_type; length=$file_size",
+//          'title' => $file->getFilename(),
+//          'target' =>'_blank',
+//        ];
+//
+//        $url = file_create_url($file->getFileUri());
+//
+//        if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical'
+//          && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')
+//        ) {
+//          $documentTags = \Drupal::service('gpleo.documents.tags');
+//          if ($page = $documentTags->documentTagsPageNumber($tid, $node->id())) {
+//            $url .= "#page=$page";
+//          }
+//        }
+//        $variables['document_type'] = pathinfo($file->getFileUri(), PATHINFO_EXTENSION);
+//        if ($variables['document_type'] == 'pdf') {
+//          $url = \Drupal::request()->getSchemeAndHttpHost() . '/pdf.js/web/viewer.html?file=' . str_replace(\Drupal::request()->getSchemeAndHttpHost(), '',$url);
+//        }
+//        $variables['document_file'] = Link::fromTextAndUrl(t('View') , Url::fromUri($url, $options));
+//
+//      }
+//    }
+//  }
+//}
+//
+//function judicial_portal_preprocess_taxonomy_term(&$variables) {
+//
+//  $term = $variables['term'];
+//  /** @var Drupal\taxonomy\Entity\Term $term */
+//  if ($term->bundle()== 'thesaurus') {
+//
+//    $gpleoTerms = \Drupal::service('gpleo.terms');
+//
+//    // Load Broader terms.
+//    $parents = [];
+//    foreach ($gpleoTerms->parents() as $tid => $label) {
+//      $link = \Drupal\Core\Link::fromTextAndUrl($label, \Drupal\Core\Url::fromRoute('entity.taxonomy_term.canonical', ['taxonomy_term' => $tid], ['attributes' => ['class' => 'thesaurus--term']]));
+//      $parents[] = $link->toRenderable();
+//    }
+//     if ($parents) {
+//      $info = [
+//        '#theme' => 'field',
+//        '#title' => t('Broader'),
+//        '#label_display' => t('Broader'),
+//        '#view_mode' => '',
+//        '#language' => '',
+//        '#field_name' => 'field_parents',
+//        '#field_type' => 'entity_reference',
+//        '#field_translatable' => TRUE,
+//        '#entity_type' => 'taxonomy',
+//        '#bundle' => 'thesaurus',
+//        '#object' => [],
+//        '#items' => $parents,
+//        '#formatter' => '',
+//        '#is_multiple' => TRUE,
+//      ];
+//
+//       $variables['parents'] = array_merge($info, $parents);
+//      }
+//
+//    // Load Narrower terms.
+//    $children = [];
+//    foreach ($gpleoTerms->children() as $tid => $label) {
+//      $link = \Drupal\Core\Link::fromTextAndUrl($label, \Drupal\Core\Url::fromRoute('entity.taxonomy_term.canonical', ['taxonomy_term' => $tid], ['attributes' => ['class' => 'thesaurus--term']]));
+//      $children[] = $link->toRenderable();
+//    }
+//    if ($children) {
+//      $info = [
+//        '#theme' => 'field',
+//        '#title' => t('Narrower'),
+//        '#label_display' => t('Narrower'),
+//        '#view_mode' => '',
+//        '#language' => '',
+//        '#field_name' => 'field_children',
+//        '#field_type' => 'entity_reference',
+//        '#field_translatable' => TRUE,
+//        '#entity_type' => 'taxonomy',
+//        '#bundle' => 'thesaurus',
+//        '#object' => [],
+//        '#items' => $children,
+//        '#formatter' => '',
+//        '#is_multiple' => TRUE,
+//      ];
+//      $variables['children'] = array_merge($info, $children);
+//    }
+//
+//    }
+//}
+//
+//function judicial_portal_preprocess_page(&$variables) {
+//  // @todo: Implement field on page.
+//  // Enable inverse navbar based on page setting.
+//  if($variables['is_front']) {
+//    $variables['page']['navbar_inverse'] = true;
+//  }
+//  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+//    if (!($node instanceof \Drupal\node\NodeInterface) && is_string($node)) {
+//      $node = \Drupal::entityManager()->getStorage('node')->load($node);
+//    }
+//    // Check for video field on webinar full page and mark title.
+//    if ($node instanceof \Drupal\node\NodeInterface && $node->bundle() == 'webinar') {
+//      if (!empty($node->field_video->getValue()) && !empty($variables['page']['title'])) {
+//        $variables['page']['title']['#attributes']['class'][] = 'has-video';
+//      }
+//    }
+//  }
+//
+//  // Check if it's a glossary term page.
+//  /** @var \Drupal\taxonomy\Entity\Term $term */
+//  if ($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
+//    if ($term->getVocabularyId() == 'thesaurus') {
+//      $variables['is_glossary_term'] = TRUE;
+//    }
+//  }
+//
+//  if (\Drupal::routeMatch()->getRouteName() == 'view.thesaurus.page_alphabetically') {
+//    array_unshift($variables['page']['title'], [
+//      '#markup' => '<h1 class="page-header">' . new \Drupal\Core\StringTranslation\TranslatableMarkup('Glossary') . '</h1>'
+//    ]);
+//  }
+//}
+//
+///**
+// * Implements hook_preprocess_HOOK() for block templates.
+// *
+// * @see: \Drupal\gpw\Plugin\Preprocess\Block
+// */
+//function judicial_portal_preprocess_block(&$variables) {
+//  if ($variables['base_plugin_id'] == 'views_block') {
+//    switch ($variables['plugin_id']) {
+//      case 'views_block:documents-thesaurus_documents':
+//      case 'views_block:videos-thesaurus_videos':
+//      case 'views_block:highlighted_courses-thesaurus_courses':
+//      case 'views_block:meetings-thesaurus_next_meetings':
+//      case 'views_block:meetings-thesaurus_past_meetings':
+//      case 'views_block:news-thesaurus_news':
+//        $variables['#cache']['max-age'] = 0;
+//        $variables['contexts'][] = 'url.path';
+//
+//        if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical'
+//          && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')
+//          ) {
+//            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+//            if ($term->bundle() != 'thesaurus') {
+//              $variables = [
+//                'plugin_id' => $variables['plugin_id'],
+//                'base_plugin_id' => $variables['base_plugin_id'],
+//                '#cache' => $variables['#cache'],
+//                'contexts' => $variables['contexts'],
+//              ];
+//            }
+//          } else {
+//          $variables = [
+//            'plugin_id' => $variables['plugin_id'],
+//            'base_plugin_id' => $variables['base_plugin_id'],
+//            '#cache' => $variables['#cache'],
+//            'contexts' => $variables['contexts'],
+//          ];
+//        }
+//      default:
+//        break;
+//    }
+//  }
+//
+//  // @todo: get .svg logo
+//  switch ($variables['base_plugin_id']) {
+//    case 'system_branding_block':
+//      $variables['site_logo'] = '';
+//      if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
+//        $variables['site_logo'] = str_replace('.svg', '.png', $variables['content']['site_logo']['#uri']);
+//      }
+//      break;
+//
+//    case 'gpleo_block':
+//      $variables['#cache']['tags'][] = 'taxonomy_term_list';
+//      break;
+//  }
+//
+//
+//}
+//
+///**
+// * Implements hook_preprocess_HOOK().
+// */
+//function judicial_portal_preprocess_views_view(&$variables) {
+//  if($variables['id'] == 'news' && $variables['display_id'] == 'latest_news') {
+//    $variables['more']['#attributes']['class'][] = 'btn btn-outline';
+//  }
+//}
+//
+///**
+// * Implements hook_preprocess_HOOK().
+// */
+//function judicial_portal_preprocess_menu__footer(&$variables) {
+//  $variables['attributes']['class'][] = 'navbar-nav';
+//}
+//
+///**
+// * Implements hook_preprocess_HOOK().
+// */
+//function judicial_portal_preprocess_region(&$variables) {
+//  if($variables['region'] == 'title') {
+//    $variables['attributes']['class'][] = 'hero';
+//    $variables['attributes']['role'] = 'heading';
+//  }
+//}
+//
+///**
+// * Implements hook_preprocess_HOOK().
+// */
+//function judicial_portal_preprocess_page_title(&$variables) {
+//  /** @var \Drupal\node\Entity\Node $node */
+//  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+//    if (!($node instanceof \Drupal\node\NodeInterface) && is_string($node)) {
+//      $node = \Drupal::entityManager()->getStorage('node')->load($node);
+//    }
+//
+//    if (empty($node)) {
+//      return;
+//    }
+//
+//    switch ($node->bundle()) {
+//      // fields removed in node--meeting--full.html.twig
+//      case 'meeting' :
+//        $variables['subtitle']['#class'] = 'meeting-subtitle';
+//        if (!empty($node->field_address)) {
+//          $variables['subtitle']['address'] = $node->field_address->view('full');
+//        }
+//        if (!empty($node->field_date_range)) {
+//          $variables['subtitle']['date'] = $node->field_date_range->view('full');
+//
+//          if ($node->field_tentative->value) {
+//            $variables['subtitle']['date']['#suffix'] = " (" . \Drupal::translation()->translate("Tentative") . ")";
+//          }
+//        }
+//
+//        break;
+//
+//      // fields removed in node--webinar--full.html.twig
+//      case 'webinar':
+//
+//        if (!empty($node->field_date_range)) {
+//          $variables['subtitle']['date'] = $node->field_date_range->view('full');
+//        }
+//
+//        if (!empty($node->field_signup_link)) {
+//          $signup_link = $node->field_signup_link->getValue();
+//          if (isset($signup_link[0]['uri'])) {
+//            if ($node->field_date_range && $date_range = $node->field_date_range->getValue()) {
+//              if (isset($date_range[0]['end_value']) && !empty($date_range[0]['end_value'])) {
+//                if (date("Y-m-d") <= $date_range[0]['end_value']) {
+//                  $variables['signup_link'] = [
+//                    '#title' => t('Sign up now'),
+//                    '#type' => 'link',
+//                    '#attributes' => [
+//                      'class' => [
+//                        'btn',
+//                        'btn-outline',
+//                      ],
+//                      'target' => '_blank',
+//                    ],
+//                    '#url' => Drupal\Core\Url::fromUri($signup_link[0]['uri']),
+//                  ];
+//                }
+//              }
+//            }
+//          }
+//        }
+//        if (!empty($node->field_video->entity)) {
+//          $variables['video'] = $node->field_video->view('full');
+//        }
+//        break;
+//
+//      // fields removed in node--course--full.html.twig
+//      case 'course':
+//        $variables['is_full_course'] = TRUE;
+//        if (!empty($node->body->getValue())) {
+//          $variables['content_left']['body'] = $node->body->view('full');
+//        }
+//        if (!empty($node->field_key_points->getValue())) {
+//          $variables['content_left']['field_key_points'] = $node->field_key_points->view('full');
+//        }
+//        if (!empty($node->field_video->getValue())) {
+//          $variables['content_right']['field_video'] = $node->field_video->view('full');
+//        }
+//        if (!empty($node->field_e_learning_link->getValue())) {
+//          $variables['content_right']['field_e_learning_link'] = $node->field_e_learning_link->view('full');
+//        }
+//        if (!empty($node->field_includes->getValue())) {
+//          $variables['content_right']['field_includes'] = $node->field_includes->view('full');
+//        }
+//        break;
+//
+//      // fields removed in node--news--full.html.twig
+//      case 'news':
+//        if (!empty($node->field_date)) {
+//          $variables['subtitle']['date'] = $node->field_date->view('full');
+//
+//        }
+//        if (!empty($node->field_news_category)) {
+//          $variables['subtitle']['news_category'] = $node->field_news_category->view('full');
+//        }
+//        break;
+//      case 'report_page':
+//        $variables['subtitle'] = $node->label();
+//        $variables['title'] = new \Drupal\Core\StringTranslation\TranslatableMarkup(
+//          '<div class="page-header-report-title"><div class="h1-report-uber-title">Report by the Secretary General of the United Nations</div><div class="h1-report-title">Gaps in international environmental law and environment-related instruments:</div><div class="h1-report-subtitle">Towards a global pact for the environment</div></div>'
+//        );
+//
+//        break;
+//
+//      default:
+//        break;
+//
+//    }
+//  }
+//}
+//
+///**
+// * Implements hook_preprocess_field().
+// */
+//function judicial_portal_preprocess_field(&$variables) {
+//  if ($variables['field_name'] == 'field_e_learning_link') {
+//    if (!empty($variables['items'])) {
+//      foreach ($variables['items'] as &$item) {
+//        $item['content']['#options']['attributes']['class'][] = 'btn';
+//      }
+//    }
+//  }
+//}
+//
+///**
+// * Implements hook_preprocess_views_view_table().
+// */
+//function judicial_portal_preprocess_views_view_table(&$variables) {
+//  if ($variables['view']->element['#view_id'] == 'agenda_items') {
+//    $node = \Drupal::routeMatch()->getParameter('node');
+//    if (!$node instanceof \Drupal\node\NodeInterface) {
+//      return;
+//    }
+//    if (empty($node->field_agenda_items->entity)) {
+//      return;
+//    }
+//    // Add a class to child agenda items.
+//    $agenda_items = $node->field_agenda_items->getValue();
+//    foreach ($variables['rows'] as $idx => $row) {
+//      $agenda_id = $agenda_items[$idx]['target_id'];
+//      $agenda_item = \Drupal\eck\Entity\EckEntity::load($agenda_id);
+//      $is_child = $agenda_item->field_is_child->value;
+//      if (!empty($is_child)) {
+//        $variables['rows'][$idx]['attributes']->addClass('is-child');
+//      }
+//    }
+//    $variables['striped'] = FALSE;
+//
+//    foreach ($variables['header'] as $key => &$header){
+//      $icon = FALSE;
+//      switch ($key){
+//        case 'field_date_range':
+//          $icon = 'calendar';
+//          break;
+//        default:
+//        break;
+//      }
+//      if($icon) {
+//        $header['content'] = array(
+//          '#theme' => 'icon_prefix',
+//          '#icon' => $icon,
+//          '#content' => $variables['header'][$key]['content'],
+//        );
+//      }
+//    }
+//  }
+//}
+//
+///**
+// * Implements hook_suggestions_HOOK_alter().
+// */
+//// function judicial_portal_theme_suggestions_views_view_unformatted_alter(&$suggestions, &$variables) {
+////   $view_element = $variables['view']->element;
+////   // $suggestions[] = $variables['theme_hook_original'] . '--' . $view_element['#view_id'];
+////   // $suggestions[] = $variables['theme_hook_original'] . '--' . $view_element['#view_id'] . '--' . $view_element['#display_id'] ;
+//// }
+//
+///**
+// * Implements hook_suggestions_HOOK_alter().
+// */
+//function judicial_portal_theme_suggestions_page_alter(&$suggestions, &$vars) {
+//  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical' && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
+//    $term = Term::load($tid);
+//    $suggestions[] = 'page__taxonomy__' . $term->getVocabularyId();
+//  }
+//  if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical' && $node = \Drupal::routeMatch()->getParameter('node')) {
+//    $suggestions[] = 'page__node__' . $node->bundle();
+//  }
+//}
+//
+///**
+// * Implements hook_theme().
+// */
+//function judicial_portal_theme($existing, $type, $theme, $path) {
+//  return array(
+//    'icon_prefix' => ['variables' => [
+//      'icon' => null,
+//      'content' => null
+//    ]],
+//  );
+//}

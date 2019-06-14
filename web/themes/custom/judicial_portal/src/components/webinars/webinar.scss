@@ -1,0 +1,74 @@
+@import '../../utilities';
+@import '../video/video';
+
+.page-node-type-webinar {
+  .hero {
+    background-color: $gpw-primary;
+    background-image: none;
+    color: #111111;
+    // &.has-video {
+    //   padding-bottom: 40vw;
+    //   @media #{$tablet} {
+    //     padding-bottom: 29rem;
+    //   }
+    // }
+    .subtitle {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .signup-link {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      > a {
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+      }
+    }
+  }
+
+  // .hero.has-video ~ .content-wrapper {
+  //   margin-top: -40vw;
+  //   @media #{$tablet} {
+  //     margin-top: -29rem;
+  //   }
+  // }
+
+  .page-header {
+    text-transform: none;
+  }
+
+}
+
+.webinar {
+  &.full {
+    .field--name-field-files > .field--label, .field--name-body > .field--label {
+      @extend %heading-default;
+      margin-bottom: 3rem;
+    }
+
+    .content-group {
+      clear: both;
+      > .col {
+        margin-top: 3rem;
+        @media #{$tablet} {
+          margin-top: 5rem;
+        }
+      }
+    }
+
+    .field--name-field-files {
+      .field--item {
+        font-family: $font-family-regular;
+      }
+
+      .field--item + .field--item {
+        margin-top: 1em;
+      }
+    }
+
+  }
+
+
+
+}

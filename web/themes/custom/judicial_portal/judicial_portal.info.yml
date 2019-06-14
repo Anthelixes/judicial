@@ -1,0 +1,29 @@
+core: 8.x
+type: theme
+base theme: bootstrap
+
+name: 'Judicial Portal theme'
+description: 'Uses the Bootstrap framework SASS source files and must be compiled (not for beginners).'
+package: 'Bootstrap'
+
+regions:
+  top_bar: 'Top Bar'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  title: 'Title'
+  content: 'Content'
+  content_2: 'Content #2'
+  content_3: 'Content #3'
+  content_4: 'Content #4'
+  content_5: 'Content #5'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries-extend:
+  bootstrap/framework:
+    - judicial_portal/framework

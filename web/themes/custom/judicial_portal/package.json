@@ -1,0 +1,43 @@
+{
+  "name": "gpw",
+  "version": "1.0.0",
+  "description": "Global Pact Website theme",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.0",
+    "cssnano": "^4.0.5",
+    "file-loader": "^2.0.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-cli": "^2.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sass-import-once": "^2.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-svg-sprite": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
+    "lib-sass-data-uri": "0.0.3",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^5.3.0",
+    "postcss-rtl": "^1.3.2",
+    "pump": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "svg4everybody": "^2.1.9",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production webpack -p",
+    "start": "NODE_ENV=development webpack --progress --colors --watch",
+    "theme:watch": "gulp",
+    "theme:build": "gulp build",
+    "postinstall": "gulp build"
+  }
+}

@@ -1,0 +1,40 @@
+{% extends "node--external-resource--search-result.html.twig" %}
+  {% block logo %}
+    {% if content.field_image is defined and content.field_image is not empty %}
+      <div class="col-sm-4">
+        <div class="logo-image">
+          {{ content.field_image }}
+        </div>
+      </div>
+    {% endif %}
+  {% endblock logo %}
+
+  {% block tags %}
+    <div class="tags text-muted">
+      <span class="document-date">
+        {{ node.field_date[0].date|date('d M Y')|t }}
+      </span>
+      <span class="type">
+            {{ icons.get('tag', base_path ~ directory, '', 20, 20) }}
+        {{ 'Course'|t }}
+
+        {% if node.field_topic.isEmpty == false %}
+          in
+          {{ dump(node.field_topic) }}
+          {% for key, value in node.field_topic %}
+            {% if key > 0 %}
+              {{ ', ' }}
+              {{ value }}
+            {% endif %}
+            {{ value.entity.name.value }}
+          {% endfor %}
+        {% endif %}
+      </span>
+    </div>
+  {% endblock tags %}
+
+  {% block url %}
+    <a href="{{ node.field_link[0].value.uri }}" target="_blank">
+      {{ icons.get('link-icon', base_path ~ directory, '', 25, 25) }}
+    </a>
+  {% endblock url %}

@@ -1,0 +1,141 @@
+fonts:
+  css:
+    theme:
+      '//use.fontawesome.com/releases/v5.4.1/css/all.css': { type: external, minified: true }
+      '//fonts.googleapis.com/css?family=Roboto+Condensed:400,700': { type: external, minified: true }
+      '//fonts.googleapis.com/css?family=Roboto:400,700': { type: external, minified: true }
+      fonts/alternategotno2dregular.css: {}
+
+bootstrap:
+  css:
+    theme:
+      dist/bootstrap/overrides/style.css: {}
+  js:
+    dist/bootstrap/overrides/bootstrap.js: {}
+
+base:
+  css:
+    theme:
+      dist/components/base/base.css: {}
+      dist/components/address/address.css: {}
+
+buttons:
+  css:
+    theme:
+      dist/components/buttons/buttons.css: {}
+
+block:
+  css:
+    theme:
+      dist/components/block/block.css: {}
+
+header:
+  css:
+    theme:
+      dist/components/navbar/navbar.css: {}
+
+hero:
+  css:
+    theme:
+      dist/components/hero/hero.css: {}
+
+footer:
+  css:
+    theme:
+      dist/components/footer/footer.css: {}
+
+meetings:
+  css:
+    theme:
+      dist/components/meetings/meeting.css: {}
+      dist/components/meetings/meetings-views.css: {}
+
+webinars:
+  css:
+    theme:
+      dist/components/webinars/webinar.css: {}
+
+news:
+  css:
+    theme:
+      dist/components/news/news.css: {}
+      dist/components/news/news-views.css: {}
+report_page:
+  css:
+    theme:
+      dist/components/report_page/report_page.css: {}
+
+documents:
+  css:
+    theme:
+      dist/components/documents/documents.css: {}
+
+external_resources:
+  css:
+    theme:
+      dist/components/external_resources/external_resources.css: {}
+
+glossary:
+  css:
+    theme:
+      dist/components/glossary/glossary.css: {}
+
+filter:
+  css:
+    theme:
+      dist/components/filter/filter.css: {}
+
+courses:
+  css:
+    theme:
+      dist/components/courses/course.css: {}
+
+search:
+  css:
+    theme:
+      dist/components/search/search.css: {}
+
+page:
+  css:
+    theme:
+      dist/components/page/page.css: {}
+  dependencies:
+    - judicial_portal/header
+    - judicial_portal/hero
+    - judicial_portal/footer
+
+taxonomy_term:
+  css:
+    theme:
+      dist/components/taxonomy_term/taxonomy_term.css: {}
+
+
+homepage:
+  css:
+    theme:
+      dist/components/homepage/homepage.css: {}
+
+framework:
+  css: {}
+  js:
+    dist/js/main.js: {}
+  dependencies:
+    - core/jquery
+    - judicial_portal/fonts
+    - judicial_portal/bootstrap
+    - judicial_portal/base
+    - judicial_portal/buttons
+    - judicial_portal/block
+    - judicial_portal/page
+    - judicial_portal/meetings
+    - judicial_portal/webinars
+    - judicial_portal/news
+    - judicial_portal/documents
+    - judicial_portal/external_resources
+    - judicial_portal/filter
+    - judicial_portal/courses
+    - judicial_portal/search
+    - judicial_portal/homepage
+    - judicial_portal/glossary
+    - judicial_portal/taxonomy_term
+    - judicial_portal/report_page

@@ -1,0 +1,122 @@
+@import '../../utilities';
+@import 'meetings-agenda';
+@import 'meetings-reports';
+
+.webinar, .meeting {
+  &.teaser,
+  &.full-page-timeline-teaser {
+    position: relative;
+    padding-left: 5.5rem;
+    padding-top: 1.4rem;
+    padding-right: $grid-gutter-width / 2;
+    background-color: $body-bg;
+
+    h2 {
+      font-size: 2.1rem;
+      margin-top: 0;
+      background-color: inherit;
+
+      a {
+        color: $text-color;
+
+        &:hover, &:focus {
+          color: $gpw-secondary;
+          text-decoration: none;
+        }
+
+      }
+
+    }
+
+    .content {
+      color: $text-muted;
+      display: flex;
+      flex-wrap: wrap;
+
+      .field + .field:before {
+        content: '|';
+        margin: 0 .2em;
+      }
+      .field + .field--name-field-tentative {
+        margin: 0 .2em;
+        &:before {
+          content: none;
+        }
+      }
+    }
+
+    .btn-outline {
+      &:hover,
+      &:focus {
+        background-color: $link-color;
+        color: #fff;
+      }
+    }
+
+  }
+
+
+}
+
+.webinar.teaser,
+.webinar.full-page-timeline-teaser {
+  h2 > a {
+    color: $gpw-primary;
+
+    &:hover, &:focus {
+      color: darken($gpw-primary, 5%);
+    }
+
+  }
+
+}
+
+.meeting-subtitle {
+  display:inline-flex;
+  flex-wrap: wrap;
+  .field {
+    &:not(:first-child) {
+      &:before {
+        content: ', ';
+      }
+    }
+  }
+}
+
+#views-exposed-form-meetings-page-1 {
+  .bef-links {
+    display: flex;
+
+    a.is-active {
+      border-bottom: 3px solid;
+      color: #1378c5;
+    }
+  }
+}
+
+.view-id-submissions {
+  th {
+    border-bottom: 2px solid black !important;
+    border-top: 1px solid black !important;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    font-style: italic;
+  }
+  td {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    background: white;
+  }
+}
+
+.submissions-header {
+  padding-top:20px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.block-views-blockreports-block-1 {
+  margin-top: 30px;
+}
+

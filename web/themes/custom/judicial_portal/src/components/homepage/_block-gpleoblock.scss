@@ -1,0 +1,18 @@
+#block-gpleoblock {
+  position: relative;
+  background-color: #eee;
+
+  &:before {
+    display: block;
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 8.6666667%;
+    background-image: url(#{$images-path}arrow_white.svg);
+    background-position: 0 0;
+    background-size: 100% 100%;
+    background-color: #eee;
+  }
+}

@@ -1,0 +1,41 @@
+{% extends "node--external-resource--search-result.html.twig" %}
+  {% block logo %}
+    {% if content.field_date_range is defined and content.field_date_range is not empty %}
+      {% set day = node.field_date_range[0].value|date('d') %}
+      {% set month = node.field_date_range[0].value|date('M') %}
+      {% set year = node.field_date_range[0].value|date('Y') %}
+      <div class="col-sm-2">
+        <div class="logo-image">
+          <div class="month text-align-center blue">
+            {{ month }}.
+          </div>
+          <div class="day text-align-center">
+            {{ day }}
+          </div>
+          <div class="year text-align-center">
+            {{ year }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endblock logo %}
+
+  {% block tags %}
+    <div class="tags text-muted">
+      <span class="document-date">
+        {{ content.field_date_range }}
+      </span>
+      <span class="type">
+        {{ icons.get('tag', base_path ~ directory, '', 20, 20) }}
+        {{ 'Meeting'|t }}
+        in
+        {% for key, value in node.field_topic %}
+          {% if key > 0 %}
+            {{ ', ' }}
+            {{ value }}
+          {% endif %}
+          {{ value.entity.name.value }}
+        {% endfor %}
+      </span>
+    </div>
+  {% endblock tags %}

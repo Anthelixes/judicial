@@ -1,0 +1,180 @@
+.gpsearch-fulltext-block {
+  z-index: 2;
+
+  #gpsearch_block_form_wrapper {
+    min-height: 70px; // By default this height is less then form height.
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #gpsearch_form {
+    position: relative;
+    z-index: 5;
+
+    #gpsearch_text {
+      height: 50px;
+      border: 1px solid $gpw-primary;
+      border-radius: 25px;
+      padding: 10px 60px 10px 25px;
+      background-color: white;
+    }
+
+    .glyphicon-search {
+      pointer-events: all;
+      right: 0px;
+      display: flex;
+      background-color: $gpw-primary;
+      height: 50px;
+      width: 50px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+
+      &:before {
+        color: white;
+      }
+    }
+  }
+
+  #gpsearch_help {
+    padding: 15px 25px;
+    z-index: 3;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    &.hide {
+      display: none !important;
+    }
+
+    #gpsearch_help_link {
+      color: $informea-blue;
+      margin-left: 5px;
+    }
+  }
+
+  #gpsearch_terms_list {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    z-index: 4;
+    margin-top: -25px;
+    border: none;
+    background-color: white;
+    height: 0;
+    padding: 0;
+    transition: all 400ms;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &.active {
+      height: 250px;
+      padding: 30px 0px 20px 0px;
+      border: 1px solid $gpw-primary;
+      border-top: none;
+
+      &:after {
+        content: ' ';
+        display: block;
+        height: 15px;
+      }
+    }
+
+    .gpsearch-autocomplete-item {
+      position: relative;
+      display: block;
+      padding: 5px 25px;
+      white-space: nowrap;
+      width: 100%;
+      overflow-x: hidden;
+      color: $text-dark;
+      text-decoration: none;
+      font-size: 16px;
+
+      &:hover,
+      &.hover {
+        background-color: $gpw-secondary;
+        color: white;
+        font-weight: bold;
+
+        .help-text {
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 7px;
+          color: #bebebe;
+          font-size: 12px;
+          font-style: italic;
+
+          &:after {
+            content: '\e041';
+            font-family: Glyphicons Halflings;
+            margin: 0 5px;
+          }
+        }
+      }
+
+      .help-text {
+        display: none;
+      }
+    }
+
+    .gpsearch-autocomplete-suggestion {
+      .help-text {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 7px;
+        color: #bebebe;
+        font-size: 12px;
+        font-style: italic;
+
+        &:after {
+          content: '\e041';
+          font-family: Glyphicons Halflings;
+          margin: 0 5px;
+        }
+      }
+    }
+
+    .search-delimiter {
+      max-height: 25px;
+
+      .search-delimiter-text {
+        height: inherit;
+        padding-left: 10px;
+      }
+
+      .search-delimiter-line {
+        height: inherit;
+
+        hr {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+.view-id-gpe_search_page .form-item-search-api-fulltext,
+.view-id-gpe_search_page #edit-submit-gpe-search-page {
+  display: none;
+}
+
+.block-more-on-informea-block {
+  .form-group {
+    margin-bottom: .5rem;
+  }
+  .more-link {
+    display: block;
+    padding-bottom: 2rem;
+  }
+  i {
+    font-size: 1rem;
+    padding-left: .5rem;
+  }
+}

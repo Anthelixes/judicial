@@ -1,0 +1,23 @@
+{% extends "node--external-resource--search-result.html.twig" %}
+  {% block logo %}
+    {% import "@judicial_portal/_icons.twig" as icons %}
+    {% if content.field_file is defined and content.field_file is not empty %}
+      <div class="col-sm-2">
+        <div class="logo-image">
+          {{ icons.get('file-alt', base_path ~ directory, '', 110, 130) }}
+        </div>
+      </div>
+    {% endif %}
+  {% endblock logo %}
+
+  {% block download %}
+    <div class="download">
+      {{ content.field_file }}
+    </div>
+  {% endblock %}
+
+  {% block url %}
+    <a href="{{ file_url(node.field_file[0].entity.uri.value) }}" target="_blank">
+      {{ icons.get('link-icon', base_path ~ directory, '', 25, 25) }}
+    </a>
+  {% endblock url %}

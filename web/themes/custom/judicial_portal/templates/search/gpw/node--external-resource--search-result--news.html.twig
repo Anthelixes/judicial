@@ -1,0 +1,31 @@
+{% extends "node--external-resource--search-result.html.twig" %}
+
+ {% block logo %}
+   {% if content.field_file is defined and content.field_file is not empty %}
+     <div class="col-sm-3">
+       <div class="logo-image">
+         {{ icons.get('file-alt', base_path ~ directory, '', 120, 120) }}
+       </div>
+     </div>
+   {% endif %}
+ {% endblock logo %}
+
+ {% block tags %}
+  <div class="tags text-muted">
+    <span class="document-date">
+      {{ node.field_date[0].date|date('d M Y')|t }}
+    </span>
+    <span class="type">
+     {{ icons.get('tag', base_path ~ directory, '', 20, 20) }}
+     {{ 'News'|t }}
+     in
+     {% for key, value in node.field_topic %}
+       {% if key > 0 %}
+         {{ ', ' }}
+         {{ value }}
+       {% endif %}
+       {{ value.entity.name.value }}
+     {% endfor %}
+    </span>
+   </div>
+ {% endblock tags %}

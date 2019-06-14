@@ -1,0 +1,149 @@
+.block-views-blockhighlighted-courses-block-1, .block-views-blockelearning-topics-block-1 {
+  .block-title {
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+
+  .view-content {
+    display: flex;
+
+    @media #{$mobile} {
+      flex-wrap: wrap;
+      .views-row {
+        flex: 0 1 33%;
+      }
+    }
+
+    .views-row {
+      padding: 0 ($grid-gutter-width / 4) .5rem;
+
+      .text {
+        font-weight: normal;
+        visibility: hidden;
+      }
+
+      &:hover {
+        .image {
+          border-color: $gpw-secondary;
+        }
+
+        .title {
+          border-color: $gpw-secondary;
+        }
+
+        .text {
+          visibility: visible;
+        }
+
+      }
+
+      .image {
+        border-top: 0.2rem solid transparent;
+        padding-top: 1rem;
+        img {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      a {
+        color: #333;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        .text {
+          color: $gpw-secondary;
+        }
+
+        .title {
+          border-bottom: 0.2rem solid transparent;
+          font-family: $font-family-regular;
+          font-size: 1.6rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+          min-height: 6rem;
+          padding-bottom: 1rem;
+          padding-top: 1.5rem;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.block-views-blockhighlighted-courses-block-1 {
+  border: 0.1rem solid $gpw-primary;
+  padding: 1.5rem;
+  position: relative;
+
+  .icon-courses {
+    position: absolute;
+    top: 0;
+    right: 3 / 2 * $grid-gutter-width;
+    fill: $gpw-primary;
+  }
+
+  .block-title {
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+  }
+
+  .view-content .views-row {
+    flex: 1;
+    @media #{$mobile} {
+      flex: 0 1 50%;
+    }
+  }
+
+}
+
+.block-views-blockelearning-topics-block-1 {
+  margin: 4rem 0 3rem 0;
+
+  .view-content {
+    justify-content: center;
+
+    .views-row {
+      max-width: 11.5rem;
+      font-weight: bold;
+
+      .title {
+        text-align: center;
+      }
+    }
+
+  }
+
+}
+
+.block-simple-blockrelated-courses {
+  text-align: center;
+  padding: 4rem 0;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+
+  h2 {
+    @extend %heading-default;
+  }
+
+  h3 {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-family: $font-family-regular;
+    font-size: 1.7rem;
+  }
+
+}

@@ -1,0 +1,40 @@
+@import '../../utilities';
+
+.help,
+.highlighted .alert,
+.content-wrapper {
+  margin-top: 3rem;
+}
+
+body,
+.dialog-off-canvas-main-canvas {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-off-canvas-main-canvas {
+  .holygrail-body {
+    flex: 1 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    .main-container {
+      // flex: 1 0 0%;
+      width: 100%;
+    }
+
+  }
+
+  @media #{$grid-breakpoint-max} {
+    .holygrail-body {
+      flex-direction: column;
+    }
+
+  }
+
+}
+
+.tabs--primary {
+  margin-top: 1rem;
+}

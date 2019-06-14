@@ -1,0 +1,105 @@
+@import '../../utilities';
+@import '../../mixins';
+
+.page-node-type-report-page {
+  .field--name-field-report-page-resources {
+    &>.field--items>.field--item {
+      &:nth-child(2n+1) {
+        margin-right: 2%;
+      }
+      width: 48%;
+      display: inline-block;
+      vertical-align: top;
+    }
+    &>.field--label {
+
+    }
+  }
+
+  .field--name-field-thesaurus {
+    .field--item {
+      display: inline;
+      &::after {
+        content: ', ';
+      }
+      &:last-child {
+        &::after {
+          content: '';
+        }
+      }
+    }
+  }
+
+  .report-page-sidebar>.field {
+    padding-bottom: 10px;
+  }
+
+  .report-page-sidebar {
+    .field--name-field-gpe-resources .field--item, .field--name-field-external-links .field--item {
+      margin-bottom: 10px;
+      &:before {
+        content: "•";
+        left: 5px;
+        position: absolute;
+        color: rgb(51,51,51);
+      }
+    }
+  }
+
+  .field--name-field-videos {
+    .field--label {
+      margin: 10px 0 15px 0;
+    }
+
+    h3 {
+      font-size: 1em;
+      margin: 2px 0 0 0;
+    }
+
+    article {
+      margin-bottom: 15px;
+    }
+  }
+
+  .download-gap-report-multiple-languages {
+    text-align: center;
+    color: red;
+    > p {
+      a {
+        color: red;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .report-menu {
+    @extend %report-menu-layout;
+    > .menu-item {
+      > span {
+        background-color: #aac513;
+        color: white;
+        display: block;
+      }
+      > ul.menu {
+        .menu-item {
+          > a, > span {
+            display: inline-flex;
+            width: 100%;
+          }
+        }
+        > .menu-item {
+          > a, > span {
+            color: #93ab11;
+          }
+        }
+      }
+    }
+    .menu-item {
+      > a, > span {
+        padding: 5px 10px;
+      }
+    }
+  }
+}

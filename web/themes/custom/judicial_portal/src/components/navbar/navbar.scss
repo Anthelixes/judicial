@@ -1,0 +1,133 @@
+@import '../../utilities';
+@import 'language-switcher';
+
+.navbar > .container {
+  @media #{$grid-breakpoint} {
+    align-items: center;
+    display: flex;
+  }
+}
+
+@media #{$grid-breakpoint} {
+  .container,
+  .container-fluid {
+    > .navbar-header {
+      margin-right: auto;
+    }
+  }
+}
+
+.navbar-nav {
+  > li > a {
+    transition: .2s;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+      color: $navbar-default-link-hover-color;
+    }
+  }
+
+  > li > .btn {
+    display: inline-flex;
+    font-size: inherit;
+  }
+
+
+  @media #{$grid-breakpoint-max} {
+    > li {
+      text-align: right;
+      > .btn {
+        border: none;
+      }
+    }
+  }
+
+  @media #{$grid-breakpoint} {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.6rem;
+    justify-content: flex-end;
+    > li {
+      align-items: center;
+      display: flex;
+      min-height: $navbar-height;
+      > .btn {
+        padding: .8em 2.5em;
+      }
+
+      > .btn-outline {
+        border: 2px solid;
+      }
+    }
+  }
+}
+.navbar-default {
+  border-bottom: 1px solid #ddd;
+  .navbar-nav {
+    > li {
+      > .btn-outline {
+        color: $gpw-secondary;
+      }
+
+      > a {
+        &:hover,
+        &:focus {
+          color: $navbar-default-link-hover-color;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.navbar-inverse {
+  background-image: url(#{$images-path}bg.png);
+  background-position: center -50px;
+  background-size: cover;
+
+  .navbar-nav {
+    > li {
+      > a {
+        &:hover,
+        &:focus {
+          color: $navbar-inverse-link-hover-color;
+        }
+      }
+    }
+  }
+
+  .btn,
+  .open > .btn-default.dropdown-toggle {
+    color: $navbar-inverse-link-color;
+  }
+
+
+}
+
+.navbar-header {
+
+}
+
+.navbar-toggle {
+  padding: 0;
+}
+
+.navbar-collapse {
+  box-shadow: none;
+
+  .navbar-default &, .navbar-inverse & {
+    border-color: transparent;
+  }
+
+}
+
+.region-navigation-collapsible {
+  @media #{$grid-breakpoint} {
+    align-items: flex-start;
+    display: flex;
+  }
+}

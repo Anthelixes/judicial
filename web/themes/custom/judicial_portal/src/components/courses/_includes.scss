@@ -1,0 +1,9 @@
+.field--name-field-includes {
+  > .field--label {
+    font-weight: bold;
+    &:after {
+      content: ':';
+    }
+  }
+
+}

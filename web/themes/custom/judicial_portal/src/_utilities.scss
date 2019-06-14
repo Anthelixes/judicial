@@ -1,0 +1,76 @@
+//
+// Common variables to be used across components. Include Bootstrap variables and their overrides.
+//
+
+@import 'colors';
+
+// @see https://stackoverflow.com/questions/31329177/bootstrap-sass-variable-override-challenge
+%scope {
+  @import '../bootstrap/assets/stylesheets/bootstrap/variables';
+
+  /* ==========================================================================
+     Custom theme variables
+     ========================================================================== */
+
+  $mobile:          "screen and (max-width: #{$screen-xs-max})" !global;
+  $tablet:          "screen and (min-width: #{$screen-sm-min})" !global;
+  $normal:          "screen and (min-width: #{$screen-md-min})" !global;
+  $wide:            "screen and (min-width: #{$screen-lg-min})" !global;
+  $grid-breakpoint-max: "screen and (max-width: #{$grid-float-breakpoint-max})" !global;
+  $grid-breakpoint: "screen and (min-width: #{$grid-float-breakpoint})" !global;
+
+  $font-family-regular: 'Roboto', sans-serif !global;
+  $font-family-condensed: 'Roboto Condensed', sans-serif !global;
+  $font-family-accent: 'AlternateGotNo2DRegular', sans-serif !global;
+
+  $block-latest-news: 'block-views-blocknews-latest-news' !global;
+
+  $fs-filter-region-title: 2rem !global;
+  $fs-filter-block-title: 1.8rem !global;
+  $fs-filter-block-subtitle: 1.7rem !global;
+  $fs-filter-block-item: 1.5rem !global;
+
+  /* ==========================================================================
+   Bootstrap overrides
+   ========================================================================== */
+
+  // Set the proper directory for the Bootstrap Glyphicon font.
+  $icon-font-path:            '../../../bootstrap/assets/fonts/bootstrap/' !global;
+
+  $images-path:               '../../images/' !global;
+
+  $font-family-sans-serif:    $font-family-condensed !global;
+
+  $border-radius-base:        0 !global;
+
+  $link-color:                $gpw-secondary !global;
+  $nav-link-hover-bg:         transparent !global;
+
+  $navbar-height:             80px !global;
+  $navbar-margin-bottom:      0 !global;
+  $navbar-default-bg:         transparent !global;
+  $navbar-default-border:     transparent !global;
+  $navbar-default-link-color: #000 !global;
+  $navbar-default-link-hover-color: $gpw-secondary !global;
+  $navbar-default-link-active-color: $gpw-secondary !global;
+  $navbar-default-toggle-hover-bg: transparent !global;
+  $navbar-default-toggle-border-color: transparent !global;
+
+  $navbar-inverse-bg:         #333 !global;
+  $navbar-inverse-border:     transparent !global;
+  $navbar-inverse-link-color: #fff !global;
+  $navbar-inverse-link-hover-color: $gpw-primary !global;
+
+  $btn-primary-color:              #fff !global;
+  $btn-primary-bg:                 $gpw-secondary !global;
+  $btn-primary-border:             $btn-primary-bg !global;
+
+}
+
+/* ==========================================================================
+   Bootstrap variables & mixins imports
+   ========================================================================== */
+@import "../bootstrap/assets/stylesheets/bootstrap/variables";
+@import "../bootstrap/assets/stylesheets/bootstrap/mixins";
+
+@import 'mixins';

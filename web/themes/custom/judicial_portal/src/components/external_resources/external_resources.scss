@@ -1,0 +1,67 @@
+@import '../../utilities';
+
+.external-resource {
+  &.teaser {
+    margin-top: 0.5em;
+
+    .col-wrapper {
+      display: flex;
+    }
+
+    .col-left {
+      padding-right: 1rem;
+    }
+
+    .col-right {
+      flex: 1;
+    }
+
+    .field--name-field-type {
+      display: flex;
+
+      .icon {
+        margin-right: .2em;
+      }
+
+    }
+
+    h2 {
+      margin-top: 5px;
+      font-size: 1.8rem;
+    }
+
+    span + span {
+      margin-left: .2em;
+    }
+
+    .external-resource-file-type {
+      text-transform: uppercase;
+    }
+
+    .field--name-field-date,
+    .field--name-field-topic {
+      margin-right: 1.5em;
+    }
+
+    .external-resource-topic:not(:first-child) {
+      margin-left: .2em;
+    }
+
+    .external-resource-files {
+      color: $link-color;
+    }
+
+    .content {
+      color: $text-muted;
+      display: flex;
+      flex-wrap: wrap;
+
+      .field + .field {
+        margin-left: 1.5em;
+      }
+
+    }
+
+  }
+
+}

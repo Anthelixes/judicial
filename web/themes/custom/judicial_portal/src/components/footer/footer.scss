@@ -1,0 +1,40 @@
+@import '../../utilities';
+
+.footer .nav > li > a {
+  color: $text-color;
+
+  &:hover, &:focus {
+    color: $navbar-default-link-hover-color;
+  }
+}
+
+.footer-logos {
+  display: none;
+  .text-muted {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+  }
+}
+
+// Mobile specific styles
+@media #{$grid-breakpoint-max} {
+  .footer > .container {
+    align-items: center;
+    display: flex;
+  }
+
+  .footer-logos {
+    flex: 1;
+    order: -1;
+
+    .logo {
+      height: 6rem;
+      width: auto;
+    }
+
+  }
+
+  .menu--footer {
+    display: none;
+  }
+}

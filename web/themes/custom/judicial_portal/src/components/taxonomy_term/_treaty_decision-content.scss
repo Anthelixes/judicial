@@ -1,0 +1,56 @@
+#treaty_decisions_content {
+
+  .gpleo-content {
+
+    .gpleo-tab-content-row {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #b7b7b7;
+
+      &.last {
+        border-bottom: none;
+      }
+
+      .gp-leo-row-title {
+        .leo-title {
+          font-weight: bold;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.logo-image {
+  .month {
+    font-weight: bold;
+    font-size: 30px !important;
+  }
+
+  .day {
+    font-size: 20px !important;
+  }
+
+  .year {
+    font-size: 20px !important;
+  }
+  img {
+    max-width: 100%;
+    max-width: -webkit-fill-available;
+    max-width: -moz-available;
+  }
+}
+
+.tags {
+  &.text-muted {
+    display: flex;
+  }
+
+  .publication-date {
+    align-items: center;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+}

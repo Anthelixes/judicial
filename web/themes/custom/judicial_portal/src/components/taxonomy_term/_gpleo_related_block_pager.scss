@@ -1,0 +1,36 @@
+.gpleo-content-footer {
+
+  .gpleo-content-pager {
+
+    .disabled {
+      display: none;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        list-style: none;
+        display: inline-block;
+        color: white;
+        margin-left: -1px;
+
+        &.active {
+          background-color: $gpw-secondary;
+        }
+
+        a {
+          color: $gpw-secondary;
+          text-decoration: none;
+        }
+
+        a,
+        span {
+          display: block;
+          padding: 6px 12px;
+          border: 1px solid $gpw-secondary;
+        }
+      }
+    }
+  }
+}

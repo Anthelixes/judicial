@@ -1,0 +1,12 @@
+{% set collapse_id = 'collapseExample' %}
+{% block expand_link %}
+  <button class="btn-link" type="button" data-toggle="collapse" data-target="#{{collapse_id}}" aria-expanded="false" aria-controls="{{collapse_id}}">
+    See More
+  </button>
+{% endblock %}
+</button>
+<div class="collapse" id="{{collapse_id}}">
+  {% block expand_content %}
+    ...
+  {% endblock %}
+</div>

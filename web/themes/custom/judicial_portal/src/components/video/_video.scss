@@ -1,0 +1,10 @@
+.field--child-entity--field-video-duration--video {
+  display: flex;
+  > .field--label {
+    padding-right: .2em;
+  }
+}
+
+.video-embed-field-lazy-play {
+  background-image: url(#{$images-path}play.svg);
+}

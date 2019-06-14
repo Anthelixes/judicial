@@ -1,0 +1,64 @@
+.block-views-blockmeetings-next-meetings {
+  margin-bottom: 0;
+}
+
+.block-views-blockmeetings-next-meetings,
+.block-views-blockmeetings-past-meetings {
+  .block-title {
+    @extend %heading-default;
+    margin-left: $grid-gutter-width;
+  }
+
+  .teaser {
+    padding-left: $grid-gutter-width;
+  }
+
+}
+
+.block-views-blockmeetings-next-meetings,
+.block-views-blockmeetings-past-meetings {
+  .block-title {
+    color: $gpw-secondary;
+  }
+
+}
+
+// .block-views-blockmeetings-next-meetings,
+// .block-views-blockmeetings-past-meetings {
+//   @extend %timeline;
+// }
+
+// .view-display-id-next_meetings {
+//   .teaser:before {
+//     @extend %timeline-line-dashed;
+//     top: 1.4rem;
+//   }
+// }
+
+// .view-display-id-past_meetings {
+//   .teaser:before {
+//     @extend %timeline-line-solid;
+//     top: 1.4rem;
+//   }
+// }
+
+// .block-views-blockmeetings-past-meetings {
+//   .teaser {
+//     h2 {
+//       @extend %timeline-dot;
+//     }
+//   }
+// }
+
+// .block-views-blockmeetings-past-meetings {
+//   .teaser {
+//     h2 {
+//       @extend %timeline-dot-full;
+//     }
+//   }
+// }
+
+.view-meetings.view-display-id-next_meetings .webinar.teaser .view-recording-link,
+.view-meetings.view-display-id-past_meetings .webinar.teaser .view-recording-link {
+  display: none;
+}

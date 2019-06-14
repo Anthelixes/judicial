@@ -1,0 +1,72 @@
+.block-views-blockmeetings-thesaurus-next-meetings {
+  margin-bottom: 0;
+}
+
+.block-title--meetings {
+  @extend %heading-default;
+  color: $text-color;
+  padding-left: 0;
+}
+
+.block-views-blockmeetings-thesaurus-next-meetings,
+.block-views-blockmeetings-thesaurus-past-meetings {
+  .block-title {
+    @extend %heading-default;
+    margin-left: 2rem;
+    margin-top: 0;
+    padding-top: $line-height-computed;
+  }
+
+}
+
+.block-views-blockmeetings-thesaurus-next-meetings,
+.block-views-blockmeetings-thesaurus-past-meetings {
+  @extend %timeline;
+
+  &:before {
+    @extend %timeline-line-dashed;
+  }
+
+}
+
+// .block-views-blockmeetings-thesaurus-next-meetings {
+  //   .teaser:before {
+    //     @extend %timeline-line-dashed;
+    //     top: 1.4rem;
+    //
+  // }
+
+  //
+// }
+
+.block-views-blockmeetings-thesaurus-past-meetings {
+  .teaser:before {
+    @extend %timeline-line-solid;
+    // top: 1.4rem;
+  }
+
+}
+
+.block-views-blockmeetings-thesaurus-next-meetings,
+.block-views-blockmeetings-thesaurus-past-meetings {
+  .teaser {
+    padding-left: 6rem;
+
+    h2 {
+      @extend %timeline-dot;
+      font-size: 1.8rem;
+    }
+
+  }
+
+}
+
+.block-views-blockmeetings-thesaurus-past-meetings {
+  .teaser {
+    h2 {
+      @extend %timeline-dot-full;
+    }
+
+  }
+
+}

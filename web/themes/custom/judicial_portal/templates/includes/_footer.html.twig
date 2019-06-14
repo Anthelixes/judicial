@@ -1,0 +1,17 @@
+{% import "@judicial_portal/_images.twig" as images %}
+
+{% if page.footer %}
+  {% block footer %}
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        {{ page.footer }}
+        <div class="footer-logos navbar-right">
+          {#{{ images.get('logo-pactenvironment.png', base_path ~ directory, 98, 69, 'logo') }}#}
+          <div class="text-center">{{ images.get('european-union-flag.png', base_path ~ directory, 85, 60, 'logo') }}</div>
+          <div class="text-center text-muted">{{ 'This website was funded'|t }}</div>
+          <div class="text-center text-muted">{{ 'by the European Union'|t }}</div>
+        </div>
+      </div>
+    </footer>
+  {% endblock %}
+{% endif %}

@@ -1,0 +1,137 @@
+.block-informeasearch {
+  h2.block-title {
+    margin-top: 40px;
+    font-size: $fs-filter-block-title;
+    font-weight: bold;
+  }
+  .facet-item {
+    display: flex;
+    input[type="checkbox"] {
+      margin: 0;
+    }
+  }
+  label {
+    height: auto !important;
+  }
+  .selected-items-wrapper {
+    .facet-item {
+      label,
+      .facets-checkbox {
+        display: none;
+      }
+    }
+    a.is-active {
+      display: block !important;
+    }
+  }
+}
+
+#informea-search-results {
+  .row-bottom-bordered {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #b7b7b7;
+
+    &.last {
+      border-bottom: none;
+    }
+  }
+
+  .more-results {
+    padding: 20px 20px 20px 0;
+    margin-left: -30px;
+    font-size: 16px;
+  }
+
+  .more-results-icon {
+    svg {
+      margin-bottom: -6px;
+      fill: #1378c5;
+    }
+  }
+
+  .more-results-site {
+    font-weight: bold;
+  }
+
+  .external-links {
+    padding-top: 10px;
+  }
+
+  .num-found {
+    padding: 0px !important;
+  }
+
+  .num-found-relevance {
+    padding-left: 10px;
+  }
+
+  .tags {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 3px;
+    }
+  }
+
+  .logo-image {
+    img {
+      border: 1px solid grey;
+      padding: 5px;
+      max-width: -webkit-fill-available;
+      max-width: -moz-available;
+    }
+
+    .month {
+      font-weight: bold;
+      font-size: 30px !important;
+    }
+
+    .day {
+      font-size: 20px !important;
+    }
+
+    .year {
+      font-size: 20px !important;
+    }
+  }
+
+  svg.icon-link-icon {
+    margin-bottom: -7px;
+  }
+
+  .item-result {
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+  .logo-image-wrapper {
+    padding-right: 0 !important;
+    text-align: center;
+  }
+
+  .download {
+    color: #1378c5;
+  }
+
+  .download-file {
+    margin-right: 5px;
+  }
+
+  .publication-date {
+    margin-right: 5px;
+    align-items: center;
+    display: flex;
+
+    &.goal-field {
+      margin-left: 10px;
+    }
+  }
+}
+
+.float-right {
+  float: right;
+}

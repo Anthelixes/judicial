@@ -1,0 +1,159 @@
+@import "../../mixins";
+
+.block-views-blockhighlighted-courses-thesaurus-courses {
+  .featured-course-header {
+    color: $gpw-primary;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    span {
+      padding-left: .5rem;
+    }
+  }
+  .featured-course-title {
+    background-color: inherit;
+    padding-top: 1rem;
+    font-size: 1.8rem;
+    a {
+      @extend %title-links;
+    }
+  }
+}
+
+.views-field-title {
+  background-color: inherit;
+  padding-top: 1rem;
+  a {
+    @extend %title-links;
+  }
+}
+
+.term-page-block-suffix {
+  .see-all {
+    font-size: 1.6rem;
+    margin-top: 1em;
+    text-transform: uppercase;
+    display: block;
+  }
+}
+
+.view-display-id-thesaurus_videos, .field--name-field-report-page-resources {
+  article {
+    padding: .2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 1.4rem;
+    a {
+      @extend %title-links;
+    }
+  }
+}
+
+%title-links {
+  color: $text-color;
+  &:hover, &:focus {
+    color: $gpw-secondary;
+    text-decoration: none;
+  }
+}
+
+.block-views-blockdocuments-thesaurus-documents > .block-title,
+.block-views-blockvideos-thesaurus-videos > .block-title,
+.field--name-field-report-page-resources > .field--label,
+.page-node-type-report-page .field--name-field-thesaurus > .field--label,
+.page-node-type-report-page .field--name-field-gpe-resources > .field--label,
+.page-node-type-report-page .field--name-field-external-links > .field--label,
+.page-node-type-report-page .field--name-field-videos> .field--label,
+.page-node-type-report-page .field--name-field-report-page-references > .field--label,
+.block-views-blockhighlighted-courses-thesaurus-courses > .block-title,
+.block-views-blocknews-thesaurus-news > .block-title,
+.field--name-field-definitions > .field--label {
+  @extend %heading-default;
+  color: $text-color;
+  margin-bottom: 1em;
+  padding-left: 0;
+}
+
+.term-page-block-prefix {
+  color: $text-muted;
+}
+
+.related-pages-block-wrapper {
+  margin-top: 15px;
+
+  h2.related-pages-title {
+    align-items: center;
+    display: flex;
+    font-size: 1.4rem;
+    position: relative;
+    text-transform: uppercase;
+    padding-bottom: 3px;
+
+    svg {
+      margin-right: .4em;
+    }
+
+    &:after {
+      border-bottom: 1px solid #b7b7b7;
+      bottom: 0;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 19rem;
+    }
+  }
+
+  .related-pages-block {
+    background-color: $gpw-primary;
+    color: #ffffff;
+    padding: ($grid-gutter-width / 2);
+
+    .related-pages {
+      @extend %report-menu-layout;
+      margin-bottom: 0;
+      margin-top: 10px;
+
+      li {
+        margin-bottom: 0;
+        a {
+          padding: 5px 0;
+        }
+      }
+    }
+
+    .related-pages-cols {
+      display: flex;
+    }
+
+    .related-pages-img {
+      padding: 0;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .related-pages-title {
+      font-weight: bold;
+      font-size: 1.5em;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .nav {
+        display: inline-block;
+      }
+
+      .divider {
+        height: 1px;
+        width:100%;
+        display:block;
+        margin: 9px 0;
+        overflow: hidden;
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+

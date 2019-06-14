@@ -1,0 +1,20 @@
+{% macro get(key, theme_path, class, width, height) %}
+
+{% set mapping = {
+    'views-blockmeetings-past-meetings-pager':  'past-meetings',
+    'views-blockmeetings-past-meetings':        'past-meetings',
+    'views-blockmeetings-next-meetings':        'next-meetings',
+    'views-blockmeetings-thesaurus-next-meetings': 'next-meetings',
+    'views-blockmeetings-thesaurus-past-meetings': 'past-meetings',
+    'views-blockdocuments-thesaurus-documents' : 'tag',
+    'views-blockvideos-thesaurus-videos' : 'tag',
+    'views-blockhighlighted-courses-thesaurus-courses' : 'tag',
+    'views-blocknews-thesaurus-news' : 'tag'
+  }
+%}
+{% if key in mapping|keys %}
+  <svg class="icon icon-{{ mapping[key] }} {{ class|default('')}}" width="{{ width|default(32) }}" height={{ height|default(32) }} aria-hidden="true">
+    <use xlink:href={{ theme_path ~ '/dist/images/symbol/svg/sprite.symbol.svg#' ~  mapping[key] }} ></use>
+  </svg>
+{% endif %}
+{% endmacro %}

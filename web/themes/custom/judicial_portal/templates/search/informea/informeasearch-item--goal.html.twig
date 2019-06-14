@@ -1,0 +1,52 @@
+{% extends "informeasearch-item.html.twig" %}
+   {% block tags %}
+     <div class="tags text-muted">
+       {% if doc_item.tm_field_city %}
+         <span class="publication-date text-muted">
+           {{ doc_item.tm_field_city[0] }} |
+         </span>
+       {% endif %}
+       {{ icons.get('tag', base_path ~ directory, '', 20, 20) }}
+       <em>
+         {{ 'Goals and declarations'|t }}
+       </em>
+       {% if (doc_item.topics) %}
+         &nbsp
+         <em>
+            in {{ doc_item.topics }}
+         </em>
+       {% endif %}
+
+       {% if doc_item.field_goal %}
+        <div class="publication-date text-muted goal-field">
+         {{ icons.get('tag', base_path ~ directory, '', 20, 20  ) }}
+         <span>
+           {{ doc_item.field_goal }}
+         </span>
+        </div>
+       {% endif %}
+
+       {% if doc_item.goal_type %}
+         <div class="publication-date text-muted goal-field">
+           {{ icons.get('tag', base_path ~ directory, '', 20, 20) }}
+           <span>
+           {{ doc_item.goal_type }}
+         </span>
+         </div>
+       {% endif %}
+     </div>
+
+     {% if doc_item.tags %}
+       <div class="text-muted">
+         <span>
+           {{ 'Glossary term(s)'|t }}:
+         </span>
+        {% for key, tag in doc_item.tags %}
+          <span class="text-muted">
+            <a href="{{ tag.url }}" target="_blank">{{ tag.name }}</a>
+            {{ key+1 == doc_item.tags|length ? '' : ',' }}
+          </span>
+        {% endfor %}
+       </div>
+     {% endif %}
+   {% endblock %}

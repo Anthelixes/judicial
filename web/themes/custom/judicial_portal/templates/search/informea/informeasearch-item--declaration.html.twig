@@ -1,0 +1,25 @@
+{% extends "informeasearch-item.html.twig" %}
+   {% block tags %}
+     <div class="tags text-muted">
+       {% if doc_item.tm_field_city %}
+         <span class="publication-date text-muted">
+           {{ doc_item.tm_field_city[0] }} |
+         </span>
+       {% endif %}
+       {% if doc_item.publishing_date %}
+         <span class="publication-date text-muted">
+           {{ doc_item.publishing_date }}
+         </span>
+       {% endif %}
+       {{ icons.get('tag', base_path ~ directory, '', 20, 20) }}
+       <em>
+         {{ doc_item.type }}
+       </em>
+       {% if (doc_item.topics) %}
+         &nbsp
+         <em>
+            in {{ doc_item.topics }}
+         </em>
+       {% endif %}
+     </div>
+   {% endblock %}

@@ -1,0 +1,89 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a menu block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: HTML attributes for the containing element.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: HTML attributes for the title element.
+ * - content_attributes: HTML attributes for the content element.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * Headings should be used on navigation menus that consistently appear on
+ * multiple pages. When this menu block's label is configured to not be
+ * displayed, it is automatically made invisible using the 'visually-hidden' CSS
+ * class, which still keeps it visible for screen-readers and assistive
+ * technology. Headings allow screen-reader and keyboard only users to navigate
+ * to or skip the links.
+ * See http://juicystudio.com/article/screen-readers-display-none.php and
+ * http://www.w3.org/TR/WCAG-TECHS/H42.html for more information.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{#
+/**
+ * @file
+ * Default theme implementation to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+{% endmacro %}
+
+<section
+  class="views-exposed-form bef-exposed-form contextual-region block block-views block-views-exposed-filter-blockmeetings-page-1 clearfix"
+  data-drupal-selector="views-exposed-form-meetings-page-1" id="block-exposedformmeetingspage-1">
+  <form action="/meetings" method="get" id="views-exposed-form-meetings-page-1" accept-charset="UTF-8">
+    <div class="form--inline form-inline clearfix">
+      <div
+        class="form-item js-form-item form-type-select js-form-type-select form-item-type js-form-item-type form-group">
+        <label for="edit-type" class="control-label">{{ 'Filters'|t }}</label>
+        <div data-drupal-selector="edit-type" class="form-select bef-links" id="edit-type">
+          {% for item in items %}
+              <div class="form-group">
+              {{ link(item.title, item.url) }}
+              {% if item.below %}
+                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              {% endif %}
+              </div>
+          {% endfor %}
+          {#<a href="/meetings" class="bef-link-active">Meetings &amp; events</a>#}
+          {#<div class="form-group"><a href="/meetings?type=2">Submissions by interested stakeholders</a></div>#}
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,7 @@
+{% extends "node--external-resource--search-result.html.twig" %}
+
+{% block url %}
+  <a href="{{ node.field_link[0].value.uri }}" target="_blank">
+    {{ icons.get('link-icon', base_path ~ directory, '', 25, 25) }}
+  </a>
+{% endblock url %}

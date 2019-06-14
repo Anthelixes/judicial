@@ -1,0 +1,2 @@
+.address{display:flex}.address span:not(:first-child):before{content:", "}.meeting-subtitle .country:not(:first-child):before{content:" (";white-space:pre}.meeting-subtitle .country:not(:first-child):after{content:")"}
+/*# sourceMappingURL=address.css.map */

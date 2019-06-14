@@ -1,0 +1,62 @@
+// see node--course--full.html.twig
+.col-reviews {
+  vertical-align: middle!important;
+}
+
+.field--name-field-course-reviews {
+  text-align: center;
+
+  > .field--label {
+    @extend %heading-default;
+    margin-bottom: 3rem;
+  }
+
+  > .field--items {
+    font-family: $font-family-regular;
+    font-style: italic;
+    font-size: 1.7rem;
+    margin-top: 1em;
+
+    &:before {
+      content: '“';
+      color: $gpw-primary;
+      font-size: 6.5rem;
+      font-family: Arial, sans-serif;
+      display: block;
+      line-height: 4rem;
+    }
+
+  }
+
+  // @todo: mixin
+  .views-slideshow-pager-bullets {
+    padding-left: 0;
+
+    li {
+      $bullet-radius: 3px;
+      background: none;
+      border: 1px solid $text-muted;
+      border-radius: 50%;
+      padding: 0 $bullet-radius;
+      line-height: (2 * $bullet-radius);
+    }
+
+    li.active {
+      background-color: $text-muted;
+    }
+
+  }
+
+  .field--name-field-author-name {
+    color: $gpw-primary;
+    font-family: $font-family-condensed;
+    font-style: normal;
+    margin-top: 1em;
+
+    &:before {
+      content: '–';
+      margin-right: .2em;
+    }
+  }
+
+}

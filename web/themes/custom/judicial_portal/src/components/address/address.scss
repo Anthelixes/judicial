@@ -1,0 +1,20 @@
+.address {
+  display: flex;
+  span:not(:first-child) {
+    &:before {
+      content: ', ';
+    }
+  }
+}
+
+.meeting-subtitle {
+  .country:not(:first-child) {
+    &:before {
+      content: ' (';
+      white-space: pre;
+    }
+    &:after {
+      content: ')';
+    }
+  }
+}

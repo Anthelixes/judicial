@@ -1,0 +1,31 @@
+@import '../../utilities';
+
+
+.btn {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.6rem;
+  justify-content: center;
+  min-height: 5rem;
+  transition: .2s;
+  text-transform: uppercase;
+}
+
+.btn-outline {
+  border: 1px solid;
+  padding-top: .8em;
+  padding-bottom: .8em;
+
+  // @todo: mixin
+  &.btn-primary {
+    color: $gpw-primary;
+  }
+
+  &.btn-secondary {
+    color: $gpw-secondary;
+  }
+}
+
+// .btn-primary--fill {
+//   @include button-fill-variant(#fff, $gpw-secondary, $gpw-primary);
+// }

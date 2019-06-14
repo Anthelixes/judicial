@@ -1,0 +1,72 @@
+@import '../../utilities';
+@import 'page-header';
+
+.flex-container-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  align-items: center;
+  background-color: #333;
+  background-image: url(#{$images-path}bg.png);
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-family-regular;
+  font-size: 1.7rem;
+  justify-content: center;
+  min-height: 20rem;
+  padding: 3rem 0;
+  text-align: center;
+
+  // IE11 workaround for flex vertical centering not working with min-height
+
+  &.has-video {
+    margin-bottom: 29vw;
+    padding-bottom: 36vw;
+    @media #{$tablet} {
+      margin-bottom: 11rem;
+      padding-bottom: 29rem;
+    }
+  }
+}
+
+
+.hero-video {
+  background-color: $body-bg;
+  margin: 0 auto;
+  max-width: 90%;
+  padding: 2rem;
+  padding-top: 1.7rem;
+  width: 64rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .field--name-field-video.field--type-entity-reference {
+    background-color: #333;
+  }
+  .field--name-field-video-duration, .field--name-field-video-date {
+    display: flex;
+    margin-top: 1rem;
+
+    > .field--label {
+      padding-right: .2em;
+    }
+
+    > .field--label:after {
+      display: none;
+    }
+  }
+
+  .field--name-field-video-duration {
+    float: left;
+  }
+
+  .field--name-field-video-date {
+    float: right;
+  }
+}

@@ -1,0 +1,69 @@
+@import '../../utilities';
+
+.bef-exposed-form {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  .form-inline {
+    @extend %heading-default;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    padding: 0 3em;
+
+    &:after {
+      width: 100%;
+    }
+
+    @media #{$grid-breakpoint-max} {
+      padding: 0 1em;
+      .control-label {
+          margin-bottom: 0;
+          vertical-align: middle;
+      }
+      .form-group {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .form-type-select {
+    align-items: center;
+    display: flex;
+
+    .control-label {
+      &:after {
+        content: ': ';
+      }
+
+    }
+
+  }
+
+  .bef-links {
+    a {
+      border-bottom: 3px solid transparent;
+      color: inherit;
+      display: block;
+      padding: $nav-link-padding;
+      margin-bottom: -3px;
+
+      &.bef-link-active,
+      &:hover,
+      &:focus {
+        border-bottom: 3px solid;
+        color: $gpw-secondary;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .form-submit {
+    display: none;
+  }
+
+}

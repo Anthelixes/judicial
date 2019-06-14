@@ -1,0 +1,22 @@
+.block-views-blockhomepage-courses-elearning-block {
+  background-color: $gpw-primary;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  .views-row {
+
+    article.course {
+
+      h2 {
+        a {
+          color: white;
+        }
+      }
+
+      .btn {
+        border-color: white;
+        background-color: white;
+      }
+    }
+  }
+}

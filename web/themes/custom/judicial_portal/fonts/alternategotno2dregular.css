@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'AlternateGotNo2DRegular';
+  src:  url(alternategotno2dregular.woff) format('woff'),
+        url(alternategotno2dregular.ttf) format('truetype');
+}

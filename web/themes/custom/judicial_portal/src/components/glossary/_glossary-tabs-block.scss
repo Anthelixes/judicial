@@ -1,0 +1,31 @@
+.block-gpleo-thesaurus-block {
+
+  .glossary-wrapper {
+
+    .glossary-tabs {
+      text-align: right;
+
+      .glossary-tabs-label,
+      .glossary-tab {
+        display: inline-block;
+        font-size: 16px;
+        color: #999999;
+        text-transform: uppercase;
+        padding: 1rem 1.2rem;
+        border-bottom: 2px solid #999999;
+        text-decoration: none;
+        margin-bottom: 1px;
+      }
+
+      .glossary-tab {
+        &.active,
+        &:hover {
+          color: $gpw-secondary;
+          border-bottom-color: $gpw-secondary;
+          border-bottom-width: 3px;
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}

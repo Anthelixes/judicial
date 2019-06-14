@@ -1,0 +1,30 @@
+.block--homepage {
+  .col-left {
+    @media #{$tablet} {
+      text-align: right;
+      h2 {
+        margin-right: 2em;
+        margin-top: 0;
+      }
+    }
+  }
+  .block-title {
+    @extend %heading-default;
+    color: white;
+    border-bottom-color: white;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+
+  .more-link > a {
+    padding: .8em 5rem;
+  }
+
+  &.block-gpgreen-block {
+    .block-title {
+      &:after {
+        border-bottom-color: white;
+      }
+    }
+  }
+}

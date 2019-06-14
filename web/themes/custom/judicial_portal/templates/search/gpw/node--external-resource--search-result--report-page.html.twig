@@ -1,0 +1,14 @@
+{% extends "node--external-resource--search-result.html.twig" %}
+  {% block title %}
+    <img class="img-fluid" src="/themes/custom/judicial_portal/dist/images/trees.jpg">
+    <h3>
+      {{ node.title.value }}
+    </h3>
+  {% endblock title %}
+  {% block description %}
+    <div class="description">
+      <a href="{{ url }}">{{ 'Click to visit this section of the gap report'|t }}</a>
+    </div>
+  {% endblock description %}
+  {% block tags %}
+  {% endblock tags %}

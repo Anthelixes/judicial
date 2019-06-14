@@ -1,0 +1,97 @@
+@import '../../utilities';
+@import '../video/video';
+@import 'key-points';
+@import 'elearning-link';
+@import 'includes';
+@import 'reviews';
+@import 'course-sections';
+@import 'blocks';
+
+.page-node-type-course {
+  .hero {
+    text-align: left;
+    font-family: $font-family-regular;
+  }
+  .page-header {
+    color: $gpw-primary;
+    font-family: $font-family-condensed;
+    font-size: 4rem;
+    text-transform: none;
+  }
+}
+
+.full-course-hero {
+  display: flex;
+  flex-wrap: wrap;
+
+  .col-right {
+    align-self: flex-end;
+    display: flex;
+    > .content-group {
+      background-color: $body-bg;
+      color: $text-color;
+      margin-bottom: -3rem;
+      padding: 2rem;
+      width: 100%;
+    }
+  }
+
+  .field--name-field-key-points {
+    margin-top: 3rem;
+  }
+
+  .field--name-field-e-learning-link,
+  .field--name-field-includes {
+    margin-top: 1em;
+  }
+
+  .field--name-field-includes {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+}
+
+// @todo:mixin from news & this
+.course {
+  &.teaser {
+    h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1em;
+      margin-top: 1em;
+
+      a {
+        color: $gpw-primary;
+      }
+
+    }
+
+    .content {
+      font-size: 1.7rem;
+
+      .field--name-field-video {
+        max-width: 30rem;
+        margin-top: 3rem;
+      }
+
+    }
+
+    .more-link {
+      margin-top: 3rem;
+      > a {
+        &:hover,
+        &:focus {
+          color: $gpw-primary;
+        }
+      }
+
+    }
+
+  }
+
+  &.full {
+
+  }
+
+}

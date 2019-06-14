@@ -1,0 +1,154 @@
+@import '../../utilities';
+@import 'search-block';
+@import 'search-gpe';
+@import 'search-informea';
+
+.soft-hidden {
+  display: none;
+}
+
+.region-sidebar-first {
+
+
+  .enhanced-select-facet {
+    h3 {
+      margin-top: 40px;
+      font-size: $fs-filter-block-title;
+      font-weight: bold;
+    }
+
+    h4 {
+      color: $text-dark;
+      font-size: $fs-filter-block-subtitle;
+    }
+
+    legend {
+      padding: 10px 15px;
+      border: 1px solid $border-color;
+      cursor: pointer;
+      margin-bottom: 0;
+      position: relative;
+      color: $text-light;
+      text-transform: none;
+      font-size: $font-size-base;
+
+      a.toggle {
+        float: right;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+      }
+      a.toggle:after {
+        right: 10px;
+        background: no-repeat url(/themes/custom/judicial_portal/dist/images/angle-down-solid.svg) 0 0;
+        background-size: 100% 100%;
+        display: block;
+        content: " ";
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: 10px;
+        font-size: $fs-filter-block-item;
+      }
+    }
+
+    fieldset {
+      padding-bottom: 20px;
+      border-bottom: 1px solid $border-color;
+    }
+
+    .fieldset-wrapper {
+      color: $text-dark;
+      padding: 15px;
+      border-left: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+      border-right: 1px solid $border-color;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      input {
+        height: 20px;
+        vertical-align: bottom;
+      }
+
+      label {
+        height: 15px;
+        margin-left: 15px;
+      }
+    }
+
+    .selected-items-wrapper {
+      .facet-item__count { display: none; }
+
+      .facet-item {
+        display: inline-block;
+        margin: 5px 10px 5px 0;
+        padding: 5px 15px;
+        background-color: $facet-filter-background-color;
+        border-radius: 2rem;
+
+        a {
+          color: #000;
+          text-decoration: none;
+        }
+        a:hover, a:active { text-decoration: none; }
+        .facet-item__status { color: $gpw-secondary; }
+      }
+
+      .facet-item__value {
+        margin: 5px 10px 5px 0;
+        padding: 5px 15px;
+        background-color: $facet-filter-background-color;
+        border-radius: 2rem;
+      }
+    }
+  }
+}
+
+.search-switcher-tabs {
+  display: flex;
+  justify-content: flex-end !important;
+  border-bottom: 1px solid #737373;
+  .nav-item {
+    .nav-link {
+      margin-right: -1px;
+      border: 1px solid #737373;
+    }
+    &:last-child {
+      .nav-link {
+        margin-right: 15px;
+      }
+    }
+    .active {
+      border-bottom: 1px solid #ffffff !important;
+      color: #000000;
+    }
+  }
+
+
+}
+#gpsearch_more {
+  font-size: 15px;
+  text-align: center;
+  .icon-tag {
+    fill: #1378c5;
+    height: 1.5em;
+    width: 1.5em;
+    margin-bottom: -4px;
+  }
+  .blue {
+    color: #1378c5;
+  }
+}
+
+#reset-informea-filters {
+  margin-top:20px;
+  a {
+    color: $text-muted;
+    float: right;
+  }
+}

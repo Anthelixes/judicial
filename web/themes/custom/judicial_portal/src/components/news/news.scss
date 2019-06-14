@@ -1,0 +1,162 @@
+@import '../../utilities';
+
+.news {
+  &.teaser {
+    margin-top: 2em;
+
+    .col-wrapper {
+      display: flex;
+    }
+
+    .col-left {
+      flex: 0 0 15%;
+      padding-right: 2rem;
+    }
+
+    .col-right {
+      flex: 1;
+    }
+
+    h2 {
+      font-size: 2.1rem;
+      margin-top: 0;
+    }
+
+    a {
+      color: inherit;
+
+      svg {
+        margin-bottom: -5px;
+      }
+    }
+
+    .see-news {
+      margin-top: 1em;
+    }
+
+    .content {
+      color: $text-muted;
+      display: flex;
+      flex-wrap: wrap;
+
+      .field:not(.field--name-body) {
+        &:before {
+          margin: 0 .2em;
+          content: '|';
+        }
+
+        .field--item {
+          display: inline;
+        }
+
+        .field--item:not(:last-child) {
+          &:after {
+            content: ", ";
+          }
+
+        }
+
+      }
+
+      .field:first-child {
+        margin: 0;
+
+        &:before {
+          content: none;
+        }
+
+      }
+
+    }
+
+    .content-body {
+      color: #000;
+    }
+
+    .more-link,
+    .node-readmore {
+      font-style: italic;
+
+      &:after {
+        content: ' »';
+      }
+
+    }
+
+  }
+
+  &.full {
+    .content {
+      // display: flex;
+      // flex-wrap: wrap;
+
+      .field:not(:first-child) {
+        margin-top: 1em;
+      }
+
+      .field:not(.field--name-body) {
+        // &:before {
+        //   margin: 0 .2em;
+        //   content: '|';
+        // }
+
+        .field--item {
+          display: inline;
+        }
+
+        .field--item:not(:last-child) {
+          &:after {
+            content: ", ";
+          }
+
+        }
+
+      }
+
+      .col-left {
+        float: right;
+        max-width: 50%;
+        margin-left: 1em;
+        margin-bottom: 1em;
+      }
+
+      .field:first-child {
+        margin: 0;
+
+        &:before {
+          content: none;
+        }
+
+      }
+
+      .field--label-inline {
+          // @include clearfix();
+      }
+
+      .field--name-body {
+        // clear: both;
+      }
+
+      .field--name-field-thesaurus {
+        clear: both;
+        margin-top: 2em;
+      }
+
+    }
+  }
+
+}
+
+.page-node-type-news .hero .subtitle {
+  display: flex;
+  justify-content: center;
+
+  .field + .field {
+    display: flex;
+    &:before {
+      margin: 0 .5em;
+      content: '|';
+    }
+  }
+}
+

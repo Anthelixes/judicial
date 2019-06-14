@@ -1,0 +1,11 @@
+@import '../../utilities';
+
+a {
+  transition: .2s;
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+  .container {
+    width: 100%;
+  }
+}

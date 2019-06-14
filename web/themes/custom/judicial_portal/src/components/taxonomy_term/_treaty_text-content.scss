@@ -1,0 +1,46 @@
+#treaty_text_content {
+
+  .gp-leo-treaty-articles-label {
+    font-weight: bold;
+    padding-left: 15px;
+  }
+
+  .gp-leo-treaty-article-list {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    .gp-leo-article-row {
+      padding-left: 30px;
+
+      .leo-article-title {
+        text-transform: uppercase;
+      }
+
+      .gp-leo-paragraphs {
+        display: none;
+        padding-left: 15px;
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .treaty-tabs,
+  .gp-leo-row-title {
+    margin-top: 10px;
+  }
+
+  .gpleo-content-read-more {
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: #1378c5;
+    }
+  }
+}

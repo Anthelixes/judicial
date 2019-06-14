@@ -1,0 +1,11 @@
+.view-reports .view-content {
+  tr:not(.is-child) {
+    counter-reset: inner;
+    counter-increment: outer;
+  }
+
+  td.views-field-title:before {
+    content: counter(outer) '.';
+    margin-right: 0.3em;
+  }
+}

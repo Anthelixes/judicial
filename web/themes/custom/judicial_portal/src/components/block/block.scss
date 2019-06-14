@@ -1,0 +1,48 @@
+$fs-filter-block-more-item: 2rem !global;
+@import '../../utilities';
+
+.block-title {
+  .icon {
+    fill: currentColor;
+    // @todo: replace with em
+    height: 2.5rem;
+    margin-right: .4em;
+    width: 2.5rem;
+  }
+}
+
+.filter-region-title {
+  width: 50%;
+
+  h2 {
+    padding: 0 0 5px 0;
+    font-size: $fs-filter-region-title;
+    border-bottom: 1px solid #000;
+
+    &:before {
+      content: " ";
+      display: inline-block;
+      background: no-repeat url(/themes/custom/judicial_portal/dist/images/sliders-h-solid.svg) 0 0;
+      background-size: 100% 100%;
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-right: 10px;
+    }
+  }
+}
+
+
+
+.block-more-on-informea-block {
+  background-color: $informea-blue;
+  min-height: 50px;
+  padding: 10px;
+  a {
+    color: white;
+  }
+
+  a.more-link {
+    font-size: 22px;
+    line-height: 20px;
+  }
+}

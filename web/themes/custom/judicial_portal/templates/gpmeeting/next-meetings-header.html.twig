@@ -1,0 +1,7 @@
+{% import "@judicial_portal/_icons.twig" as icons %}
+{% spaceless %}
+  <h2 class="block-title">
+    {{ icons.get('next-meetings', base_path ~ directory) }}
+    {% trans %}Upcoming{% endtrans %}
+  </h2>
+{% endspaceless %}

@@ -1,0 +1,27 @@
+.view-agenda-items .view-content {
+  tr:not(.is-child) {
+    counter-reset: inner;
+    counter-increment: outer;
+  }
+
+  tr.is-child {
+    counter-increment: inner;
+    td.views-field-title {
+      padding-left: 5rem;
+    }
+  }
+
+  td.views-field-title:before {
+    content: counter(outer) '.';
+    margin-right: 0.3em;
+  }
+  .is-child td.views-field-title:before {
+    content: counter(outer) '.' counter(inner) '.';
+    margin-right: 0.3em;
+  }
+  td{
+    span.empty {
+      color: #0c4e7f;
+    }
+  }
+}

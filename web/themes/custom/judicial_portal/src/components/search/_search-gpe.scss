@@ -1,0 +1,132 @@
+body.path-search {
+  .region-sidebar-first {
+    h2.block-title {
+      font-size: 18px;
+
+    }
+
+    .chosen-container-single .chosen-single {
+      border-radius: 0;
+      background: none;
+      height: 35px;
+      padding-top: 5px;
+      color: #848484;
+      border-color: #ccc;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+
+      b {
+        background: none;
+      }
+
+      b:before {
+        content: "\2304";
+        font-size: 18px;
+        margin-right: 5px;
+      }
+
+    }
+  }
+}
+
+.gpw-wrapper {
+  nav.pager-nav {
+    text-align: right;
+  }
+
+  .view-header {
+    .number_of_results {
+      color: #1378c5;
+      float: left;
+      margin-right: 20px;
+    }
+
+    .relevance {
+      color: #737373;
+    }
+  }
+
+  .gpw-search-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #b7b7b7;
+
+    .logo-image {
+      svg {
+        display: inherit;
+        margin: 0 auto;
+      }
+
+      .month {
+        font-weight: bold;
+        font-size: 25px;
+      }
+
+      .day {
+        font-size: 18px;
+      }
+
+      .year {
+        font-size: 18px;
+      }
+    }
+    .tags {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      .type {
+        margin-left: 20px;
+        svg {
+          fill: #737373;
+          margin-bottom: -4px;
+        }
+      }
+
+      .download {
+        color: #1378c5 !important;
+      }
+
+      .document-date {
+        .field--name-field-date-range {
+          float: left;
+        }
+      }
+    }
+
+    &.report_page {
+      padding: 2px 2px 2px 0;
+      background-color: #aac513;
+
+      img {
+        float: left;
+        width: 20%;
+        margin: 10px 10px 10px 0;
+      }
+
+      h3 {
+        color: white;
+      }
+    }
+  }
+
+  .view-filters {
+    &.form-group {
+      .views-exposed-form {
+        display: none;
+      }
+    }
+  }
+}
+
+
+.color-text-dark {
+  color: $text-dark;
+  > a {
+    color: $text-dark !important;
+  }
+}
+
+.mt-20 {
+  margin-top: 20px;
+}

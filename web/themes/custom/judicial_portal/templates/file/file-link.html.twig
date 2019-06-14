@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Theme override for a link to a file.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ * - icon: An icon.
+ * - icon_only: Flag to display only the icon and not the label.
+ * - icon_position: Where an icon should be displayed.
+ *
+ * @ingroup templates
+ *
+ * @see \Drupal\bootstrap\Plugin\Preprocess\FileLink::preprocessVariables
+ */
+#}
+{% spaceless %}
+  <span{{ attributes.removeClass('file') }}>
+  {{ link }}
+  </span>
+{% endspaceless %}
