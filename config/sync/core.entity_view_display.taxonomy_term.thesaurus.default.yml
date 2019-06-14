@@ -1,0 +1,92 @@
+uuid: 6d16296f-c75b-4154-b923-a518a5b1ecac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.thesaurus.field_definitions
+    - field.field.taxonomy_term.thesaurus.field_importance
+    - field.field.taxonomy_term.thesaurus.field_informea_tid
+    - field.field.taxonomy_term.thesaurus.field_informea_url
+    - field.field.taxonomy_term.thesaurus.field_published
+    - field.field.taxonomy_term.thesaurus.field_related_leo_terms
+    - field.field.taxonomy_term.thesaurus.field_semantic_uri
+    - field.field.taxonomy_term.thesaurus.field_show_in_term_cloud
+    - field.field.taxonomy_term.thesaurus.field_synonyms
+    - field.field.taxonomy_term.thesaurus.field_thesaurus_link
+    - field.field.taxonomy_term.thesaurus.field_topics
+    - taxonomy.vocabulary.thesaurus
+  module:
+    - text
+id: taxonomy_term.thesaurus.default
+targetEntityType: taxonomy_term
+bundle: thesaurus
+mode: default
+content:
+  description:
+    label: above
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_definitions:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_published:
+    weight: 6
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_related_leo_terms:
+    type: number_integer
+    weight: 2
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_show_topic_shortlist:
+    weight: 5
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_synonyms:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_topics:
+    weight: 3
+    label: above
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    region: content
+    type: entity_reference_entity_view
+hidden:
+  field_importance: true
+  field_informea_tid: true
+  field_informea_url: true
+  field_semantic_uri: true
+  field_show_in_term_cloud: true
+  field_thesaurus_link: true
+  langcode: true
+  search_api_excerpt: true
