@@ -1,0 +1,22 @@
+uuid: 174922b8-5a89-4704-ac37-f6e9154bba65
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - judicial_portal
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: judicial_portal_messages
+theme: judicial_portal
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

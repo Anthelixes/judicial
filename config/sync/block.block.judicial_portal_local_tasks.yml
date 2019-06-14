@@ -1,0 +1,22 @@
+uuid: bf525875-e016-492e-98e0-30a2af565cce
+langcode: en
+status: true
+dependencies:
+  theme:
+    - judicial_portal
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: judicial_portal_local_tasks
+theme: judicial_portal
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,27 @@
+uuid: 0aa8fb41-b549-477d-94ce-e6179daa1d79
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - judicial_portal
+_core:
+  default_config_hash: rx9IrdDv7Ldc4kpalZAxdhIPZfYIeOMh1N-qKoQZwHo
+id: judicial_portal_main_menu
+theme: judicial_portal
+region: top_bar
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

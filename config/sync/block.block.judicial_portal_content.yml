@@ -1,0 +1,22 @@
+uuid: 270efbba-8f0a-49b8-9759-4ce904ff75ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - judicial_portal
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: judicial_portal_content
+theme: judicial_portal
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 267bb936-e6d7-4551-ab71-095cb9e03b03
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - judicial_portal
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: judicial_portal_help
+theme: judicial_portal
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

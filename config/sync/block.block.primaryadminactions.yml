@@ -1,0 +1,18 @@
+uuid: a727b58c-2540-44a2-a988-317a4c2430e8
+langcode: en
+status: true
+dependencies:
+  theme:
+    - judicial_portal
+id: primaryadminactions
+theme: judicial_portal
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

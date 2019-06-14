@@ -1,0 +1,25 @@
+uuid: 93275799-d6bb-4fef-a1b1-b457a4d84aea
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - judicial_portal
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: judicial_portal_branding
+theme: judicial_portal
+region: top_bar
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }
