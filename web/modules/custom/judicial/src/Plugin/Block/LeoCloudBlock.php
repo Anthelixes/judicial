@@ -3,8 +3,10 @@
 namespace Drupal\judicial\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Url;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\taxonomy\Entity\Term;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides the Leo Cloud block.
@@ -15,7 +17,30 @@ use Drupal\taxonomy\Entity\Term;
  *   category = @Translation("Judicial"),
  * )
  */
-class LeoCloudBlock extends BlockBase {
+class LeoCloudBlock extends BlockBase implements ContainerFactoryPluginInterface {
+
+  /**
+   * @var EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entityTypeManager) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->entityTypeManager = $entityTypeManager;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('entity_type.manager')
+    );
+  }
+
 
   /**
    * {@inheritdoc}
@@ -23,7 +48,7 @@ class LeoCloudBlock extends BlockBase {
   public function build() {
     $vid = 'glossary_terms';
     $render = [];
-    $tids = \Drupal::entityQuery('taxonomy_term')
+    $tids = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery()
       ->condition('vid', $vid)
       ->condition('field_show_in_term_cloud', 1)
       ->execute();
@@ -39,7 +64,7 @@ class LeoCloudBlock extends BlockBase {
         'importance' => $term->get('field_importance')->getString(),
       ];
     }
-    return array(
+    return [
       '#markup' => ' ',
       '#attached' => [
         'library' => ['judicial/leo-terms'],
@@ -49,7 +74,7 @@ class LeoCloudBlock extends BlockBase {
           ],
         ],
       ],
-    );
+    ];
   }
 
 }
