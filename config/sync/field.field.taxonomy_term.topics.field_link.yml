@@ -1,9 +1,9 @@
-uuid: 520bd2ed-9211-400f-893a-37fa3e272966
+uuid: 255da0a0-25ad-4b3d-a7f7-754b49ee3592
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.field_elearning_link
+    - field.storage.taxonomy_term.field_link
     - taxonomy.vocabulary.topics
   module:
     - field_cardinality_customization
@@ -11,12 +11,12 @@ dependencies:
 third_party_settings:
   field_cardinality_customization:
     alter: 0
-id: taxonomy_term.topics.field_elearning_link
-field_name: field_elearning_link
+id: taxonomy_term.topics.field_link
+field_name: field_link
 entity_type: taxonomy_term
 bundle: topics
 label: 'Elearning link'
-description: 'Link to the Elearning courses for this topic'
+description: 'Link to elearning.informea.org topic page (e.g. <em>https://elearning.informea.org/course/index.php?categoryid=8</em>)'
 required: false
 translatable: false
 default_value: {  }

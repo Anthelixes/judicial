@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.field_elearning_link
     - field.storage.taxonomy_term.field_image
+    - field.storage.taxonomy_term.field_link
     - taxonomy.vocabulary.topics
   module:
     - image
@@ -70,10 +70,10 @@ display:
       row:
         type: fields
       fields:
-        field_elearning_link:
-          id: field_elearning_link
-          table: taxonomy_term__field_elearning_link
-          field: field_elearning_link
+        field_link:
+          id: field_link
+          table: taxonomy_term__field_link
+          field: field_link
           relationship: none
           group_type: group
           admin_label: ''
@@ -150,7 +150,7 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: '{{ field_elearning_link }}'
+            path: '{{ field_link }}'
             absolute: true
             external: true
             replace_spaces: false
@@ -214,7 +214,7 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: '{{ field_elearning_link }}'
+            path: '{{ field_link }}'
             absolute: true
             external: true
             replace_spaces: false
@@ -328,10 +328,10 @@ display:
           entity_type: taxonomy_term
           entity_field: langcode
           plugin_id: language
-        field_elearning_link_uri:
-          id: field_elearning_link_uri
-          table: taxonomy_term__field_elearning_link
-          field: field_elearning_link_uri
+        field_link_uri:
+          id: field_link_uri
+          table: taxonomy_term__field_link
+          field: field_link_uri
           relationship: none
           group_type: group
           admin_label: ''
@@ -380,8 +380,8 @@ display:
         - 'languages:language_interface'
         - user.permissions
       tags:
-        - 'config:field.storage.taxonomy_term.field_elearning_link'
         - 'config:field.storage.taxonomy_term.field_image'
+        - 'config:field.storage.taxonomy_term.field_link'
   topic_courses:
     display_plugin: block
     id: topic_courses
@@ -397,5 +397,5 @@ display:
         - 'languages:language_interface'
         - user.permissions
       tags:
-        - 'config:field.storage.taxonomy_term.field_elearning_link'
         - 'config:field.storage.taxonomy_term.field_image'
+        - 'config:field.storage.taxonomy_term.field_link'

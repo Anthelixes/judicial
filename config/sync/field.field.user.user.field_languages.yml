@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_languages
-    - taxonomy.vocabulary.languages
   module:
     - user
 id: user.user.field_languages
@@ -20,8 +19,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      languages: languages
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

@@ -1,12 +1,12 @@
-uuid: c922fe7e-8269-49ce-9b37-94a294d94baa
+uuid: ffb0e81d-3e87-4037-8fde-a1d644d215bc
 langcode: en
 status: true
 dependencies:
   module:
     - link
     - taxonomy
-id: taxonomy_term.field_elearning_link
-field_name: field_elearning_link
+id: taxonomy_term.field_link
+field_name: field_link
 entity_type: taxonomy_term
 type: link
 settings: {  }
