@@ -117,38 +117,42 @@ function judicial_portal_preprocess(&$variables) {
 //    }
 //}
 //
-//function judicial_portal_preprocess_page(&$variables) {
-//  // @todo: Implement field on page.
-//  // Enable inverse navbar based on page setting.
-//  if($variables['is_front']) {
-//    $variables['page']['navbar_inverse'] = true;
-//  }
-//  if ($node = \Drupal::routeMatch()->getParameter('node')) {
-//    if (!($node instanceof \Drupal\node\NodeInterface) && is_string($node)) {
-//      $node = \Drupal::entityManager()->getStorage('node')->load($node);
-//    }
-//    // Check for video field on webinar full page and mark title.
-//    if ($node instanceof \Drupal\node\NodeInterface && $node->bundle() == 'webinar') {
-//      if (!empty($node->field_video->getValue()) && !empty($variables['page']['title'])) {
-//        $variables['page']['title']['#attributes']['class'][] = 'has-video';
-//      }
-//    }
-//  }
-//
-//  // Check if it's a glossary term page.
-//  /** @var \Drupal\taxonomy\Entity\Term $term */
-//  if ($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
-//    if ($term->getVocabularyId() == 'thesaurus') {
-//      $variables['is_glossary_term'] = TRUE;
-//    }
-//  }
-//
-//  if (\Drupal::routeMatch()->getRouteName() == 'view.thesaurus.page_alphabetically') {
-//    array_unshift($variables['page']['title'], [
-//      '#markup' => '<h1 class="page-header">' . new \Drupal\Core\StringTranslation\TranslatableMarkup('Glossary') . '</h1>'
-//    ]);
-//  }
-//}
+function judicial_portal_preprocess_page(&$variables) {
+  // @todo: Implement field on page.
+  // Enable inverse navbar based on page setting.
+  if($variables['is_front']) {
+    $variables['page']['navbar_inverse'] = true;
+  }
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if (!($node instanceof \Drupal\node\NodeInterface) && is_string($node)) {
+      $node = \Drupal::entityManager()->getStorage('node')->load($node);
+    }
+    // Check for video field on webinar full page and mark title.
+    if ($node instanceof \Drupal\node\NodeInterface && $node->bundle() == 'webinar') {
+      if (!empty($node->field_video->getValue()) && !empty($variables['page']['title'])) {
+        $variables['page']['title']['#attributes']['class'][] = 'has-video';
+      }
+    }
+  }
+
+  // Check if it's a glossary term page.
+  /** @var \Drupal\taxonomy\Entity\Term $term */
+  if ($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
+    if ($term->getVocabularyId() == 'thesaurus') {
+      $variables['is_glossary_term'] = TRUE;
+
+      $variables['page']['title']['judicial_portal_page_title'] = [
+        '#markup' => '<h1 class="page-header">' . new \Drupal\Core\StringTranslation\TranslatableMarkup('Glossary') . '</h1>'
+      ];
+    }
+  }
+
+  if (\Drupal::routeMatch()->getRouteName() == 'view.thesaurus.page_alphabetically') {
+    $variables['page']['title']['judicial_portal_page_title'] = [
+      '#markup' => '<h1 class="page-header">' . new \Drupal\Core\StringTranslation\TranslatableMarkup('Glossary') . '</h1>'
+    ];
+  }
+}
 //
 ///**
 // * Implements hook_preprocess_HOOK() for block templates.
@@ -217,23 +221,23 @@ function judicial_portal_preprocess(&$variables) {
 //    $variables['more']['#attributes']['class'][] = 'btn btn-outline';
 //  }
 //}
-//
-///**
-// * Implements hook_preprocess_HOOK().
-// */
-//function judicial_portal_preprocess_menu__footer(&$variables) {
-//  $variables['attributes']['class'][] = 'navbar-nav';
-//}
-//
-///**
-// * Implements hook_preprocess_HOOK().
-// */
-//function judicial_portal_preprocess_region(&$variables) {
-//  if($variables['region'] == 'title') {
-//    $variables['attributes']['class'][] = 'hero';
-//    $variables['attributes']['role'] = 'heading';
-//  }
-//}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function judicial_portal_preprocess_menu__footer(&$variables) {
+  $variables['attributes']['class'][] = 'navbar-nav';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function judicial_portal_preprocess_region(&$variables) {
+  if($variables['region'] == 'title') {
+    $variables['attributes']['class'][] = 'hero';
+    $variables['attributes']['role'] = 'heading';
+  }
+}
 //
 ///**
 // * Implements hook_preprocess_HOOK().
@@ -346,18 +350,18 @@ function judicial_portal_preprocess(&$variables) {
 //  }
 //}
 //
-///**
-// * Implements hook_preprocess_field().
-// */
-//function judicial_portal_preprocess_field(&$variables) {
-//  if ($variables['field_name'] == 'field_e_learning_link') {
-//    if (!empty($variables['items'])) {
-//      foreach ($variables['items'] as &$item) {
-//        $item['content']['#options']['attributes']['class'][] = 'btn';
-//      }
-//    }
-//  }
-//}
+/**
+ * Implements hook_preprocess_field().
+ */
+function judicial_portal_preprocess_field(&$variables) {
+  if ($variables['field_name'] == 'field_e_learning_link') {
+    if (!empty($variables['items'])) {
+      foreach ($variables['items'] as &$item) {
+        $item['content']['#options']['attributes']['class'][] = 'btn';
+      }
+    }
+  }
+}
 //
 ///**
 // * Implements hook_preprocess_views_view_table().
@@ -403,36 +407,36 @@ function judicial_portal_preprocess(&$variables) {
 //  }
 //}
 //
-///**
-// * Implements hook_suggestions_HOOK_alter().
-// */
-//// function judicial_portal_theme_suggestions_views_view_unformatted_alter(&$suggestions, &$variables) {
-////   $view_element = $variables['view']->element;
-////   // $suggestions[] = $variables['theme_hook_original'] . '--' . $view_element['#view_id'];
-////   // $suggestions[] = $variables['theme_hook_original'] . '--' . $view_element['#view_id'] . '--' . $view_element['#display_id'] ;
-//// }
-//
-///**
-// * Implements hook_suggestions_HOOK_alter().
-// */
-//function judicial_portal_theme_suggestions_page_alter(&$suggestions, &$vars) {
-//  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical' && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
-//    $term = Term::load($tid);
-//    $suggestions[] = 'page__taxonomy__' . $term->getVocabularyId();
-//  }
-//  if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical' && $node = \Drupal::routeMatch()->getParameter('node')) {
-//    $suggestions[] = 'page__node__' . $node->bundle();
-//  }
-//}
-//
-///**
-// * Implements hook_theme().
-// */
-//function judicial_portal_theme($existing, $type, $theme, $path) {
-//  return array(
-//    'icon_prefix' => ['variables' => [
-//      'icon' => null,
-//      'content' => null
-//    ]],
-//  );
-//}
+/**
+ * Implements hook_suggestions_HOOK_alter().
+ */
+ function judicial_portal_theme_suggestions_views_view_unformatted_alter(&$suggestions, &$variables) {
+   $view_element = $variables['view']->element;
+   // $suggestions[] = $variables['theme_hook_original'] . '--' . $view_element['#view_id'];
+   // $suggestions[] = $variables['theme_hook_original'] . '--' . $view_element['#view_id'] . '--' . $view_element['#display_id'] ;
+ }
+
+/**
+ * Implements hook_suggestions_HOOK_alter().
+ */
+function judicial_portal_theme_suggestions_page_alter(&$suggestions, &$vars) {
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical' && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
+    $term = Term::load($tid);
+    $suggestions[] = 'page__taxonomy__' . $term->getVocabularyId();
+  }
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical' && $node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page__node__' . $node->bundle();
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function judicial_portal_theme($existing, $type, $theme, $path) {
+  return array(
+    'icon_prefix' => ['variables' => [
+      'icon' => null,
+      'content' => null
+    ]],
+  );
+}

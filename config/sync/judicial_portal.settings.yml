@@ -1,8 +1,11 @@
 favicon:
   mimetype: image/vnd.microsoft.icon
   path: ''
-  url: 'http://judicial.local/themes/contrib/bootstrap/favicon.ico'
+  url: 'http://judicial.local/themes/custom/judicial_portal/favicon.ico'
   use_default: true
+schemas:
+  bootstrap: 8000
+  judicial_portal: 8000
 features:
   comment_user_picture: true
   comment_user_verification: true
@@ -12,6 +15,26 @@ logo:
   path: ''
   url: ''
   use_default: true
-schemas:
-  bootstrap: 8000
-  judicial_portal: 8000
+table_responsive: '-1'
+region_wells:
+  top_bar: ''
+  navigation: ''
+  navigation_collapsible: ''
+  highlighted: ''
+  help: ''
+  title: ''
+  content: ''
+  content_2: ''
+  content_3: ''
+  content_4: ''
+  content_5: ''
+  sidebar_first: ''
+  sidebar_second: ''
+  footer: ''
+cdn_theme: bootstrap
+cdn_cache_ttl_versions: '604800'
+cdn_cache_ttl_themes: '604800'
+cdn_cache_ttl_assets: '0'
+cdn_cache_ttl_library: '0'
+reset_http_request_cache: ''
+table: ''
