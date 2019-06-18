@@ -30,7 +30,7 @@ process:
     plugin: default_value
     default_value: 1
   title: title
-  body/value: body
+  body/value: summary
   body/format:
     plugin: default_value
     default_value: full_html
@@ -57,6 +57,12 @@ process:
     plugin: entity_generate
     source: case_source
   field_languages: languages
+  field_files:
+    plugin: fid_download
+    filemime: text/html
+    source:
+      - fulltext_url
+      - fulltext_destination
 destination:
   plugin: 'entity:node'
 migration_dependencies: {  }

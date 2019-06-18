@@ -153,7 +153,7 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     $case_html = $this->getSourceData($html_case_url);
 
     $html_body_url = "https://eur-lex.europa.eu/legal-content/$langcode/TXT/HTML/?uri=$case_number";
-    $body = $this->parseBody($html_body_url);
+//    $body = $this->parseBody($html_body_url);
 
     $html_summary_url = $html_body_url . '_SUM';
     $summary = $this->parseBody($html_summary_url);
@@ -163,7 +163,8 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
 
     $this->currentItem = [
       'case_number' => $case_number,
-      'body' => $body,
+      'fulltext_url' => $html_body_url,
+      'fulltext_destination' => "public://court_case/{$case_number}_{$langcode}.html",
       'reference_number' => $case_number,
       'external_link' => $html_case_url,
       'case_source' => 'EUR-Lex',

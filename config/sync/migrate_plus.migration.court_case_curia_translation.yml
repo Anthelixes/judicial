@@ -29,7 +29,7 @@ process:
     plugin: default_value
     default_value: 1
   title: title
-  body/value: body
+  body/value: summary
   body/format:
     plugin: default_value
     default_value: full_html
@@ -41,6 +41,12 @@ process:
   content_translation_source:
     plugin: default_value
     default_value: fr
+  field_files:
+    plugin: fid_download
+    filemime: text/html
+    source:
+      - fulltext_url
+      - fulltext_destination
 destination:
   plugin: 'entity:node'
   translations: true
