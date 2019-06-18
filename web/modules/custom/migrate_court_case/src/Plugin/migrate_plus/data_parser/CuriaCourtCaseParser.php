@@ -111,6 +111,7 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
     $pattern = '/<a .*?<\/a>/';
     $body = preg_replace($pattern, "", $body);
     $body = str_replace('<em class="none">|</em>', '', $body);
+    $body = strip_tags($body, '<p><br><div><h1><h2><h3>');
     return $body;
   }
 
@@ -153,7 +154,9 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
 
     $html_body_url = "https://eur-lex.europa.eu/legal-content/$langcode/TXT/HTML/?uri=$case_number";
     $body = $this->parseBody($html_body_url);
-//    $body = $this->getValueFromDOMXpath(new \DOMXPath($this->getSourceData($html_case_url)), '//div[@id="textTabContent"]/div[@class="tabContent"]');
+
+    $html_summary_url = $html_body_url . '_SUM';
+    $summary = $this->parseBody($html_summary_url);
 
     $notice_url = $case_html->getElementById('link-download-notice')->getAttribute('href');
     $notice_url = str_replace('./../../../', 'https://eur-lex.europa.eu/', $notice_url);
@@ -165,6 +168,7 @@ class CuriaCourtCaseParser extends DataParserPluginBase implements ContainerFact
       'external_link' => $html_case_url,
       'case_source' => 'EUR-Lex',
       'langcode' => strtolower($langcode),
+      'summary' => $summary,
     ];
     if (!empty($this->urlData[$this->activeUrl]['nid'])) {
       $this->currentItem['nid'] = $this->urlData[$this->activeUrl]['nid'];
