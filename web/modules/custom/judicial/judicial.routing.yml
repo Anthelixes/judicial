@@ -1,3 +1,19 @@
+judicial.glossary:
+  path: '/glossary'
+  defaults:
+    _controller: '\Drupal\judicial\Controller\JudicialController::glossary'
+    _title: 'Glossary'
+  requirements:
+    _permission: 'access content'
+
+judicial.elearning:
+  path: '/elearning'
+  defaults:
+    _controller: '\Drupal\judicial\Controller\JudicialController::elearning'
+    _title: 'E-learning'
+  requirements:
+    _permission: 'access content'
+
 judicial.download_xls:
   path: '/glossary/download.xls'
   defaults:

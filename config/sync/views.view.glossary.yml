@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.taxonomy_term.field_featured_terms
     - field.storage.taxonomy_term.field_image
-    - system.menu.main
     - taxonomy.vocabulary.topics
   module:
     - svg_image
@@ -464,7 +463,7 @@ display:
       display_extenders: {  }
       path: glossary
       menu:
-        type: normal
+        type: none
         title: Glossary
         description: ''
         expanded: false

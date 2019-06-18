@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - search_api.index.content
-    - system.menu.main
   module:
     - search_api
 id: jurisprudence
@@ -359,8 +358,13 @@ display:
       display_extenders: {  }
       path: jurisprudence
       menu:
-        type: normal
+        type: none
         title: Jurisprudence
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
         menu_name: main
       display_description: ''
     cache_metadata:
