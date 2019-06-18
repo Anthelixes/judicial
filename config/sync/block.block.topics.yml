@@ -1,0 +1,29 @@
+uuid: 30502627-814a-45b7-a1d6-030bd156dcf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.topics
+  module:
+    - facets
+    - system
+  theme:
+    - judicial_portal
+id: topics
+theme: judicial_portal
+region: sidebar_second
+weight: -7
+provider: null
+plugin: 'facet_block:topics'
+settings:
+  id: 'facet_block:topics'
+  label: Topics
+  provider: facets
+  label_display: '0'
+  block_id: topics
+visibility:
+  request_path:
+    id: request_path
+    pages: /jurisprudence
+    negate: false
+    context_mapping: {  }

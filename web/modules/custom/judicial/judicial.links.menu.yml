@@ -10,6 +10,20 @@ judicial.network:
   route_name: <none>
   weight: 1
 
+judicial.discussions:
+  title: Discussions
+  menu_name: main
+  parent: judicial.network
+  route_name: <none>
+  weight: 0
+
+judicial.members:
+  title: Members
+  menu_name: main
+  parent: judicial.network
+  route_name: <none>
+  weight: 1
+
 judicial.elearning:
   title: E-learning
   menu_name: main

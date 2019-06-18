@@ -1,0 +1,29 @@
+uuid: cbf5e061-8024-4170-a3dd-05dcaed5adde
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.glossary_terms
+  module:
+    - facets
+    - system
+  theme:
+    - judicial_portal
+id: glossaryterms
+theme: judicial_portal
+region: sidebar_second
+weight: -8
+provider: null
+plugin: 'facet_block:glossary_terms'
+settings:
+  id: 'facet_block:glossary_terms'
+  label: 'Glossary terms'
+  provider: facets
+  label_display: '0'
+  block_id: glossaryterms
+visibility:
+  request_path:
+    id: request_path
+    pages: /jurisprudence
+    negate: false
+    context_mapping: {  }

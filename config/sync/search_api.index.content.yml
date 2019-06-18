@@ -2,17 +2,19 @@ uuid: 80520b04-c6b9-4438-9af6-b1af5f30155e
 langcode: en
 status: true
 dependencies:
+  module:
+    - node
+    - search_api
   config:
     - field.storage.node.field_country
+    - field.storage.node.field_date
     - field.storage.node.field_glossary_terms
     - field.storage.node.field_recipient
     - field.storage.node.comment_forum
     - field.storage.node.field_topics
+    - field.storage.node.field_type_of_court
     - search_api.server.database
     - core.entity_view_mode.node.search_index
-  module:
-    - search_api
-    - node
 id: content
 name: Content
 description: ''
@@ -23,6 +25,9 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: changed
     type: date
+    dependencies:
+      module:
+        - node
   comment_count:
     label: 'Replies » Number of comments'
     datasource_id: 'entity:node'
@@ -36,6 +41,9 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: created
     type: date
+    dependencies:
+      module:
+        - node
   field_country:
     label: Country
     datasource_id: 'entity:node'
@@ -44,6 +52,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_country
+  field_date:
+    label: Date
+    datasource_id: 'entity:node'
+    property_path: field_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_date
   field_glossary_terms:
     label: 'Glossary terms'
     datasource_id: 'entity:node'
@@ -68,11 +84,22 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_topics
+  field_type_of_court:
+    label: 'Type of court'
+    datasource_id: 'entity:node'
+    property_path: field_type_of_court
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_type_of_court
   langcode:
     label: Language
     datasource_id: 'entity:node'
     property_path: langcode
     type: string
+    dependencies:
+      module:
+        - node
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -98,11 +125,17 @@ field_settings:
     type: boolean
     indexed_locked: true
     type_locked: true
+    dependencies:
+      module:
+        - node
   type:
     label: 'Content type'
     datasource_id: 'entity:node'
     property_path: type
     type: string
+    dependencies:
+      module:
+        - node
   uid:
     label: 'Authored by'
     datasource_id: 'entity:node'
@@ -110,6 +143,9 @@ field_settings:
     type: integer
     indexed_locked: true
     type_locked: true
+    dependencies:
+      module:
+        - node
 datasource_settings:
   'entity:node':
     bundles:
@@ -128,6 +164,12 @@ processor_settings:
     weights:
       preprocess_query: -30
   entity_status: {  }
+  hierarchy:
+    fields:
+      field_glossary_terms: taxonomy_term-parent
+      field_topics: taxonomy_term-parent
+    weights:
+      preprocess_index: -45
   highlight:
     highlight: always
     highlight_partial: false
@@ -148,12 +190,10 @@ processor_settings:
     alt: true
     tags:
       b: 2
-      em: 1
       h1: 5
       h2: 3
       h3: 2
       strong: 2
-      u: 1
     weights:
       preprocess_index: -15
       preprocess_query: -15

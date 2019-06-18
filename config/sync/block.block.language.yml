@@ -1,0 +1,29 @@
+uuid: 9ebd4458-4bab-468c-bf2f-d15b3fdaf321
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.language
+  module:
+    - facets
+    - system
+  theme:
+    - judicial_portal
+id: language
+theme: judicial_portal
+region: sidebar_second
+weight: -4
+provider: null
+plugin: 'facet_block:language'
+settings:
+  id: 'facet_block:language'
+  label: Language
+  provider: facets
+  label_display: '0'
+  block_id: language
+visibility:
+  request_path:
+    id: request_path
+    pages: /jurisprudence
+    negate: false
+    context_mapping: {  }

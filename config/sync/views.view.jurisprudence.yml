@@ -45,7 +45,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 6
+          items_per_page: 7
           offset: 0
           id: 0
           total_pages: null
@@ -70,8 +70,9 @@ display:
         options:
           view_modes:
             'entity:node':
-              court_case: teaser_homepage
+              court_case: teaser
               forum: teaser
+              message: default
       fields:
         created:
           table: search_api_index_content
@@ -188,20 +189,30 @@ display:
           reduce_duplicates: false
           plugin_id: search_api_options
       sorts:
-        created:
-          id: created
+        field_date:
+          id: field_date
           table: search_api_index_content
-          field: created
+          field: field_date
           relationship: none
           group_type: group
           admin_label: ''
           order: DESC
-          exposed: false
+          exposed: true
           expose:
-            label: ''
+            label: Date
           plugin_id: search_api
       title: Jurisprudence
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: '@total results found'
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -213,6 +224,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
       tags: {  }
   block_1:
     display_plugin: block
@@ -270,6 +283,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
       tags: {  }
   block_recent:
     display_plugin: block
@@ -292,6 +307,8 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
       tags: {  }
   block_user:
     display_plugin: block
@@ -348,6 +365,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
       tags: {  }
   view_jurisprudence:
     display_plugin: page
@@ -367,10 +386,16 @@ display:
         context: '0'
         menu_name: main
       display_description: ''
+      cache:
+        type: none
+      defaults:
+        cache: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
       tags: {  }

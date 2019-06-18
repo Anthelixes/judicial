@@ -12,7 +12,7 @@ dependencies:
 id: views_block__courses_related_courses_block
 theme: judicial_portal
 region: sidebar_second
-weight: 0
+weight: -10
 provider: null
 plugin: 'views_block:courses-related_courses_block'
 settings:

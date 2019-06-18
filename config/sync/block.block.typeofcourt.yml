@@ -1,0 +1,29 @@
+uuid: bb846138-c5fa-4e38-a54c-2210f8270330
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.type_of_court
+  module:
+    - facets
+    - system
+  theme:
+    - judicial_portal
+id: typeofcourt
+theme: judicial_portal
+region: sidebar_second
+weight: -5
+provider: null
+plugin: 'facet_block:type_of_court'
+settings:
+  id: 'facet_block:type_of_court'
+  label: 'Type of court'
+  provider: facets
+  label_display: '0'
+  block_id: typeofcourt
+visibility:
+  request_path:
+    id: request_path
+    pages: /jurisprudence
+    negate: false
+    context_mapping: {  }

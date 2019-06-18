@@ -10,8 +10,8 @@ _core:
   default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
 id: judicial_portal_branding
 theme: judicial_portal
-region: top_bar
-weight: 0
+region: navigation
+weight: -7
 provider: null
 plugin: system_branding_block
 settings:

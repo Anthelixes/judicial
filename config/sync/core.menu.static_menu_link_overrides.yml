@@ -11,5 +11,29 @@ definitions:
     parent: ''
     expanded: false
     weight: 0
+  standard__front_page:
+    menu_name: main
+    parent: ''
+    weight: 0
+    expanded: false
+    enabled: false
+  judicial__network:
+    menu_name: main
+    parent: ''
+    weight: 1
+    expanded: true
+    enabled: true
+  judicial__discussions:
+    menu_name: main
+    parent: judicial.network
+    weight: 1
+    expanded: false
+    enabled: true
+  judicial__members:
+    menu_name: main
+    parent: judicial.network
+    weight: 1
+    expanded: false
+    enabled: true
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM
