@@ -31,7 +31,7 @@ content:
   body:
     label: inline
     type: text_default
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -44,7 +44,7 @@ content:
     type: entity_reference_label
     region: content
   field_court_name:
-    weight: 3
+    weight: 4
     label: inline
     settings:
       link_to_entity: false
@@ -73,7 +73,7 @@ content:
     type: link
     region: content
   field_files:
-    weight: 9
+    weight: 10
     label: inline
     settings:
       use_description_as_link_text: true
@@ -81,7 +81,7 @@ content:
     type: file_default
     region: content
   field_glossary_terms:
-    weight: 7
+    weight: 8
     label: inline
     settings:
       link: true
@@ -89,7 +89,7 @@ content:
     type: entity_reference_label
     region: content
   field_reference_number:
-    weight: 5
+    weight: 6
     label: inline
     settings:
       link_to_entity: false
@@ -97,7 +97,7 @@ content:
     type: string
     region: content
   field_seat_of_court:
-    weight: 4
+    weight: 5
     label: inline
     settings:
       link_to_entity: false
@@ -105,7 +105,7 @@ content:
     type: string
     region: content
   field_sources:
-    weight: 10
+    weight: 3
     label: inline
     settings:
       link: false
@@ -113,7 +113,7 @@ content:
     type: entity_reference_label
     region: content
   field_topics:
-    weight: 6
+    weight: 7
     label: inline
     settings:
       link: false
