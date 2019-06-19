@@ -14,4 +14,8 @@ class JudicialController extends ControllerBase {
     return [];
   }
 
+  public function home() {
+    return [];
+  }
+
 }

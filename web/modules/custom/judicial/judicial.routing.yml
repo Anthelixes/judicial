@@ -6,6 +6,14 @@ judicial.glossary:
   requirements:
     _permission: 'access content'
 
+judicial.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\judicial\Controller\JudicialController::home'
+    _title: 'Judicial Portal'
+  requirements:
+    _permission: 'access content'
+
 judicial.elearning:
   path: '/elearning'
   defaults:
