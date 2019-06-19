@@ -1,0 +1,9 @@
+uuid: 2120fa11-7ecb-4d20-80ce-66522c620438
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__discussions__discussions_page
+name: 'search_api:views_page__discussions__discussions_page'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }

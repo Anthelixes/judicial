@@ -1,0 +1,30 @@
+uuid: 5f660c41-5d6f-4fc0-9930-3f543378dd77
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.discussions
+  module:
+    - system
+    - views
+  theme:
+    - judicial_portal
+id: views_block__discussions_block_1
+theme: judicial_portal
+region: content_2
+weight: 0
+provider: null
+plugin: 'views_block:discussions-block_1'
+settings:
+  id: 'views_block:discussions-block_1'
+  label: Discussions
+  provider: views
+  label_display: visible
+  views_label: Discussions
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false
+    context_mapping: {  }

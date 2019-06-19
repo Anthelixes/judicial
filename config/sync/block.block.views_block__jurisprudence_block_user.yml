@@ -1,0 +1,30 @@
+uuid: 4e07c276-2da9-49dd-8280-509835141f99
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.jurisprudence
+  module:
+    - system
+    - views
+  theme:
+    - judicial_portal
+id: views_block__jurisprudence_block_user
+theme: judicial_portal
+region: content_2
+weight: 0
+provider: null
+plugin: 'views_block:jurisprudence-block_user'
+settings:
+  id: 'views_block:jurisprudence-block_user'
+  label: 'Uploaded jurisprudence'
+  provider: views
+  label_display: visible
+  views_label: 'Uploaded jurisprudence'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false
+    context_mapping: {  }

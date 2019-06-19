@@ -12,7 +12,7 @@ dependencies:
 id: glossaryterms
 theme: judicial_portal
 region: sidebar_second
-weight: -8
+weight: -12
 provider: null
 plugin: 'facet_block:glossary_terms'
 settings:

@@ -1,0 +1,29 @@
+uuid: d37b209f-c33d-48a9-978e-2a0b83fa8ff5
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.my_disc_glossary_terms
+  module:
+    - facets
+    - system
+  theme:
+    - judicial_portal
+id: mydiscussionsglossaryterms
+theme: judicial_portal
+region: sidebar_second
+weight: -3
+provider: null
+plugin: 'facet_block:my_disc_glossary_terms'
+settings:
+  id: 'facet_block:my_disc_glossary_terms'
+  label: 'My Discussions Glossary terms'
+  provider: facets
+  label_display: '0'
+  block_id: mydiscussionsglossaryterms
+visibility:
+  request_path:
+    id: request_path
+    pages: /discussions/my-discussions
+    negate: false
+    context_mapping: {  }

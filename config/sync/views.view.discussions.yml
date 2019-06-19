@@ -247,10 +247,10 @@ display:
         pager: false
         arguments: false
       arguments:
-        uid_1:
-          id: uid_1
+        uid:
+          id: uid
           table: search_api_index_content
-          field: uid_1
+          field: uid
           relationship: none
           group_type: group
           admin_label: ''
@@ -295,6 +295,10 @@ display:
       display_extenders: {  }
       path: discussions
       display_description: ''
+      cache:
+        type: none
+      defaults:
+        cache: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -312,10 +316,10 @@ display:
       display_description: ''
       path: discussions/my-discussions
       arguments:
-        uid_1:
-          id: uid_1
+        uid:
+          id: uid
           table: search_api_index_content
-          field: uid_1
+          field: uid
           relationship: none
           group_type: group
           admin_label: ''

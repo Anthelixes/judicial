@@ -12,7 +12,7 @@ dependencies:
 id: typeofcourt
 theme: judicial_portal
 region: sidebar_second
-weight: -5
+weight: -9
 provider: null
 plugin: 'facet_block:type_of_court'
 settings:

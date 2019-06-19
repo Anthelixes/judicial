@@ -440,3 +440,8 @@ function judicial_portal_theme($existing, $type, $theme, $path) {
     ]],
   );
 }
+
+function judicial_portal_preprocess_facets_item_list(&$variables) {
+  $variables['title'] = str_replace('My Discussions ', '', $variables['title']);
+  $variables['title'] = str_replace('Discussion ', '', $variables['title']);
+}

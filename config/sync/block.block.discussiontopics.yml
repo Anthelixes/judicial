@@ -1,29 +1,29 @@
-uuid: 9ebd4458-4bab-468c-bf2f-d15b3fdaf321
+uuid: ff3ba24f-fda3-4a4a-bcc1-5276e1d3c788
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.language
+    - facets.facet.all_disc_topics
   module:
     - facets
     - system
   theme:
     - judicial_portal
-id: language
+id: discussiontopics
 theme: judicial_portal
 region: sidebar_second
-weight: -8
+weight: -6
 provider: null
-plugin: 'facet_block:language'
+plugin: 'facet_block:all_disc_topics'
 settings:
-  id: 'facet_block:language'
-  label: Language
+  id: 'facet_block:all_disc_topics'
+  label: 'Discussion Topics'
   provider: facets
   label_display: '0'
-  block_id: language
+  block_id: discussiontopics
 visibility:
   request_path:
     id: request_path
-    pages: /jurisprudence
+    pages: /discussions
     negate: false
     context_mapping: {  }

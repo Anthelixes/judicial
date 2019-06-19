@@ -10,8 +10,8 @@ dependencies:
     - image.style.thumbnail
     - search_api.index.users
   module:
-    - image
     - search_api
+    - svg_image
 id: members
 label: Members
 module: views
@@ -80,7 +80,11 @@ display:
           row_class_default: true
           row_class_custom: ''
       row:
-        type: fields
+        type: search_api
+        options:
+          view_modes:
+            'entity:user':
+              user: compact
       fields:
         user_picture:
           id: user_picture
