@@ -1,11 +1,11 @@
 uuid: ab2e0ddb-8b26-4be8-b1b5-0b93ed6d305c
 name: 'Judicial Portal'
-mail: stefan.butura@eaudeweb.ro
+mail: drupal@eaudeweb.ro
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /node
+  front: /home
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en

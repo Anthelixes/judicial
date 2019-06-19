@@ -292,7 +292,7 @@ function template_preprocess_views_slideshow_pager_bullets(&$vars) {
   $vars['#attached']['library'][] = 'views_slideshow/pager_bullets';
   $vars['#attached']['drupalSettings']['viewsSlideshowPagerFields'][$vars['vss_id']] = [
     $vars['location'] => [
-      'activatePauseOnHover' => $vars['settings']['views_slideshow_pager_bullets']['views_slideshow_pager_bullets_hover'],
+      'activatePauseOnHover' => isset($vars['settings']['views_slideshow_pager_bullets']['views_slideshow_pager_bullets_hover']) ? $vars['settings']['views_slideshow_pager_bullets']['views_slideshow_pager_bullets_hover'] : '',
     ],
   ];
 

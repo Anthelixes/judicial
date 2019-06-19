@@ -33,6 +33,7 @@
         "drupal/migrate_tools": "^4.1",
         "drupal/search_api": "^1.9",
         "drupal/search_api_db": "^1.9",
+        "drupal/smart_trim": "^1.1",
         "drupal/svg_image": "^1.9",
         "drupal/title_length": "^1.0",
         "drupal/views_slideshow": "^4.6",
@@ -92,6 +93,8 @@
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
             }
-        }
+        },
+        "patches-file": "composer.patches.json",
+        "enable-patching": true
     }
 }

@@ -7,4 +7,10 @@ function judicial_install() {
   $menu_link_manager->updateDefinition('standard.front_page', $front_page_link);
   $cache = \Drupal::cache('menu');
   $cache->deleteAll();
+
+  $node = \Drupal\node\Entity\Node::create([
+    'type' => 'page',
+    'title' => 'Judicial Portal',
+    'path' =>  ['alias' => '/home'],
+  ]);
 }

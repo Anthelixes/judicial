@@ -1,0 +1,7 @@
+{
+    "patches": {
+        "drupal/views_slideshow": {
+            "Notice: Undefined index: views_slideshow_pager_bullets": "https://www.drupal.org/files/issues/2019-04-25/views_slideshow-fix_bullets_hover-2926311-20.patch"
+        }
+    }
+}
