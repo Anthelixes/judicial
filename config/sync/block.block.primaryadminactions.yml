@@ -7,7 +7,7 @@ dependencies:
 id: primaryadminactions
 theme: judicial_portal
 region: content
-weight: -6
+weight: -12
 provider: null
 plugin: local_actions_block
 settings:

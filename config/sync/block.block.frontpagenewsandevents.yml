@@ -1,0 +1,26 @@
+uuid: b8e12070-e457-47e2-bb08-ed7d011c3d23
+langcode: en
+status: true
+dependencies:
+  module:
+    - judicial
+    - system
+  theme:
+    - judicial_portal
+id: frontpagenewsandevents
+theme: judicial_portal
+region: content
+weight: -15
+provider: null
+plugin: frontpage_news_events
+settings:
+  id: frontpage_news_events
+  label: 'Frontpage news and events'
+  provider: judicial
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

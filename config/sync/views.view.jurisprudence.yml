@@ -239,6 +239,9 @@ display:
       defaults:
         title: false
         arguments: false
+        header: false
+        pager: false
+        sorts: false
       arguments:
         field_glossary_terms:
           id: field_glossary_terms
@@ -276,15 +279,31 @@ display:
           not: false
           plugin_id: search_api_term
       block_hide_empty: true
+      header: {  }
+      pager:
+        type: some
+        options:
+          items_per_page: 5
+          offset: 0
+      sorts:
+        field_date:
+          id: field_date
+          table: search_api_index_content
+          field: field_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: Date
+          plugin_id: search_api
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
-        - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
       tags: {  }
   block_recent:
     display_plugin: block
@@ -297,18 +316,32 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 3
+          items_per_page: 6
           offset: 0
       defaults:
         pager: false
+        header: false
+        sorts: false
       block_hide_empty: true
+      header: {  }
+      sorts:
+        field_date:
+          id: field_date
+          table: search_api_index_content
+          field: field_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: Date
+          plugin_id: search_api
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
       tags: {  }
   block_user:
     display_plugin: block
@@ -353,20 +386,34 @@ display:
       defaults:
         arguments: false
         pager: false
+        header: false
+        sorts: false
       pager:
         type: some
         options:
           items_per_page: 3
           offset: 0
       block_hide_empty: true
+      header: {  }
+      sorts:
+        field_date:
+          id: field_date
+          table: search_api_index_content
+          field: field_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: Date
+          plugin_id: search_api
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
       tags: {  }
   view_jurisprudence:
     display_plugin: page

@@ -11,8 +11,8 @@ dependencies:
     - node.type.news
   module:
     - file
-    - image
     - link
+    - svg_image
     - text
     - user
 id: node.news.default
@@ -61,6 +61,10 @@ content:
     settings:
       image_style: ''
       image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     type: image
     region: content
