@@ -9,6 +9,7 @@ url:
     ar: ar
     zh-hans: zh-hans
     ru: ru
+    '': null
   domains:
     en: ''
     fr: ''
