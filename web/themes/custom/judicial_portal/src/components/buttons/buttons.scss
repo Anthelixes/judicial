@@ -29,3 +29,20 @@
 // .btn-primary--fill {
 //   @include button-fill-variant(#fff, $gpw-secondary, $gpw-primary);
 // }
+
+
+.btn-link-black,
+.btn-link-black:active,
+.btn-link-black:focus,
+.btn-link-black:hover {
+  text-decoration: none;
+  outline: none;
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  background-color: #fefefe;
+  /* border: 1px solid #0d0d0d; */
+  padding: 1.4rem 3.4rem;
+  letter-spacing: 1px;
+}

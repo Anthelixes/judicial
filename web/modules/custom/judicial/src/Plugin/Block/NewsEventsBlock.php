@@ -3,6 +3,7 @@
 namespace Drupal\judicial\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Url;
 
 /**
  * Provides a 'News and Events' Block.
@@ -22,9 +23,17 @@ class NewsEventsBlock extends BlockBase {
     return [
       'content' => [
         '#type' => 'container',
-        'news' => views_embed_view('latest_news', 'latest_news_block'),
+        '#attributes' => ['class' => ['news-events-wrapper']],
+        'news' => [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['news-wrapper']],
+          'title' => [
+            '#markup' => '<h2 class="block-title">' . t('Latest news') . '</h2>',
+          ],
+          'content' => views_embed_view('latest_news', 'latest_news_block'),
+        ],
         'events' => [
-          '#markup' => '<div class="events"><div class="events-text">' . t('See upcoming events') . '</div></div>',
+          '#markup' => '<div class="events"><a href="' . Url::fromRoute('view.events.events_page')->toString() . '" class="btn-link-black events-text">' . t('See upcoming events') . '</a></div>',
         ],
       ]
     ];

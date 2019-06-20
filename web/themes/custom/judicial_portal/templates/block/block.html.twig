@@ -57,31 +57,33 @@
   ]
 %}
 
-{% if outer_prefix is not empty %}
-  {{ outer_prefix }}
-{% endif %}
-<section{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes.addClass('block-title') }}>
-      {{ block_icons.get(plugin_id|clean_class, base_path ~ directory) }}
-      {{ label }}
-    </h2>
+{% if content %}
+  {% if outer_prefix is not empty %}
+    {{ outer_prefix }}
   {% endif %}
-  {{ title_suffix }}
+  <section{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes.addClass('block-title') }}>
+        {{ block_icons.get(plugin_id|clean_class, base_path ~ directory) }}
+        {{ label }}
+      </h2>
+    {% endif %}
+    {{ title_suffix }}
 
-  {% if inner_prefix is not empty %}
-  {{ inner_prefix }}
+    {% if inner_prefix is not empty %}
+    {{ inner_prefix }}
+    {% endif %}
+
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+
+    {% if inner_suffix is not empty %}
+      {{ inner_suffix }}
+    {% endif %}
+  </section>
+  {% if outer_suffix is not empty %}
+    {{ outer_suffix }}
   {% endif %}
-
-  {% block content %}
-    {{ content }}
-  {% endblock %}
-
-  {% if inner_suffix is not empty %}
-    {{ inner_suffix }}
-  {% endif %}
-</section>
-{% if outer_suffix is not empty %}
-  {{ outer_suffix }}
 {% endif %}

@@ -20,8 +20,8 @@
   $grid-breakpoint: "screen and (min-width: #{$grid-float-breakpoint})" !global;
 
   $font-family-regular: 'Roboto', sans-serif !global;
-  $font-family-condensed: 'Roboto Condensed', sans-serif !global;
-  $font-family-accent: 'AlternateGotNo2DRegular', sans-serif !global;
+  $font-family-condensed: 'Roboto', sans-serif !global;
+  $font-family-accent: 'Roboto', sans-serif !global;
 
   $block-latest-news: 'block-views-blocknews-latest-news' !global;
 
@@ -51,15 +51,15 @@
   $navbar-default-bg:         transparent !global;
   $navbar-default-border:     transparent !global;
   $navbar-default-link-color: #000 !global;
-  $navbar-default-link-hover-color: $gpw-secondary !global;
-  $navbar-default-link-active-color: $gpw-secondary !global;
+  $navbar-default-link-hover-color: #FFFFFF !global;
+  $navbar-default-link-active-color: #FFFFFF !global;
   $navbar-default-toggle-hover-bg: transparent !global;
   $navbar-default-toggle-border-color: transparent !global;
 
   $navbar-inverse-bg:         #333 !global;
   $navbar-inverse-border:     transparent !global;
   $navbar-inverse-link-color: #fff !global;
-  $navbar-inverse-link-hover-color: $gpw-primary !global;
+  $navbar-inverse-link-hover-color: #FFFFFF !global;
 
   $btn-primary-color:              #fff !global;
   $btn-primary-bg:                 $gpw-secondary !global;

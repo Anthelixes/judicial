@@ -190,7 +190,7 @@ display:
           slideshow_skin: default
           slideshow_type: views_slideshow_cycle
           views_slideshow_cycle:
-            effect: curtainX
+            effect: scrollRight
             transition_advanced: 0
             timeout: '5000'
             speed: '700'

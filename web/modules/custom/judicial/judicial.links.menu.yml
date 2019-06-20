@@ -42,8 +42,8 @@ judicial.events:
   route_name: view.events.events_page
   weight: 4
 
-judicial.glossary:
-  title: Glossary
-  menu_name: main
-  route_name: judicial.glossary
-  weight: 5
+#judicial.glossary:
+#  title: Glossary
+#  menu_name: main
+#  route_name: judicial.glossary
+#  weight: 5

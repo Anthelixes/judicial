@@ -1,0 +1,30 @@
+uuid: 615f541e-f611-452f-bb26-148bf9fcad00
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.courses
+  module:
+    - system
+    - views
+  theme:
+    - judicial_portal
+id: views_block__courses_block_2
+theme: judicial_portal
+region: content
+weight: -15
+provider: null
+plugin: 'views_block:courses-block_2'
+settings:
+  id: 'views_block:courses-block_2'
+  label: E-Learning
+  provider: views
+  label_display: visible
+  views_label: E-Learning
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

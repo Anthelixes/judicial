@@ -53,27 +53,20 @@
  */
 #}
 
-{# Top bar #}
-{% if page.top_bar %}
-  {% block top_bar %}
-    <div class="container">
-      {{ page.top_bar }}
-    </div>
-  {% endblock %}
-{% endif %}
+<div class="hero">
+  {% include "@judicial_portal/includes/_header.html.twig" %}
 
-{% include "@judicial_portal/includes/_header.html.twig" %}
+  {# Title #}
+  {% block title %}
+    <a id="main-content"></a>
+    {{ page.title }}
+  {% endblock %}
+</div>
 
 {# Main #}
 {% block main %}
   <div class="holygrail-body">
     <div role="main" class="main-container js-quickedit-main-content">
-      {# Title #}
-      {% block title %}
-        <a id="main-content"></a>
-        {{ page.title }}
-      {% endblock %}
-
       {# Highlighted #}
       {% if page.highlighted %}
         {% block highlighted %}

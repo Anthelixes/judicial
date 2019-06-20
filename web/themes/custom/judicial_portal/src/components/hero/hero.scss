@@ -13,14 +13,13 @@
   background-position: center;
   background-size: cover;
   color: #fff;
-  display: flex;
-  flex-direction: column;
   font-family: $font-family-regular;
   font-size: 1.7rem;
   justify-content: center;
-  min-height: 20rem;
-  padding: 3rem 0;
+  min-height: 30rem;
   text-align: center;
+  position: relative;
+  background-position-y: unset;
 
   // IE11 workaround for flex vertical centering not working with min-height
 
@@ -31,6 +30,12 @@
       margin-bottom: 11rem;
       padding-bottom: 29rem;
     }
+  }
+
+  .flex-container-wrapper {
+    position: absolute;
+    top: 40%;
+    width: 100%;
   }
 }
 
@@ -68,5 +73,14 @@
 
   .field--name-field-video-date {
     float: right;
+  }
+}
+
+.path-frontpage {
+  .hero {
+    min-height: 76rem;
+  }
+  .flex-container-wrapper {
+    top: calc(4vw + 3em);
   }
 }

@@ -29,6 +29,7 @@ cdn_cache_ttl_assets: 0
 cdn_cache_ttl_library: 0
 reset_http_request_cache: ''
 table: ''
+cdn_provider: ''
 features:
   comment_user_picture: true
   comment_user_verification: true
@@ -38,4 +39,4 @@ logo:
   path: ''
   url: ''
   use_default: true
-cdn_provider: ''
+navbar_inverse: 1

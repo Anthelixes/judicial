@@ -13,7 +13,7 @@ _core:
 id: judicial_portal_account_menu
 theme: judicial_portal
 region: navigation_collapsible
-weight: -6
+weight: -15
 provider: null
 plugin: 'system_menu_block:account'
 settings:
