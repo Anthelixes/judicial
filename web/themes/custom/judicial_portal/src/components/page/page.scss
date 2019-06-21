@@ -44,3 +44,22 @@ body,
     margin-top: -200px;
   }
 }
+
+h2 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #0f0f0f;
+
+  a {
+    color: #0f0f0f;
+    font-size: 1.7rem;
+    font-weight: 400;
+  }
+  a:hover, a:active, a:focus {
+    color: #0f0f0f;
+    font-size: 1.7rem;
+    text-decoration: none;
+  }
+
+}

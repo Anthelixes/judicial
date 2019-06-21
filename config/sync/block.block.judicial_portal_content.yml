@@ -11,7 +11,7 @@ _core:
 id: judicial_portal_content
 theme: judicial_portal
 region: content
-weight: -11
+weight: -10
 provider: null
 plugin: system_main_block
 settings:

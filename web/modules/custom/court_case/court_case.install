@@ -11,6 +11,12 @@ function court_case_install() {
   $data_path = drupal_get_path('module', 'court_case') . '/data/json/countries.json';
   $response = file_get_contents($data_path);
   $items = json_decode($response, TRUE);
+
+  $continents_data = drupal_get_path('module', 'court_case') . '/data/json/continent.json';
+  $response = file_get_contents($continents_data);
+  $continents = json_decode($response, TRUE);
+  //  $continents = array_combine(array_column($continents, 'country'), array_column($continents, 'continent'));
+
   if ($items) {
     foreach ($items as $item) {
       $filePath = drupal_get_path('module', 'court_case') . '/data/flags/';
@@ -32,8 +38,13 @@ function court_case_install() {
         'field_iso2' => $item['code2l'],
         'field_iso3' => $item['code3l'],
         'field_flag' => ['target_id' => $flag_fid],
+        'field_continent' => $continents[$item['code2l']] ?: 'EU',
       ];
 
+
+      if (empty($values['field_continent'])) {
+        var_dump($item['name']);
+      }
       $existing = taxonomy_term_load_multiple_by_name($item['name'], 'countries');
 
       /** @var \Drupal\taxonomy\TermInterface $term */

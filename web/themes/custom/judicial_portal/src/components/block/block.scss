@@ -47,6 +47,28 @@ $fs-filter-block-more-item: 2rem !global;
   }
 }
 
+.two-block-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  #block-jurisprudenceperregion {
+    max-height: 340px;
+  }
+
+  > div {
+    min-height: 340px;
+    flex: 1 0 50%;
+
+
+    @media (max-width: 644px) {
+      min-height: 55vw;
+    }
+
+    @media (min-width: 300px) {
+      min-width: 300px;
+    }
+  }
+}
+
 #block-frontpagenewsandevents {
   .news-events-wrapper {
     display: flex;
@@ -124,6 +146,149 @@ h2.block-title {
   background-color: transparent;
   border-bottom: 1px solid #b7b7b7;
   margin-bottom: 1.5em;
-  padding: 5px 3em 0.3em 0;
+  padding: 5px 0 0.3em 0;
   font-size: 1.4rem;
+}
+
+#block-views-block-courses-block-2 {
+  text-align: center;
+  background-color: #f8f8f8;
+  padding: 50px 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .views-row {
+    width: auto;
+  }
+
+  h2 {
+    margin-bottom: 40px;
+  }
+
+  article {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+
+  .views-view-grid {
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    border: 0;
+    height: 100%;
+    width: auto;
+    max-height: 150px;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+    a {
+      color: #0d0d0d;
+    }
+    a:hover, a:active, a:focus {
+      color: #0d0d0d;
+      text-decoration: none;
+    }
+  }
+}
+
+#block-jurisprudenceperregion {
+  position: relative;
+  background-image: url('/modules/custom/judicial/data/region-data.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 0;
+  height: auto;
+  display: inline-table;
+  img {
+    visibility: hidden;
+  }
+
+  .text {
+    text-transform: uppercase;
+    font-size: calc(1vw + .2em);
+    position: absolute;
+  }
+
+  .count {
+    font-weight: bold;
+    font-size: calc(1vw + 1.3em);
+    position: absolute;
+  }
+
+  .north-america-text {
+    top: 2%;
+    left: 2%;
+  }
+
+  .north-america-count {
+    top: 11%;
+    left: 2%;
+  }
+
+  .europe-text {
+    top: 5%;
+    left: 50%;
+  }
+
+  .europe-count {
+    top: 14%;
+    left: 50%;
+  }
+
+  .asia-text {
+    top: 35%;
+    left: 88%;
+  }
+
+  .asia-count {
+    top: 44%;
+    left: 88%;
+  }
+
+  .africa-text {
+    top: 63%;
+    left: 61%;
+  }
+
+  .africa-count {
+    top: 71%;
+    left: 61%;
+  }
+
+  .south-america-text {
+    top: 70%;
+    left: 4%;
+  }
+
+  .south-america-count {
+    top: 79%;
+    left: 4%;
+  }
+}
+
+.court-case.teaser-homepage {
+  h2 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .content {
+    display: flex;
+
+    > div {
+      font-size: 1.4rem;
+      color: #9c9c9c;
+
+      &:not(:last-child):after {
+        content: "|";
+        margin: 0 2px;
+      }
+    }
+  }
 }

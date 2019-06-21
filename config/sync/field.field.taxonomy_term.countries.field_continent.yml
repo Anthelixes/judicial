@@ -1,0 +1,25 @@
+uuid: dd21e00b-333e-4ea8-8045-98ce997d00fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_continent
+    - taxonomy.vocabulary.countries
+  module:
+    - field_cardinality_customization
+    - options
+third_party_settings:
+  field_cardinality_customization:
+    alter: 0
+id: taxonomy_term.countries.field_continent
+field_name: field_continent
+entity_type: taxonomy_term
+bundle: countries
+label: Continent
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

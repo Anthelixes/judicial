@@ -16,8 +16,9 @@
   $tablet:          "screen and (min-width: #{$screen-sm-min})" !global;
   $normal:          "screen and (min-width: #{$screen-md-min})" !global;
   $wide:            "screen and (min-width: #{$screen-lg-min})" !global;
+  $grid-float-breakpoint:     $screen-lg-min !global;
   $grid-breakpoint-max: "screen and (max-width: #{$grid-float-breakpoint-max})" !global;
-  $grid-breakpoint: "screen and (min-width: #{$grid-float-breakpoint})" !global;
+  $grid-breakpoint: "screen and (min-width: #{$screen-lg-min})" !global;
 
   $font-family-regular: 'Roboto', sans-serif !global;
   $font-family-condensed: 'Roboto', sans-serif !global;
@@ -64,6 +65,8 @@
   $btn-primary-color:              #fff !global;
   $btn-primary-bg:                 $gpw-secondary !global;
   $btn-primary-border:             $btn-primary-bg !global;
+
+
 
 }
 

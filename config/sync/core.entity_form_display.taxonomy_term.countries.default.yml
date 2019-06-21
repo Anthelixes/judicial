@@ -3,19 +3,26 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.countries.field_continent
+    - field.field.taxonomy_term.countries.field_flag
     - field.field.taxonomy_term.countries.field_iso2
     - field.field.taxonomy_term.countries.field_iso3
-    - field.field.taxonomy_term.countries.field_flag
     - field.field.taxonomy_term.countries.field_official_name
     - image.style.thumbnail
     - taxonomy.vocabulary.countries
   module:
-    - image
+    - svg_image
 id: taxonomy_term.countries.default
 targetEntityType: taxonomy_term
 bundle: countries
 mode: default
 content:
+  field_continent:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_flag:
     weight: 4
     settings:

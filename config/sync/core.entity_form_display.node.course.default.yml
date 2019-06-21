@@ -13,9 +13,9 @@ dependencies:
     - image.style.thumbnail
     - node.type.course
   module:
-    - image
     - link
     - path
+    - svg_image
     - text
 id: node.course.default
 targetEntityType: node
@@ -52,6 +52,12 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
+  field_judicial_positions:
+    type: options_buttons
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_topics:
     weight: 8
     settings: {  }
@@ -108,6 +114,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_judicial_positions: true
   promote: true
   uid: true

@@ -1,0 +1,42 @@
+uuid: bc580d9f-11f7-41c8-b366-f8e328e9fc51
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_continent
+field_name: field_continent
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: AS
+      label: Asia
+    -
+      value: EU
+      label: Europe
+    -
+      value: AF
+      label: Africa
+    -
+      value: AN
+      label: Antarctica
+    -
+      value: SA
+      label: 'South America'
+    -
+      value: NA
+      label: 'North America'
+    -
+      value: OC
+      label: Oceania
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

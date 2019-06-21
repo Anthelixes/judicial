@@ -7,7 +7,7 @@ dependencies:
   module:
     - search_api
 id: jurisprudence
-label: Jurisprudence
+label: 'Jurisprudence (indexed)'
 module: views
 description: ''
 tag: ''

@@ -1,0 +1,26 @@
+uuid: 38116b68-00cb-485f-852c-4c05f6bbad2f
+langcode: en
+status: true
+dependencies:
+  module:
+    - judicial
+    - system
+  theme:
+    - judicial_portal
+id: frontpagejurisprudence
+theme: judicial_portal
+region: content
+weight: -15
+provider: null
+plugin: frontpage_jurisprudence
+settings:
+  id: frontpage_jurisprudence
+  label: 'Frontpage Jurisprudence'
+  provider: judicial
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
