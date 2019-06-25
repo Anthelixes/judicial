@@ -1,0 +1,12 @@
+display:
+  default:
+    display_options:
+      fields:
+        type:
+          label: 类型
+        link:
+          label: 操作
+      filters:
+        type:
+          expose:
+            label: 类型

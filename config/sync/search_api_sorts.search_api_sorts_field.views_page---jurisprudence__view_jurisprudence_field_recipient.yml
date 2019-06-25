@@ -1,0 +1,11 @@
+uuid: fb258fc9-4cff-4ceb-8063-d7bc93d5d603
+langcode: en
+status: false
+dependencies: {  }
+id: views_page---jurisprudence__view_jurisprudence_field_recipient
+display_id: views_page---jurisprudence__view_jurisprudence
+field_identifier: field_recipient
+default_sort: false
+default_order: asc
+label: Recipient
+weight: 0

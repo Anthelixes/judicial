@@ -1,0 +1,11 @@
+uuid: 4178bb3e-8192-4527-be66-7ab9372a7e53
+langcode: en
+status: false
+dependencies: {  }
+id: views_page---jurisprudence__view_jurisprudence_field_type_of_court
+display_id: views_page---jurisprudence__view_jurisprudence
+field_identifier: field_type_of_court
+default_sort: false
+default_order: asc
+label: 'Type of court'
+weight: 0

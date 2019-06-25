@@ -1,0 +1,11 @@
+uuid: 72169d30-839b-43e0-9c5b-54fc9e1c0c95
+langcode: en
+status: false
+dependencies: {  }
+id: views_page---jurisprudence__view_jurisprudence_node_grants
+display_id: views_page---jurisprudence__view_jurisprudence
+field_identifier: node_grants
+default_sort: false
+default_order: asc
+label: 'Node access information'
+weight: 0

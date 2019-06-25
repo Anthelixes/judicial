@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - block.block.sortbyviewjurisprudenceindexeddisplayalljurisprudence
     - search_api.index.content
   module:
     - search_api
@@ -188,19 +189,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: search_api_options
-      sorts:
-        field_date:
-          id: field_date
-          table: search_api_index_content
-          field: field_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: true
-          expose:
-            label: Date
-          plugin_id: search_api
+      sorts: {  }
       title: Jurisprudence
       header:
         result:
@@ -211,8 +200,21 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: '@total results found'
+          content: '<div>@total results found</div>'
           plugin_id: result
+        entity_block:
+          id: entity_block
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: true
+          target: sortbyviewjurisprudenceindexeddisplayalljurisprudence
+          view_mode: default
+          bypass_access: true
+          plugin_id: entity
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -224,8 +226,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
       tags: {  }
   block_1:
     display_plugin: block
@@ -337,6 +337,7 @@ display:
           expose:
             label: Date
           plugin_id: search_api
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -443,6 +444,4 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
       tags: {  }

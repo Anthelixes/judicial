@@ -1,0 +1,11 @@
+uuid: b009ee08-ac14-44a4-9814-b59f918f2f43
+langcode: en
+status: false
+dependencies: {  }
+id: views_page---jurisprudence__view_jurisprudence_field_glossary_terms
+display_id: views_page---jurisprudence__view_jurisprudence
+field_identifier: field_glossary_terms
+default_sort: false
+default_order: asc
+label: 'Glossary terms'
+weight: 0

@@ -17,3 +17,28 @@ function judicial_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for block templates.
+ */
+function judicial_preprocess_block(&$variables) {
+  switch ($variables['base_plugin_id']) {
+    case 'search_api_sorts_block':
+      if ($variables['elements']['#id'] == 'sortbyviewjurisprudenceindexeddisplayalljurisprudence') {
+        $items = &$variables['content']['links']['#items'][0];
+        if ($items['#order'] == 'desc') {
+          $label = t('Sort by least recent');
+        }
+        else {
+          $label = t('Sort by most recent');
+        }
+        $items['#label'] = $label;
+        unset($items['#order_indicator']);
+      }
+      break;
+
+    default:
+      break;
+
+  }
+}

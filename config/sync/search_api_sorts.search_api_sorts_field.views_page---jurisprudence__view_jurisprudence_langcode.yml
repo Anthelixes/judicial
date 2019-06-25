@@ -1,0 +1,11 @@
+uuid: 0601ab7d-c7d5-4541-83a6-bc5f1358d213
+langcode: en
+status: false
+dependencies: {  }
+id: views_page---jurisprudence__view_jurisprudence_langcode
+display_id: views_page---jurisprudence__view_jurisprudence
+field_identifier: langcode
+default_sort: false
+default_order: asc
+label: Language
+weight: 0

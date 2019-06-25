@@ -1,0 +1,11 @@
+uuid: 74703ffa-313c-4e2e-a89f-ed912545b4cf
+langcode: en
+status: false
+dependencies: {  }
+id: views_page---jurisprudence__view_jurisprudence_status
+display_id: views_page---jurisprudence__view_jurisprudence
+field_identifier: status
+default_sort: false
+default_order: asc
+label: status
+weight: 0

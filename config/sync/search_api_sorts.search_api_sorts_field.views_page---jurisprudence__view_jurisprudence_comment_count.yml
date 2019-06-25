@@ -1,0 +1,11 @@
+uuid: 1907b3be-24fe-4231-b7fd-9c9261c0dc38
+langcode: en
+status: false
+dependencies: {  }
+id: views_page---jurisprudence__view_jurisprudence_comment_count
+display_id: views_page---jurisprudence__view_jurisprudence
+field_identifier: comment_count
+default_sort: false
+default_order: asc
+label: 'Replies » Number of comments'
+weight: 0

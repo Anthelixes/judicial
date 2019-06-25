@@ -282,8 +282,36 @@ h2.block-title {
     margin-top: 10px;
     margin-bottom: 5px;
   }
+}
+
+.court-case {
+  .field--label {
+    font-weight: bold;
+    color: #0f0f0f;
+  }
 
   .content {
+    display: block;
+    .field {
+      display: block;
+      margin-top: 10px;
+      .field--label {
+        width: 10%;
+      }
+
+      .field--items {
+        width: 90%;
+        display: flex;
+
+        .field--item:not(:last-child):after {
+          content: ", ";
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  .content-inline {
     display: flex;
 
     > div {
@@ -292,8 +320,51 @@ h2.block-title {
 
       &:not(:last-child):after {
         content: "|";
-        margin: 0 2px;
+        margin: 0 4px;
       }
     }
+  }
+}
+
+#block-sortbyviewjurisprudenceindexeddisplayalljurisprudence {
+  margin-left: 10px;
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+}
+
+.view-jurisprudence {
+  .view-header {
+    display: inline-block;
+    border-bottom: 1px solid #0f0f0f;
+
+    > * {
+      display: inline-block;
+    }
+  }
+}
+
+.facets-widget-links,
+.facets-widget-checkbox {
+  ul {
+    list-style-type: none;
+    padding-left: 1em;
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  a:not(.facets-soft-limit-link) {
+    &, &:hover, &:active, &:focus {
+      color: #111111;
+      font-size: 14px;
+    }
+  }
+
+  li {
+    line-height: 30px;
   }
 }

@@ -1,0 +1,26 @@
+uuid: 37fa4f4f-6b35-4d78-8ae6-5dc97aa9f08a
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_sorts
+    - system
+  theme:
+    - judicial_portal
+id: sortbyviewjurisprudenceindexeddisplayalljurisprudence
+theme: judicial_portal
+region: content
+weight: -11
+provider: null
+plugin: 'search_api_sorts_block:views_page:jurisprudence__view_jurisprudence'
+settings:
+  id: 'search_api_sorts_block:views_page:jurisprudence__view_jurisprudence'
+  label: 'Jurisprudence sort'
+  provider: search_api_sorts
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /non-existent-page
+    negate: false
+    context_mapping: {  }

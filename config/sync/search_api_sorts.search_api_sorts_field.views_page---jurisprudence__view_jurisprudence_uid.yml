@@ -1,0 +1,11 @@
+uuid: 40c394d9-266b-44e5-a541-dd23afecb31e
+langcode: en
+status: false
+dependencies: {  }
+id: views_page---jurisprudence__view_jurisprudence_uid
+display_id: views_page---jurisprudence__view_jurisprudence
+field_identifier: uid
+default_sort: false
+default_order: asc
+label: 'Authored by'
+weight: 0

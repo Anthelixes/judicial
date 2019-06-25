@@ -1,0 +1,12 @@
+display:
+  default:
+    display_options:
+      fields:
+        type:
+          label: النوع
+        link:
+          label: عمليات
+      filters:
+        type:
+          expose:
+            label: النوع
