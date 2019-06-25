@@ -114,6 +114,10 @@
 .navbar-collapse.in {
   text-align: right;
 }
+
+.navbar-inverse .navbar-nav>.active>a {
+  background-color: transparent;
+}
 //
 //.collapse.in {
 //  display: inherit;
