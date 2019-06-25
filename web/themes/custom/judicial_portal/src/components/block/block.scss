@@ -296,11 +296,11 @@ h2.block-title {
       display: block;
       margin-top: 10px;
       .field--label {
-        width: 10%;
+        width: 13%;
       }
 
       .field--items {
-        width: 90%;
+        width: 87%;
         display: flex;
 
         .field--item:not(:last-child):after {
@@ -352,6 +352,10 @@ h2.block-title {
     padding-left: 1em;
   }
 
+  > ul {
+    padding-left: 0;
+  }
+
   h3 {
     font-size: 14px;
     font-weight: bold;
@@ -364,7 +368,49 @@ h2.block-title {
     }
   }
 
+  .is-active {
+    font-weight: bold;
+  }
+
+  input[checked='checked'] + label span {
+    font-weight: bold;
+  }
+
   li {
     line-height: 30px;
   }
+}
+
+.facets-widget-checkbox {
+  ul {
+    padding-left: 1em;
+  }
+
+  > ul {
+    padding-left: 0;
+  }
+}
+
+button.facets-collapse {
+  &, &:active, &:focus, &:hover {
+    border: none;
+    background: none;
+    font-weight: bold;
+    outline: none;
+  }
+}
+
+input[type='checkbox'] + label:before {
+  content:"◻";
+  cursor: pointer;
+}
+input[type='checkbox']:checked + label:before {
+  content:"☑";
+  cursor: pointer;
+}
+input[type='checkbox'] {
+  display:none;
+}
+input[type='checkbox'] + label {
+  cursor: pointer;
 }

@@ -24,7 +24,7 @@
  * @ingroup themeable
  */
 #}
-<div class="facets-widget- {{- facet.widget.type -}} ">
+<div class="facets-widget-{{- facet.widget.type -}} ">
   {% if facet.widget.type %}
     {%- set attributes = attributes.addClass('item-list__' ~ facet.widget.type) %}
   {% endif %}
@@ -33,10 +33,18 @@
       <h3>{{ title }}</h3>
     {%- endif -%}
 
+  {#{{ dpm(items) }}#}
     {%- if items -%}
       <{{ list_type }}{{ attributes }}>
         {%- for item in items -%}
-          <li{{ item.attributes }}>{{ item.value }}</li>
+          <li{{ item.attributes }}>
+            {% if item.value.children %}
+              <button class="facets-collapse" data-toggle="collapse" data-target="#facets-children-{{ item.id }}">+</button>
+            {% else %}
+              <button class="facets-collapse" style="visibility: hidden;">+</button>
+            {% endif %}
+            {{ item.value }}
+          </li>
         {%- endfor -%}
       </{{ list_type }}>
     {%- else -%}

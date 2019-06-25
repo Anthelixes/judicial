@@ -339,4 +339,17 @@ function judicial_portal_theme($existing, $type, $theme, $path) {
 function judicial_portal_preprocess_facets_item_list(&$variables) {
   $variables['title'] = str_replace('My Discussions ', '', $variables['title']);
   $variables['title'] = str_replace('Discussion ', '', $variables['title']);
+
+  foreach ($variables['items'] as &$item) {
+    if (!empty($item['value']['children'])) {
+      $parent = $item['value']['#attributes']['data-drupal-facet-item-id'];
+      $item['id'] = $parent;
+      $collapse = 'collapse';
+      if (in_array('facet-item--expanded', $item['value']['#wrapper_attributes']['class'])) {
+        $collapse .= ' in';
+      }
+      $item['value']['children']['#prefix'] = "<div class=\"$collapse\" id=\"facets-children-$parent\">";
+      $item['value']['children']['#suffix'] = "<div>";
+    }
+  }
 }
