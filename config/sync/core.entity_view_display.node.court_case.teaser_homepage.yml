@@ -56,6 +56,7 @@ hidden:
   field_external_links: true
   field_files: true
   field_glossary_terms: true
+  field_languages: true
   field_reference_number: true
   field_seat_of_court: true
   field_sources: true

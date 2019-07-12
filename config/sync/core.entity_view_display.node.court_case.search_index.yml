@@ -129,6 +129,7 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_languages: true
   langcode: true
   links: true
   private_message_link: true

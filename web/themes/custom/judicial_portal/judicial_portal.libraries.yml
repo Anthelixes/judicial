@@ -29,6 +29,11 @@ block:
     theme:
       dist/components/block/block.css: {}
 
+elearning: #ELEARNING#
+  css:
+    theme:
+      dist/components/elearning/elearning.css: {}
+
 header:
   css:
     theme:
@@ -139,3 +144,4 @@ framework:
     - judicial_portal/glossary
     - judicial_portal/taxonomy_term
     - judicial_portal/report_page
+    - judicial_portal/elearning
