@@ -7,8 +7,8 @@ dependencies:
     - field.storage.taxonomy_term.field_link
     - taxonomy.vocabulary.topics
   module:
-    - image
     - link
+    - svg_image
     - taxonomy
     - user
 id: topics
@@ -61,7 +61,7 @@ display:
         options:
           grouping: {  }
           columns: 20
-          automatic_width: true
+          automatic_width: false
           alignment: horizontal
           col_class_default: true
           col_class_custom: ''
