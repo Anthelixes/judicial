@@ -18,7 +18,7 @@ judicial.elearning:
   path: '/elearning'
   defaults:
     _controller: '\Drupal\judicial\Controller\JudicialController::elearning'
-    _title: 'E-learning'
+    _title: 'Free Online Courses'
   requirements:
     _permission: 'access content'
 

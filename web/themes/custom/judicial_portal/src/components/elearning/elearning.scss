@@ -1,13 +1,20 @@
 .region.region-content-2{
   #block-views-block-courses-block-1{
-
+    position: relative;
     border: #1e7ea8 3px solid;
     background-color: #EBEBEB;
-    padding: 50px 35px 75px 35px;
+    padding: 34px 35px 75px 35px;
+  }
+  .elearning-star-svg img{
+    position: absolute;
+    width:4.5%;
+    height: 74px;
+    top: -1px;
+    right: 30px;
   }
   h2.block-title{
     border: unset;
-    font-size: 20px;
+    font-size: 25px;
   }
   #block-views-block-courses-block-1 h2.block-title{
     position: relative;
@@ -15,9 +22,24 @@
   }
   .form-group{
     position: relative;
+    .contextual-region.course.teaser.clearfix{
+      float:left;
+      height: 30%;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 0 10px 0;
+      box-sizing: border-box;
+      border: 2px solid transparent;
+      img{
+        width: 90%;
+        height: 100px;
+        object-fit: fill;
+      }
+    }
     .contextual-region.course.teaser.clearfix:hover{
       border-top: #1e7ea8 2px solid;
       border-bottom: #1e7ea8 2px solid;
+
       content: "Read more >>";
       &:after{
         position: absolute;
@@ -28,10 +50,18 @@
       }
     }
 
-    h2 a{
-      color: #000;
-      &:hover{
-        color: #1C7BA7;
+    h2{
+
+      width: 100%;
+      height: 20px;
+      a{
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        text-align: center;
+        color: #000;
+        &:hover{
+          color: #1C7BA7;
+        }
       }
     }
     .more-link.see-course a{
@@ -46,5 +76,96 @@
       position: relative;
       left: calc(35% - 20px);
     }
+    .view-content{
+      .views-row{
+        display: flex;
+        flex-wrap: wrap;
+        .views-col{
+          flex-grow: 1;
+          box-sizing: border-box;
+          padding: 20px 0 20px 0;
+          border: 2px solid transparent;
+        }
+      }
+      .views-field.views-field-field-image {
+        width: 85px;
+        height: 85px;
+      }
+      .views-field.views-field-name{
+        width: 85px;
+        text-align: center;
+        text-justify: inter-word;
+        .field-content a{
+          color: #000;
+          font-weight: bold;
+          &:hover{
+            text-decoration: none;
+          }
+        }
+
+      }
+    }
+
+    .form-group{
+      position: relative;
+      .views-row.clearfix{
+        display: flex;
+        flex-direction: row;
+        padding: 10px 0 10px 0;
+        box-sizing: border-box;
+      }
+      .views-row.clearfix .views-col:hover{
+        border-top: #1e7ea8 2px solid;
+        border-bottom: #1e7ea8 2px solid;
+        content: "Read more >>";
+        &:after{
+          position: absolute;
+          color: #1e7ea8;
+          content: "See course >>";
+          left: 0%;
+          bottom: -15px;
+        }
+      }
+    }//END .form-group
+    /*
+    .form-group{
+      position: relative;
+      .views-row.clearfix .views-col:hover{
+        flex: auto;
+        width: 200%;
+        .views-field.views-field-field-image{
+          border-top: #1e7ea8 2px solid;
+        }
+        .views-field.views-field-name{
+          border-bottom: #1e7ea8 2px solid;
+
+          &:after{
+            text-align: center;
+            width: 200%;
+            position: absolute;
+            color: #1e7ea8;
+            content: "See courses >>";
+            left:0;
+            bottom: -30px;
+          }
+        }
+      }
+    }//END .form-group
+     */
+  }//END #id block 2
+  #block-leocloud:before{
+    display: none;
   }
+  #block-leocloud{
+    h2.block-title{
+      position: relative;
+      left: calc(35% - 20px);
+    }
+    .elearning-search-glossary img{
+      position: absolute;
+      width: 50px;
+      top: -15px;
+      left: -40px;
+    }
+  }//END block glossary
 }
