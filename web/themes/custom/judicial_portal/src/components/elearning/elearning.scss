@@ -8,7 +8,7 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-evenly;
+      justify-content: center;
       padding: 5px 0 5px 0;
       box-sizing: border-box;
       .views-col {
@@ -71,7 +71,6 @@
   .elearning-star-svg img{
     position: absolute;
     width:4.5%;
-    height: 74px;
     top: -1px;
     right: 30px;
   }
@@ -99,6 +98,7 @@
     .views-row{
       display: flex;
       flex-direction: row;
+      justify-content: center;
       flex-wrap: wrap;
       padding: 5px 0 5px 0;
       box-sizing: border-box;
@@ -155,14 +155,13 @@
       width: 400px;
       height: 400px;
       background-image: linear-gradient(
-                      to bottom,
-                      transparent 50px,
-                      #F5A623 50px,
-                      #F5A623 calc(100% - 50px),
+                      to left,
+                      transparent 0px,
+                      #eee 50px,
+                      #eee calc(100% - 0px),
                       transparent 0
       );
       background-color: #eee;
-      background-image: none;
     }
 
     h2.block-title{
@@ -193,6 +192,28 @@
     #block-views-block-topics-topic-courses{
       h2.block-title{
         font-size: 18px;
+      }
+    }
+    #block-leocloud{
+      h2.block-title{
+        font-size: 18px;
+      }
+    }
+  }
+  @media only screen and (max-width: 520px) {//pt cran mai mic de 800px
+    #block-views-block-courses-block-1{
+      h2.block-title{
+        font-size: 14px;
+      }
+    }
+    #block-views-block-topics-topic-courses{
+        h2.block-title{
+          font-size: 14px;
+      }
+    }
+    #block-leocloud{
+      h2.block-title{
+        font-size: 14px;
       }
     }
   }
