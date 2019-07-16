@@ -148,17 +148,29 @@
       background-image: none;
     }
     &:after {
+      content: '';
       position: absolute;
-      width: 100vh;
-      right: -90px;
-      background-color: red;
+      top: 0%;
+      right: -390px;
+      width: 400px;
+      height: 400px;
+      background-image: linear-gradient(
+                      to bottom,
+                      transparent 50px,
+                      #F5A623 50px,
+                      #F5A623 calc(100% - 50px),
+                      transparent 0
+      );
+      background-color: #eee;
       background-image: none;
     }
 
     h2.block-title{
       position: relative;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50px);
+      margin-top: 5%;
+      transform: translate(-50%, -50%);
     }
     .elearning-search-glossary img{
       position: absolute;
@@ -185,7 +197,9 @@
     }
   }
 }
-
+body{
+  overflow-x: hidden;
+}
 *{
   .block-leocloud-background{
     background-color: #eee;
