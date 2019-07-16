@@ -61,26 +61,35 @@
   {% if outer_prefix is not empty %}
     {{ outer_prefix }}
   {% endif %}
+  {% if attributes.id == 'block-leocloud' %}
+    <div class="block-leocloud-background">
+  {% endif %}
   <section{{ attributes.addClass(classes) }}>
     {% for attribute in attributes %}
-      {% if attributes.getClass() == 'views-element-container contextual-region block block-views block-views-blockcourses-block-1 clearfix' %}
-        <div class="elearning-star-svg"><img src="/themes/custom/judicial_portal/src/images/flag.svg"></div>
-      {% endif %}
+
     {% endfor %}
     {{ title_prefix }}
+    {% if (attributes.getClass() == 'views-element-container contextual-region block block-views block-views-blockcourses-block-1 clearfix') and (attributes.id == 'block-views-block-courses-block-1') %}
+      <div class="elearning-star-svg"><img src="/themes/custom/judicial_portal/src/images/flag.svg"></div>
+      <h2{{ title_attributes.addClass('block-title') }}>
+        {{ block_icons.get(plugin_id|clean_class, base_path ~ directory) }}
+        {{ label }}
+      </h2>
+    {% endif %}
+    {% if (attributes.getClass() == 'views-element-container contextual-region block block-views block-views-blocktopics-topic-courses clearfix') and (attributes.id == 'block-views-block-topics-topic-courses') %}
+      <h2{{ title_attributes.addClass('block-title') }}>
+        {{ block_icons.get(plugin_id|clean_class, base_path ~ directory) }}
+        {{ label }}
+      </h2>
+    {% endif %}
     {% if label %}
       {% if attributes.id == 'block-leocloud' %}
-
         <h2{{ title_attributes.addClass('block-title') }}>
           <div class="elearning-search-glossary"><img src="/themes/custom/judicial_portal/src/images/search-glossary.png"></div>
           {{ block_icons.get(plugin_id|clean_class, base_path ~ directory) }}
           {{ label }}
         </h2>
       {% endif %}
-      <h2{{ title_attributes.addClass('block-title') }}>
-        {{ block_icons.get(plugin_id|clean_class, base_path ~ directory) }}
-        {{ label }}
-      </h2>
     {% endif %}
     {{ title_suffix }}
 
@@ -96,6 +105,9 @@
       {{ inner_suffix }}
     {% endif %}
   </section>
+  {% if attributes.id == 'block-leocloud' %}
+    </div>
+  {% endif %}
   {% if outer_suffix is not empty %}
     {{ outer_suffix }}
   {% endif %}

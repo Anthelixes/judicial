@@ -358,7 +358,7 @@ display:
         options:
           uses_fields: false
           columns: 5
-          automatic_width: true
+          automatic_width: false
           alignment: horizontal
           col_class_default: true
           col_class_custom: ''
