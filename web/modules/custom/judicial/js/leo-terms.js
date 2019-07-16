@@ -7,7 +7,7 @@
     var _termsBlock = $('#block-leocloud');
 
     Drupal.leoTerms.canvasHeight = 300;
-    Drupal.leoTerms.canvasWidth = _termsBlock.width();
+    Drupal.leoTerms.canvasWidth = 700;
     Drupal.leoTerms.termsList = _settings.leoTerms.termsList;
 
     console.log(Drupal.leoTerms.termsList);
@@ -33,6 +33,7 @@
   Drupal.leoTerms.drawTerms = function() {
     d3.select("#block-leocloud")
       .append("svg")
+      .attr("class", "leo-cloud-svg")
       .attr("width", Drupal.leoTerms.canvasWidth)
       .attr("height", Drupal.leoTerms.canvasHeight)
       .append("g")
