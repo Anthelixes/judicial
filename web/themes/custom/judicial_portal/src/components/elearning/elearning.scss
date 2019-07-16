@@ -77,6 +77,19 @@
       color: #1C7BA7;
     }
   }
+  h2.block-title{
+    &:before{
+      position: absolute;
+      right: -60%;
+      top: -37px;
+      content: '';
+      display: block;
+      width: 50px;
+      height: 50px;
+      background: url("../../../src/images/flag.svg") no-repeat;
+      background-size: 50px 50px;
+    }
+  }
 }//END #id bock 1
 
 .elearning-star-svg img{
@@ -190,6 +203,15 @@ h2.block-title{
   #block-views-block-courses-block-1{
     h2.block-title{
       font-size: 18px;
+      &:before{
+        top: -40px;
+        content: '';
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: url("../../../src/images/flag.svg") no-repeat;
+        background-size: 50px 50px;
+      }
     }
   }
   #block-views-block-topics-topic-courses{
