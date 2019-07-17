@@ -2,15 +2,12 @@
 
   Drupal.leoTerms = Drupal.leoTerms || {};
 
-  Drupal.leoTerms.init = function(_settings) {
-    var _titleBlock = $('.region-content .page');
-    var _termsBlock = $('#block-leocloud');
 
+  Drupal.leoTerms.init = function(_settings) {
     Drupal.leoTerms.canvasHeight = 300;
     Drupal.leoTerms.canvasWidth = 700;
     Drupal.leoTerms.termsList = _settings.leoTerms.termsList;
 
-    console.log(Drupal.leoTerms.termsList);
     for (var i = 0; i < Drupal.leoTerms.termsList.length; i++) {
       Drupal.leoTerms.termsList[i].size = 10 * (1 + Drupal.leoTerms.termsList[i].importance / 10);
     }
