@@ -94,13 +94,6 @@
     }
   }
 }//END #id bock 1
-
-.elearning-star-svg img{
-  position: absolute;
-  width:4.5%;
-  top: -1px;
-  right: 30px;
-}
 h2.block-title{
   border: unset;
   //font-size: 25px;
@@ -146,6 +139,9 @@ h2.block-title{
           content: "See course >>";
           left: 0%;
           bottom: -25px;
+        }
+        & .views-field-name a {
+          color: #1e7ea8;
         }
       }
     }
