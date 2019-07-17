@@ -1,0 +1,49 @@
+judicial.jurisprudence:
+  title: Jurisprudence
+  menu_name: main
+  route_name: view.jurisprudence.view_jurisprudence
+  weight: 0
+
+judicial.network:
+  title: Judicial network
+  menu_name: main
+  route_name: <none>
+  weight: 1
+
+judicial.discussions:
+  title: Discussions
+  menu_name: main
+  parent: judicial.network
+  route_name: <none>
+  weight: 0
+
+judicial.members:
+  title: Members
+  menu_name: main
+  parent: judicial.network
+  route_name: <none>
+  weight: 1
+
+judicial.elearning:
+  title: E-learning
+  menu_name: main
+  route_name: judicial.elearning
+  weight: 2
+
+judicial.news:
+  title: News
+  menu_name: main
+  route_name: view.latest_news.page_1
+  weight: 3
+
+judicial.events:
+  title: Events
+  menu_name: main
+  route_name: view.events.events_page
+  weight: 4
+
+#judicial.glossary:
+#  title: Glossary
+#  menu_name: main
+#  route_name: judicial.glossary
+#  weight: 5
