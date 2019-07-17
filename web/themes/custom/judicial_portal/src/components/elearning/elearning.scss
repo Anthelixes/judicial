@@ -1,11 +1,13 @@
 .elearning-slogan{
+  font-size: 16px;
+  padding: 20px 100px 20px 100px;
+  text-align: center;
   position: absolute;
   top: -100px;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
   color: #FFF;
-  font-size: 15px;
 }
 #block-views-block-courses-block-1{
   position: relative;
@@ -78,6 +80,7 @@
     }
   }
   h2.block-title{
+    font-size: 25px;
     &:before{
       position: absolute;
       right: -60%;
@@ -100,7 +103,7 @@
 }
 h2.block-title{
   border: unset;
-  font-size: 25px;
+  //font-size: 25px;
 }
 #block-views-block-courses-block-1 h2.block-title{
   position: relative;
@@ -113,6 +116,7 @@ h2.block-title{
 #block-views-block-topics-topic-courses{
   padding: 50px 35px 75px 35px;
   h2.block-title{
+    font-size: 25px;
     position: relative;
     top: 50%;
     left: 50%;
@@ -169,6 +173,7 @@ h2.block-title{
   width: 150vw;
   margin-left: -50vw;
   h2.block-title{
+    font-size: 25px;
     position: relative;
     top: 15px;
     left: 50%;
@@ -198,19 +203,50 @@ h2.block-title{
 
 }//END block glossary
 
-
-@media only screen and (max-width: 800px) {//pt ecran mai mic de 800px
+@media only screen and (max-width: 1130px) and (min-width: 1080px){
+  #block-views-block-courses-block-1 {
+    h2.block-title{
+      &:before{
+        top: -37px;
+        right: -55%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1080px) and (min-width: 980px){
+  #block-views-block-courses-block-1 {
+    h2.block-title{
+      &:before{
+        right: -45%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 980px) and (min-width: 880px){
+  #block-views-block-courses-block-1 {
+    h2.block-title{
+      &:before{
+        right: -35%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 880px) and (min-width: 800px){
+  #block-views-block-courses-block-1 {
+    h2.block-title{
+      &:before{
+        right: -25%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 800px) and (min-width: 720px){//pt ecran mai mic de 800px
   #block-views-block-courses-block-1{
     h2.block-title{
       font-size: 18px;
       &:before{
         top: -40px;
-        content: '';
-        display: block;
-        width: 50px;
-        height: 50px;
-        background: url("../../../src/images/flag.svg") no-repeat;
-        background-size: 50px 50px;
+        right: -45%;
       }
     }
   }
@@ -225,10 +261,37 @@ h2.block-title{
     }
   }
 }
-@media only screen and (max-width: 520px) {//pt ecran mai mic de 800px
+@media only screen and (max-width: 720px) and (min-width: 620px){
+  #block-views-block-courses-block-1 {
+    h2.block-title{
+      font-size: 18px;
+      &:before{
+        top: -42px;
+        right: -30%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 620px) and (min-width: 520px){
+  #block-views-block-courses-block-1 {
+    h2.block-title{
+      font-size: 18px;
+      &:before{
+        top: -42px;
+        right: -15%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 520px) and (min-width: 420px) {//pt ecran mai mic de 520px
   #block-views-block-courses-block-1{
     h2.block-title{
       font-size: 14px;
+      &:before{
+        top: -44px;
+        right: -20%;
+        background-size: 40px 40px !important;
+      }
     }
   }
   #block-views-block-topics-topic-courses{
@@ -242,7 +305,48 @@ h2.block-title{
     }
   }
 }
-
+@media only screen and (max-width: 420px) and (min-width: 380px){
+  #block-views-block-courses-block-1 {
+    h2.block-title{
+      font-size: 13px;
+      &:before{
+        top: -44px;
+        right: -25%;
+        background-size: 25px 25px !important;
+      }
+    }
+  }
+  #block-views-block-topics-topic-courses{
+    h2.block-title{
+      font-size: 13px;
+    }
+  }
+  #block-leocloud{
+    h2.block-title{
+      font-size: 13px;
+    }
+  }
+}
+@media only screen and (max-width: 380px){
+  #block-views-block-courses-block-1 {
+    h2.block-title{
+      font-size: 13px;
+      &:before{
+        display: none;
+      }
+    }
+  }
+  #block-views-block-topics-topic-courses{
+    h2.block-title{
+      font-size: 13px;
+    }
+  }
+  #block-leocloud{
+    h2.block-title{
+      font-size: 13px;
+    }
+  }
+}
 body{
   overflow-x: hidden;
 }
