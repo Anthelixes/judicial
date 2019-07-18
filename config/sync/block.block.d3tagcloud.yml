@@ -1,0 +1,20 @@
+uuid: 222b5a29-cb38-4726-a288-fe0edcafd1a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - d3_tagcloud
+  theme:
+    - judicial_portal
+id: d3tagcloud
+theme: judicial_portal
+region: navigation
+weight: 0
+provider: null
+plugin: d3_tagcloud
+settings:
+  id: d3_tagcloud
+  label: 'D3 Tag Cloud'
+  provider: d3_tagcloud
+  label_display: visible
+visibility: {  }

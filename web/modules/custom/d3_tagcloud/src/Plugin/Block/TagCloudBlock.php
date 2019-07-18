@@ -4,9 +4,11 @@ namespace Drupal\d3_tagcloud\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -26,9 +28,15 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
    */
   protected $entityTypeManager;
 
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entityTypeManager) {
+  /**
+   * @var EntityFieldManagerInterface
+   */
+  protected $entityFieldManager;
+
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entityTypeManager, EntityFieldManagerInterface $entityFieldManager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entityTypeManager;
+    $this->entityFieldManager = $entityFieldManager;
   }
 
   /**
@@ -39,7 +47,8 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('entity_field.manager')
     );
   }
 
@@ -47,6 +56,8 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function build() {
+    $config = $this->getConfiguration();
+
     $vid = 'thesaurus';
     $render = [];
     $tids = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery()
@@ -84,42 +95,84 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
 
   public function blockForm($form, FormStateInterface $form_state) {
     $form = parent::blockForm($form, $form_state);
-    /*
-    $option = array(
-      'show_check' => t('Show in tag cloud'),
-      'field_show_in_term_cloud' => t('Show all items'),
-    );
+    $config = $this->getConfiguration();
 
-    $form['title_block_x'] = array(
-      '#title' => t('What to display'),
-      '#type' => 'checkboxes',
-      '#description' => t('if you select "Show in tag cloud" it will be show only terms with ...'),
-      '#options' => $option,
-    );
-     */
-    $option1 = array(
-      'taxonomy_thesaurus' => t('Thesaurus'),
-      'taxonomy_topics' => t('Topics'),
-    );
-    $option2 = array(
-      'show_check' => t('Show in tag cloud'),
-      'field_show_in_term_cloud' => t('Show all items'),
-    );
-
-    $form['taxonomy_type'] = array(
-      '#type' => 'radios',
-      '#title' => t('What taxonomy?'),
-      '#description' => t('Choose the taxonomy'),
-      '#options' => $option1,
+    $vocabularies = $this->entityTypeManager->getStorage('taxonomy_vocabulary')->loadMultiple();
+    $taxonomies = ['' => new TranslatableMarkup('-- Please select --')];
+    foreach ($vocabularies as $machine_name => $voc) {
+      $taxonomies[$machine_name] = $voc->label();
+    }
+    $form['taxonomy'] = array(
+      '#type' => 'select',
+      '#title' => new TranslatableMarkup('Select taxonomy'),
+      '#description' => new TranslatableMarkup('Taxonomy to display'),
+      '#options' => $taxonomies,
+      '#ajax' => [
+        'callback' => '::myAjaxCallback', //don't forget :: when calling a class method.
+        //'callback' => [$this, 'myAjaxCallback'], //alternative notation
+        'event' => 'change',
+        'wrapper' => 'edit-output', //this element is updated with this AJAX callback
+        'progress' => [
+          'type' => 'throbber',
+          'message' => t('Verifying entry...'),
+        ],
+      ],
+      '#default_value' => $config['taxonomy'] ?? '',
       '#required' => TRUE,
     );
-    $form['type_display'] = array(
-      '#type' => 'radios',
-      '#title' => t('What to display'),
-      '#description' => t('Show in tag cloud" it will be show only terms with ...'),
-      '#options' => $option2,
-      '#required' => TRUE,
+
+    $tax = 'thesaurus';
+    $fields = $this->entityFieldManager->getFieldDefinitions('taxonomy_term', $tax);
+
+    $options = ['' => new TranslatableMarkup('-- Please select --')];
+    foreach ($fields as $field) {
+      /** @var \Drupal\Core\Field\BaseFieldDefinition $field */
+
+      $options[$field->getUniqueIdentifier()] = $field->getLabel();
+    }
+
+    $form['visibility_field'] = array(
+      '#type' => 'select',
+      '#title' => new TranslatableMarkup('Visibility field'),
+      '#value' => '',
+      '#options' => $options,
+      '#states' => [
+        'visible' => [
+          ':input[name="settings[taxonomy]"]' => ['!value' => ''],
+        ],
+      ],
+      '#attributes' => [
+        'id' => ['edit-output'],
+      ],
     );
+
     return $form;
+  }
+  function my_module_my_form_validate(array &$form, FormStateInterface $form_state){
+    $tax = $form_state['values']['taxonomy'];
+    return $tax;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    $config = $this->getConfiguration();
+    $config['taxonomy'] = $form_state->getValue('taxonomy');
+    $config['visibility_field'] = $form_state->getValue('visibility_field');
+
+  }
+
+  //get the value from example select field and fill
+  //the textbox with the selected text.
+  public function myAjaxCallback(array &$form, FormStateInterface $form_state)
+  {
+    //prepare our textfield. check if the example select field has a selected option
+    if($selectedValue = $form_state->getValue('taxonomy')) {
+      $selectedText = $form['taxonomy']['#options'][$selectedValue];
+
+      $form['visibility_field']['#value'] = $selectedText;
+    }
+    return $form['visibility_field'];
   }
 }
