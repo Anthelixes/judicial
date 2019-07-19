@@ -1,4 +1,4 @@
-uuid: 222b5a29-cb38-4726-a288-fe0edcafd1a9
+uuid: 6324e421-67f2-4d39-a41e-43bed7345d36
 langcode: en
 status: true
 dependencies:
@@ -17,4 +17,6 @@ settings:
   label: 'D3 Tag Cloud'
   provider: d3_tagcloud
   label_display: visible
+  taxonomy: countries
+  visibility_field: field_continent
 visibility: {  }

@@ -52,6 +52,7 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
     );
   }
 
+
   /**
    * {@inheritdoc}
    */
@@ -89,10 +90,9 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
     ];
   }
 
-  public function getCacheTags() {
-    return Cache::mergeTags(parent::getCacheTags(), ['taxonomy_term_list']);
-  }
-
+  /**
+   * {@inheritdoc}
+   */
   public function blockForm($form, FormStateInterface $form_state) {
     $form = parent::blockForm($form, $form_state);
     $config = $this->getConfiguration();
@@ -102,77 +102,119 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
     foreach ($vocabularies as $machine_name => $voc) {
       $taxonomies[$machine_name] = $voc->label();
     }
+
     $form['taxonomy'] = array(
       '#type' => 'select',
       '#title' => new TranslatableMarkup('Select taxonomy'),
       '#description' => new TranslatableMarkup('Taxonomy to display'),
       '#options' => $taxonomies,
       '#ajax' => [
-        'callback' => '::myAjaxCallback', //don't forget :: when calling a class method.
-        //'callback' => [$this, 'myAjaxCallback'], //alternative notation
+        'callback' => [$this, 'myAjaxCallback'],
         'event' => 'change',
-        'wrapper' => 'edit-output', //this element is updated with this AJAX callback
+        'wrapper' => 'edit-output',
+        'method' => 'replace',
         'progress' => [
           'type' => 'throbber',
           'message' => t('Verifying entry...'),
         ],
       ],
+      '#attributes' => [
+      ],
       '#default_value' => $config['taxonomy'] ?? '',
       '#required' => TRUE,
     );
 
-    $tax = 'thesaurus';
-    $fields = $this->entityFieldManager->getFieldDefinitions('taxonomy_term', $tax);
-
-    $options = ['' => new TranslatableMarkup('-- Please select --')];
-    foreach ($fields as $field) {
-      /** @var \Drupal\Core\Field\BaseFieldDefinition $field */
-
-      $options[$field->getUniqueIdentifier()] = $field->getLabel();
-    }
-
-    $form['visibility_field'] = array(
-      '#type' => 'select',
-      '#title' => new TranslatableMarkup('Visibility field'),
-      '#value' => '',
-      '#options' => $options,
-      '#states' => [
-        'visible' => [
-          ':input[name="settings[taxonomy]"]' => ['!value' => ''],
-        ],
-      ],
-      '#attributes' => [
-        'id' => ['edit-output'],
-      ],
-    );
+    $taxonomy = $config['taxonomy'];
+    $form['visibility_field'] = $this->createVisibilityField($taxonomy);
 
     return $form;
   }
-  function my_module_my_form_validate(array &$form, FormStateInterface $form_state){
-    $tax = $form_state['values']['taxonomy'];
-    return $tax;
+
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheTags() {
+    return Cache::mergeTags(parent::getCacheTags(), ['taxonomy_term_list']);
   }
 
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
-    $config = $this->getConfiguration();
-    $config['taxonomy'] = $form_state->getValue('taxonomy');
-    $config['visibility_field'] = $form_state->getValue('visibility_field');
+  public function createImportanceField($taxonomy) {
 
+    $form['importance_field'] = [
+      '#type' => 'select',
+      '#title' => new TranslatableMarkup('Importance field'),
+      '#value' => '',
+      '#options' => [0 => $this->t('-- None --')],
+      '#attributes' => [
+        'name' => 'field_select_importance',
+      ],
+      '#prefix' => '<div id="edit-output">',
+      '#suffix' => '</div>',
+      '#value' => !empty($config['importance_field']) ? $config['importance_field'] : 0,
+    ];
+
+    return $form['importance_field'];
   }
 
-  //get the value from example select field and fill
-  //the textbox with the selected text.
-  public function myAjaxCallback(array &$form, FormStateInterface $form_state)
-  {
-    //prepare our textfield. check if the example select field has a selected option
-    if($selectedValue = $form_state->getValue('taxonomy')) {
-      $selectedText = $form['taxonomy']['#options'][$selectedValue];
+  /**
+   * {@inheritdoc}
+   */
+  public function createVisibilityField($taxonomy) {
+    $config = $this->getConfiguration();
+    $fields = $this->entityFieldManager->getFieldDefinitions('taxonomy_term', $taxonomy);
+    $options = ['' => new TranslatableMarkup('-- Please select --')];
+    foreach ($fields as $field) {
+      /** @var \Drupal\Core\Field\BaseFieldDefinition $field */
+      $name = $field->getFieldStorageDefinition()->getName();
 
-      $form['visibility_field']['#value'] = $selectedText;
+      if (substr($name, 0, 6) !== 'field_' && $name != 'name') {
+        continue;
+      }
+
+      $options[$name] = $field->getLabel();
     }
+
+    $form['visibility_field'] = [
+      '#type' => 'select',
+      '#title' => new TranslatableMarkup('Visibility field'),
+      '#value' => '',
+      '#options' => [0 => $this->t('-- None --')],
+      '#attributes' => [
+        'name' => 'field_select_visibility',
+      ],
+      '#prefix' => '<div id="edit-output">',
+      '#suffix' => '</div>',
+      '#value' => !empty($config['visibility_field']) ? $config['visibility_field'] : 0,
+    ];
+    if (!empty($taxonomy)) {
+      $form['visibility_field']['#options'] = $options;
+    }
+    else {
+      $form['visibility_field']['#options'] = [0 => $this->t('-- None --')];
+    }
+
     return $form['visibility_field'];
   }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function blockSubmit($form, FormStateInterface $form_state) {
+    $form_state->setRebuild();
+    $field = $form_state->getUserInput()['field_select_visibility'];
+
+    $this->setConfigurationValue('taxonomy', $form_state->getValue('taxonomy'));
+    $this->setConfigurationValue('visibility_field', $field);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function myAjaxCallback(array &$form, FormStateInterface $form_state) {
+    return $this->createVisibilityField($form_state->getValue('settings')['taxonomy']);
+  }
+
 }
