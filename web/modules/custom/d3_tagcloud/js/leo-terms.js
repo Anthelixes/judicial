@@ -28,7 +28,7 @@
   };
 
   Drupal.leoTerms.drawTerms = function() {
-    d3.select("#block-leocloud")
+    d3.select(".d3-term-cloud")
       .append("svg")
       .attr("class", "leo-cloud-svg")
       .attr("width", Drupal.leoTerms.canvasWidth)
@@ -76,7 +76,7 @@
 
   Drupal.behaviors.leoTerms = {
     attach: function(context, settings) {
-      $('#block-leocloud').once('leoCloud').each(function () {
+      $('.d3-term-cloud').once('leoCloud').each(function () {
         Drupal.leoTerms.init(settings);
       });
     }

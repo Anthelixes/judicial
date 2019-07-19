@@ -58,23 +58,32 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
    */
   public function build() {
     $config = $this->getConfiguration();
-
-    $vid = 'thesaurus';
+    $vid = $config['taxonomy'];
     $render = [];
-    $tids = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery()
-      ->condition('vid', $vid)
-      ->condition('field_show_in_term_cloud', 1)
-      ->execute();
+
+    if (!empty($config['visibility_field'])) {
+      $tids = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery()
+        ->condition('vid', $vid)
+        ->condition($config['visibility_field'], 1)
+        ->execute();
+    }
+    else {
+      $tids = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery()
+        ->condition('vid', $vid)
+        ->execute();
+    }
     $terms = Term::loadMultiple($tids);
     /** @var \Drupal\taxonomy\TermInterface $term */
     foreach ($terms as $term) {
       $link = $term->toUrl()->toString();
 
+      $importance = !empty($config['importance_field']) ? $term->get($config['importance_field'])->getString() : 1;
+
       $render[] = [
         'tid' => $term->id(),
         'text' => $term->label(),
         'link' => $link,
-        'importance' => $term->get('field_importance')->getString(),
+        'importance' => $importance,
       ];
     }
     return [
@@ -87,6 +96,7 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
           ],
         ],
       ],
+      '#attributes' => ['class' => ['d3-term-cloud']],
     ];
   }
 
@@ -103,7 +113,7 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
       $taxonomies[$machine_name] = $voc->label();
     }
 
-    $form['taxonomy'] = array(
+    $form['taxonomy'] = [
       '#type' => 'select',
       '#title' => new TranslatableMarkup('Select taxonomy'),
       '#description' => new TranslatableMarkup('Taxonomy to display'),
@@ -111,25 +121,32 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
       '#ajax' => [
         'callback' => [$this, 'myAjaxCallback'],
         'event' => 'change',
-        'wrapper' => 'edit-output',
+        'wrapper' => 'settings-fields',
         'method' => 'replace',
         'progress' => [
           'type' => 'throbber',
           'message' => t('Verifying entry...'),
         ],
       ],
-      '#attributes' => [
-      ],
+      '#attributes' => [],
       '#default_value' => $config['taxonomy'] ?? '',
       '#required' => TRUE,
-    );
+    ];
 
     $taxonomy = $config['taxonomy'];
-    $form['visibility_field'] = $this->createVisibilityField($taxonomy);
-
+    $form['settings'] = $this->createSettingsFields($taxonomy);
     return $form;
   }
 
+  public function createSettingsFields($taxonomy) {
+    $form = [
+      '#type' => 'container',
+      '#attributes' => ['id' => 'settings-fields'],
+    ];
+    $form['visibility_field'] = $this->createVisibilityField($taxonomy);
+    $form['importance_field'] = $this->createImportanceField($taxonomy);
+    return $form;
+  }
 
   /**
    * {@inheritdoc}
@@ -142,11 +159,22 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function createImportanceField($taxonomy) {
+    $config = $this->getConfiguration();
+    $fields = $this->entityFieldManager->getFieldDefinitions('taxonomy_term', $taxonomy);
+    $options = ['' => new TranslatableMarkup('-- Please select --')];
+    foreach ($fields as $field) {
+      /** @var \Drupal\Core\Field\BaseFieldDefinition $field */
+      $name = $field->getFieldStorageDefinition()->getName();
 
+      if (substr($name, 0, 6) !== 'field_' && $name != 'name') {
+        continue;
+      }
+
+      $options[$name] = $field->getLabel();
+    }
     $form['importance_field'] = [
       '#type' => 'select',
       '#title' => new TranslatableMarkup('Importance field'),
-      '#value' => '',
       '#options' => [0 => $this->t('-- None --')],
       '#attributes' => [
         'name' => 'field_select_importance',
@@ -155,7 +183,12 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
       '#suffix' => '</div>',
       '#value' => !empty($config['importance_field']) ? $config['importance_field'] : 0,
     ];
-
+    if (!empty($taxonomy)) {
+      $form['importance_field']['#options'] = $options;
+    }
+    else {
+      $form['importance_field']['#options'] = [0 => $this->t('-- None --')];
+    }
     return $form['importance_field'];
   }
 
@@ -180,7 +213,6 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
     $form['visibility_field'] = [
       '#type' => 'select',
       '#title' => new TranslatableMarkup('Visibility field'),
-      '#value' => '',
       '#options' => [0 => $this->t('-- None --')],
       '#attributes' => [
         'name' => 'field_select_visibility',
@@ -189,6 +221,7 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
       '#suffix' => '</div>',
       '#value' => !empty($config['visibility_field']) ? $config['visibility_field'] : 0,
     ];
+
     if (!empty($taxonomy)) {
       $form['visibility_field']['#options'] = $options;
     }
@@ -203,18 +236,19 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
-    $form_state->setRebuild();
     $field = $form_state->getUserInput()['field_select_visibility'];
-
     $this->setConfigurationValue('taxonomy', $form_state->getValue('taxonomy'));
     $this->setConfigurationValue('visibility_field', $field);
+
+    $field = $form_state->getUserInput()['field_select_importance'];
+    $this->setConfigurationValue('importance_field', $field);
   }
 
   /**
    * {@inheritdoc}
    */
   public function myAjaxCallback(array &$form, FormStateInterface $form_state) {
-    return $this->createVisibilityField($form_state->getValue('settings')['taxonomy']);
+    return $this->createSettingsFields($form_state->getValue('settings')['taxonomy']);
   }
 
 }
