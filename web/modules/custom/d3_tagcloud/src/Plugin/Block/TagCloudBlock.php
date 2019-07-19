@@ -119,7 +119,7 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
       '#description' => new TranslatableMarkup('Taxonomy to display'),
       '#options' => $taxonomies,
       '#ajax' => [
-        'callback' => [$this, 'myAjaxCallback'],
+        'callback' => [$this, 'callbackTaxonomy'],
         'event' => 'change',
         'wrapper' => 'settings-fields',
         'method' => 'replace',
@@ -138,6 +138,9 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
     return $form;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function createSettingsFields($taxonomy) {
     $form = [
       '#type' => 'container',
@@ -247,7 +250,7 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
   /**
    * {@inheritdoc}
    */
-  public function myAjaxCallback(array &$form, FormStateInterface $form_state) {
+  public function callbackTaxonomy(array &$form, FormStateInterface $form_state) {
     return $this->createSettingsFields($form_state->getValue('settings')['taxonomy']);
   }
 
