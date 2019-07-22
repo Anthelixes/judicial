@@ -87,7 +87,7 @@ class TagCloudBlock extends BlockBase implements ContainerFactoryPluginInterface
       ];
     }
     return [
-      '#markup' => 'This block show any taxonomy by select the name. ',
+      '#markup' => ' ',
       '#attached' => [
         'library' => ['d3_tagcloud/leo-terms'],
         'drupalSettings' => [
