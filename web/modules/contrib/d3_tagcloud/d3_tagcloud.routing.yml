@@ -1,0 +1,31 @@
+judicial.glossary:
+  path: '/glossary'
+  defaults:
+    _controller: '\Drupal\judicial\Controller\JudicialController::glossary'
+    _title: 'Glossary'
+  requirements:
+    _permission: 'access content'
+
+judicial.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\judicial\Controller\JudicialController::home'
+    _title: 'Judicial Portal'
+  requirements:
+    _permission: 'access content'
+
+judicial.elearning:
+  path: '/elearning'
+  defaults:
+    _controller: '\Drupal\judicial\Controller\JudicialController::elearning'
+    _title: 'Free Online Courses'
+  requirements:
+    _permission: 'access content'
+
+judicial.download_xls:
+  path: '/glossary/download.xls'
+  defaults:
+    _controller: '\Drupal\judicial\Controller\SpreadSheetController::downloadXls'
+    _title: 'Download Glossary terms in Excel format'
+  requirements:
+    _permission: 'access content'

@@ -1,6 +1,31 @@
 display:
   default:
     display_options:
+      exposed_form:
+        options:
+          submit_button: Filtrer
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+      pager:
+        options:
+          tags:
+            previous: '‹ Précédent'
+            next: 'Suivant ›'
+            first: '« Premier'
+            last: 'Dernier »'
       fields:
+        status:
+          label: État
         operations:
           label: Actions
+      filters:
+        status:
+          expose:
+            label: État
+        langcode:
+          expose:
+            label: Langue
+      empty:
+        area_text_custom:
+          content: 'Aucun contenu disponible.'
+    display_title: Maître

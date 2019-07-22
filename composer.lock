@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "aafc68d38c6b6dfad3212c4e732388b2",
+    "content-hash": "7a3fd6de48a8ac7d30a889bf4c539848",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2564,6 +2564,61 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "time": "2019-06-05T19:21:30+00:00"
+        },
+        {
+            "name": "drupal/d3_tagcloud",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/d3_tagcloud.git",
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/d3_tagcloud-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "7d1bbc5e6e7fcb18fa629b811a093942918fd6ea"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1563795185",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Anthelixes",
+                    "homepage": "https://www.drupal.org/user/3619828"
+                },
+                {
+                    "name": "cristiroma",
+                    "homepage": "https://www.drupal.org/user/2267390"
+                },
+                {
+                    "name": "stefan.butura",
+                    "homepage": "https://www.drupal.org/user/3535177"
+                }
+            ],
+            "description": "This module holds general utilities for the Judicial Portal.",
+            "homepage": "https://www.drupal.org/project/d3_tagcloud",
+            "support": {
+                "source": "https://git.drupalcode.org/project/d3_tagcloud"
+            }
         },
         {
             "name": "drupal/devel",
@@ -9605,6 +9660,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/better_exposed_filters": 15,
+        "drupal/d3_tagcloud": 10,
         "drupal/field_cardinality_customization": 20,
         "drupal/search_api_sorts": 10
     },
