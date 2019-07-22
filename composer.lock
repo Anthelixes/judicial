@@ -2567,17 +2567,17 @@
         },
         {
             "name": "drupal/d3_tagcloud",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/d3_tagcloud.git",
-                "reference": "8.x-1.0-beta2"
+                "reference": "8.x-1.0-beta3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/d3_tagcloud-8.x-1.0-beta2.zip",
-                "reference": "8.x-1.0-beta2",
-                "shasum": "7d1bbc5e6e7fcb18fa629b811a093942918fd6ea"
+                "url": "https://ftp.drupal.org/files/projects/d3_tagcloud-8.x-1.0-beta3.zip",
+                "reference": "8.x-1.0-beta3",
+                "shasum": "61995f76e9b37e5123adc44fea36c408e01313b9"
             },
             "require": {
                 "drupal/core": "*"
@@ -2588,8 +2588,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta2",
-                    "datestamp": "1563795185",
+                    "version": "8.x-1.0-beta3",
+                    "datestamp": "1563797585",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"

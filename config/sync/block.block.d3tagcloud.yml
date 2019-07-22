@@ -1,0 +1,23 @@
+uuid: 93fb70b1-b51c-405b-86a9-84d1993c703b
+langcode: en
+status: true
+dependencies:
+  module:
+    - d3_tagcloud
+  theme:
+    - judicial_portal
+id: d3tagcloud
+theme: judicial_portal
+region: content_2
+weight: 0
+provider: null
+plugin: d3_tagcloud
+settings:
+  id: d3_tagcloud
+  label: 'D3 Tag Cloud'
+  provider: d3_tagcloud
+  label_display: visible
+  taxonomy: thesaurus
+  visibility_field: field_show_in_term_cloud
+  importance_field: field_importance
+visibility: {  }
